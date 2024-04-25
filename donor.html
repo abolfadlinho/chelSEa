@@ -11,9 +11,10 @@
 <h2>Donor Details</h2>
 
 <div>
-    <h3>Donor Name: Charity A</h3>
-    <p>Donations Done: 235</p>
-    <p>Contact Information: +201000000000 | example@example.com</p>
+    <h3>Name: <span id="name">Charity A</span></h3>
+    <p>Donations Done: <span id="donations">235</span></p>
+    <p>Phone Number: <span id="phone-number">+201000000000</span></p>
+    <p>Email Address:  <span id="email">example@hotmail.com</span> </p>
 </div>
 
 <div class="submissions">
@@ -49,6 +50,14 @@
             window.location.href = 'manageDonors.html';
         }
     }
+
+    // Extract the organization details from the URL
+    var donor = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
+    // Populate the organization details on the page
+    document.getElementById("name").innerText = donor.name;
+    document.getElementById("donations").innerText = donor.donations;
+    document.getElementById("phone-number").innerText = donor.phone;
+    document.getElementById("email").innerText = donor.email;
 </script>
 
 </body>

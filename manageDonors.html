@@ -18,27 +18,44 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><a href="donor.html">Donor A</a></td>
-            <td>123</td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
+        <tr id="row1" class="row" onclick="passToNextPage(1)">
+            <td name="name">Donor A</td>
+            <td name="donations">123</td>
+            <td name="phone">+20 1000000000</td>
+            <td name="email">donor@example.com</td>
         </tr>
-        <tr>
-            <td><a href="donor.html">Donor B</a></td>
-            <td>456</td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
+        <tr id="row2" class="row" onclick="passToNextPage(2)">
+            <td name="name">Donor B</td>
+            <td name="donations">456</td>
+            <td name="phone">+20 1000000000</td>
+            <td name="email">donor@example.com</td>
         </tr>
-        <tr>
-            <td><a href="donor.html">Donor C</a></td>
-            <td>789</td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
+        <tr id="row3" class="row" onclick="passToNextPage(3)">
+            <td name="name">Donor C</td>
+            <td name="donations">789</td>
+            <td name="phone">+20 1000000000</td>
+            <td name="email">donor@example.com</td>
         </tr>
         <!-- Add more rows for additional charities -->
     </tbody>
 </table>
+<script>
+    function passToNextPage(id) {
 
+    const row = document.getElementById("row"+id)
+    var obj = {}
+
+    for (const child of row.children) {
+        const name = child.getAttribute("name")
+        var value = child.innerHTML;
+        if(name=="rating"){
+            value = child.getAttribute("rating")
+        }
+        obj = {...obj,[name]:value}
+    }
+
+    window.location = "donor.html?" + encodeURIComponent(JSON.stringify(obj));
+    }
+</script>
 </body>
 </html>
