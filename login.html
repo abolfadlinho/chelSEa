@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+</head>
+<body>
+
+<h2>Login</h2>
+<form id="loginForm" onsubmit="return validateLogin()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <input type="submit" value="Login">
+</form>
+
+<script>
+function validateLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    var validUsername = "user";
+    var validPassword = "password";
+
+    if (username === validUsername && password === validPassword) {
+        window.location.href = "adminDashboard.html";
+        return false;
+    } else {
+        alert("Invalid credentials. Please try again.");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>
