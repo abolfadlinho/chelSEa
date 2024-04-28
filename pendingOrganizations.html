@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pending Organizations</title>
+</head>
+<body>
+    <a href="adminDashboard.html"><button>Return to Dashboard</button></a>
+<h2>Pending Organizations</h2>
+
+<div class="filter-container">
+    <input type="text" id="searchInput" placeholder="Search organization...">
+    <button onclick="filterOrganizations()">Search</button>
+
+    <select id="filterSelect">
+        <option value="">All</option>
+        <option value="Health">Charity</option>
+        <option value="Orphanages">Orphanages</option>
+        <option value="Refugees">Refugees</option>
+        <option value="Education">Education</option>
+    </select>
+    <button onclick="filterOrganizations()">Filter</button>
+    <button onclick="reset()">Reset</button>
+</div>
+
+<table id="organizationsTable">
+    <thead>
+        <tr id="hardcodedRow2">
+            <th>Organization Name</th>
+            <th>Category</th>
+            <th>View Submissions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Charity A</td>
+            <td>Health</td>
+            <td><a href="organization2.html">View Submission</a></td>
+        </tr>
+        <tr>
+            <td>Charity B</td>
+            <td>Orphanages</td>
+            <td><a href="organization2.html">View Submission</a></td>
+        </tr>
+        <tr>
+            <td>Charity C</td>
+            <td>Poverty</td>
+            <td><a href="organization2.html">View Submission</a></td>
+        </tr>
+        <tr id="hardcodedRow">
+            <td>Charity D</td>
+            <td>Health</td>
+            <td><a href="organization2.html">View Submission</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+var pressed = false;
+function filterOrganizations() {
+    var table = document.getElementById("organizationsTable");
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++) {
+        rows[i].style.display = "none";
+    }
+    document.getElementById("hardcodedRow").style.display = "";
+    document.getElementById("hardcodedRow2").style.display = "";
+    pressed = true;
+}
+
+function reset() {
+    var table = document.getElementById("organizationsTable");
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++) {
+        rows[i].style.display = "";
+    }
+    pressed = false;
+}
+</script>
+
+</body>
+</html>

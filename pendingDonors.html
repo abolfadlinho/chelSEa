@@ -3,50 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manage Donors</title>
+<title>Manage Pending Donors</title>
 </head>
 <body>
     <a href="adminDashboard.html"><button>Return to Dashboard</button></a>
-<h2>Donors</h2>
+<h2>Pending Donors</h2>
 <div class="filter-container">
     <input type="text" id="searchInput" placeholder="Search organization...">
     <button onclick="filterOrganizations()">Search</button>
-    <button onclick="reset()">Reset</button>
 </div>
-<table id="donorsTable">
+<table>
     <thead>
-        <tr id="hardcodedRow2">
+        <tr id=""hardcodedRow2>
             <th>Donor Name</th>
-            <th>Donations Done</th>
             <th>Phone Number</th>
             <th>E-mail</th>
+            <th>View Submissions</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><a href="donor.html">Donor A</a></td>
-            <td>123</td>
+            <td>Donor A</td>
             <td>+20 1000000000</td>
             <td>donor@example.com</td>
+            <td><a href="donor2.html">View Submissions</a></td>
         </tr>
         <tr>
-            <td><a href="donor.html">Donor B</a></td>
-            <td>456</td>
+            <td>Donor B</td>
             <td>+20 1000000000</td>
             <td>donor@example.com</td>
+            <td><a href="donor2.html">View Submissions</a></td>
         </tr>
-        <tr id="hardcodedRow">
-            <td><a href="donor.html">Donor C</a></td>
-            <td>789</td>
+        <tr id ="hardcodedRow">
+            <td>Donor B</td>
             <td>+20 1000000000</td>
             <td>donor@example.com</td>
+            <td><a href="donor2.html">View Submissions</a></td>
         </tr>
     </tbody>
 </table>
 <script>
     var pressed = false;
     function filterOrganizations() {
-        var table = document.getElementById("donorsTable");
+        var table = document.getElementById("organizationsTable");
         var rows = table.getElementsByTagName("tr");
         for (var i = 0; i < rows.length; i++) {
             rows[i].style.display = "none";
@@ -55,14 +54,15 @@
         document.getElementById("hardcodedRow2").style.display = "";
         pressed = true;
     }
-function reset() {
-    var table = document.getElementById("donorsTable");
-    var rows = table.getElementsByTagName("tr");
-    for (var i = 0; i < rows.length; i++) {
-        rows[i].style.display = "";
+    
+    function reset() {
+        var table = document.getElementById("organizationsTable");
+        var rows = table.getElementsByTagName("tr");
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+        pressed = false;
     }
-    pressed = false;
-}
 </script>
 </body>
 </html>
