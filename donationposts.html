@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR TITLE</title>
+</head>
+<body>
+    <a href="organizationDashboard.html"><button>Back</button></a>
+<h2>Donation Posts</h2>
+<div class="filter-container">
+    <!-- change columnNames to your column names -->
+    <input type="text" id="search-input" placeholder="Search Category...">
+    <button onclick="search('Category')">Search</button>
+
+    <!-- change values to your values and columnNames to your column names -->
+    <select id="filter-select-Category">
+        <option value="">All</option>
+        <option value="Clothes">Clothes</option>
+        <option value="Toys">Toys</option>
+        <option value="Food">Food</option>
+        <option value="Medical Supplies">Medical Supplies</option>
+        <option value="School Supplies">School Supplies</option>
+        <option value="Blood Donations">Blood Donations</option>
+    </select>
+    <button onclick="filter('Category')">Filter Category</button>
+
+    
+    
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Details</th>
+            <th>Action</th> 
+    
+        </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+</table>
+
+
+<script>
+
+    var filters = {}
+    var searches = {}
+    // Change column names and values
+    var originalRows  = {
+        row0:{
+                Category:"Clothes",
+                Details:"value2",
+            
+            
+            },
+        row1:{
+                Category:"Toys",
+                Details:"value1",
+            
+            
+            },
+        row2:{
+                Category:"value3",
+                Details:"value4",
+            
+            
+            }
+    }
+
+   
+    function display(){
+    const tableBody = document.getElementById("table-body")
+    var text = ""
+    index=0;
+    for(rowName in originalRows){
+        const row = originalRows[rowName]
+        flag = true
+        for(filterCol in filters){
+            if(row[filterCol]!==filters[filterCol]){                
+                flag = false
+            }
+        }
+        for(searchCol in searches){
+            if(!(row[searchCol].toLowerCase().includes(searches[searchCol]))){
+               flag = false
+            }
+        }
+        if(!flag){
+            continue
+        }
+        console.log(rowName)
+        text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">` // Assuming single digits
+        
+        for(col in row){
+            text+=`<td name=${col}>${row[col]}</td>` 
+        }
+
+        // Add action buttons for update and delete
+        text += `<td>
+                    <button onclick="updateRow('${rowName}')">Update</button>
+                    <button onclick="deleteRow('${rowName}')">Delete</button>
+                    <button onclick="viewDetails('${rowName}')">View Details</button>
+                </td>`
+
+        text+="</tr>"
+    }
+    tableBody.innerHTML = text
+}
+
+    display()
+
+    function filter(columnName) {
+        const filterSelect = document.getElementById('filter-select-'+columnName)
+        var temp = {}
+        const selectValue = filterSelect.value
+        if(selectValue==""){
+            delete filters[columnName]
+        }else{
+            filters = {...filters, [columnName]:selectValue};
+        }
+        display()
+    }
+
+function search(columnName){
+    const inputValue = document.getElementById('search-input').value.toLowerCase()
+    if(inputValue==""){
+        delete searches[columnName]
+    }else{
+        searches = {...searches, [columnName]:inputValue}
+    }
+    display()
+}
+
+
+function viewDetails(rowName) {
+    obj = originalRows[rowName]
+    window.location = "thedonationpost.html?" + encodeURIComponent(JSON.stringify(obj));
+   
+}
+
+
+
+
+
+
+/*function passToNextPage(rowName) {
+    obj = originalRows[rowName]
+    window.location = "thedonationpost.html?" + encodeURIComponent(JSON.stringify(obj));
+}*/
+
+
+function updateRow(rowName) {
+    const row = originalRows[rowName];
+    const validCategories = ["Clothes", "Toys", "Food", "Medical Supplies", "School Supplies", "Blood Donations"];
+
+    // Prompt the user to select a Category from the predefined list
+    let newCategory = prompt("Choose a new Category:\n" + validCategories.join("\n"), row.Category);
+
+    // Validate the new Category value against the list of valid options
+    while (newCategory !== null && newCategory !== "" && !validCategories.includes(newCategory)) {
+        newCategory = prompt(`Invalid Category! Please choose one of the following options:\n${validCategories.join("\n")}`, row.Category);
+    }
+
+    // Update the row's Category if a valid input is provided
+    if (newCategory !== null && newCategory !== "") {
+        row.Category = newCategory;
+    }
+
+    // Prompt the user for the new Details value
+    const newDetails = prompt("Enter new Details (leave empty to keep unchanged):", row.Details);
+
+    // Update the row's Details if a value is provided
+    if (newDetails !== null) {
+        row.Details = newDetails;
+    }
+
+    display(); // Update the table display after updating row data
+}
+
+function deleteRow(rowName) {
+    // Your code to handle deleting the row
+    // For example, you can remove originalRows[rowName] from the dataset
+    delete originalRows[rowName];
+    display(); // Update the table display after deletion
+}
+
+</script>
+</body>
+</html>
