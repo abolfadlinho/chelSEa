@@ -1,0 +1,102 @@
+<!-- TEMPLATE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toys Request</title>
+<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+</head>
+<body>
+    <a href="donorDashboard.html"><button>Dashboard</button></a>
+<h1>Title</h1>
+<div class="form-container">
+
+    <h2>Category:</h2>       
+      <ul>
+      <li>
+        <input type="radio" id="f-option" name="selector">
+        <label for="f-option">Board Games</label>
+        <div class="check"></div>
+      </li>
+      
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Stuffed Toys</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Dolls</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Sports</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Cars</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Outdoors</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+    </ul>
+    <h2>Type: </h2>
+    <div class="text-field">
+        <input type="text" required placeholder="Enter preferred type"></input>
+        <span></span>
+    </div>
+
+    <h2>Age: </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter preferred age"></input>
+        <span></span>
+    </div>
+    <input class="radio-container">
+
+    <h2>Gender:</h2>       
+      <ul>
+      <li>
+        <input type="radio" id="f-option" name="selector">
+        <label for="f-option">Male</label>
+        
+        <div class="check"></div>
+      </li>
+      
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Female</label>
+        
+        <div class="check"><div class="inside"></div></div>
+      </li>
+    </ul>
+
+    <h2>Quantity: </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter preferred quantity"></input>
+        <span></span>
+    </div>
+
+    <h2>Upload Photo of toy: </h2>
+    <input type="file"></input>
+
+    <button onclick="request()">Request</button>
+</div>
+</body>
+<script>
+  function request(){
+    alert("Request has been submitted");
+    window.location  = "createRequest.html"
+  }
+</script>
+</html>

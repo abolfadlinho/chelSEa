@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donor Details</title>
+</head>
+<body>
+    <a href="teachingPosts.html"><button>Back</button></a>
+
+<h2>Donor Details</h2>
+
+<div>
+    <h3>Subject: <span id="subject"></span></h3>
+    <p class="column-name">Governorate: <span id="governorate"></span></p>
+    <p class="column-name">Area: <span id="area"></span></p>
+    <p class="column-name">Organization: <span id="organization"></span></p>
+    <p class="column-name">Number of Students: <span id="number-of-students">26</span></p>
+    <p class="column-name">Address: <span id="address">110 Merghany</span></p>
+</div>
+
+<button onclick="fulfill()">Fulfill Request</button>
+
+
+<script>
+    function fulfill() {
+        alert('Request Fulfilled');
+        window.location.href = 'teachingPosts.html';
+    }
+
+    // Extract the organization details from the URL
+    var details = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
+    // Populate the organization details on the page
+    document.getElementById("subject").innerText = details.subject;
+    document.getElementById("governorate").innerText = details.governorate;
+    document.getElementById("area").innerText = details.area;
+    document.getElementById("organization").innerText = details.organization;
+</script>
+
+</body>
+</html>

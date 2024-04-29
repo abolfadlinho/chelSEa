@@ -1,0 +1,67 @@
+<!-- TEMPLATE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Request</title>
+<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+</head>
+<body>
+    <a href="createRequest.html"><button>Dashboard</button></a>
+<h1>Title</h1>
+<div class="form-container">
+    <h2>Name: </h2>
+    <div class="text-field">
+        <input type="text" required placeholder="Enter food name"></input>
+        <span></span>
+    </div>
+
+    <h2>Type:</h2>    
+      <ul>
+      <li>
+        <input type="radio" id="f-option" name="selector">
+        <label for="f-option">Fruits & Vegetables</label>
+        
+        <div class="check"></div>
+      </li>
+      
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Canned Foods</label>
+        
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Fresh Meals</label>
+        
+        <div class="check"><div class="inside"></div></div>
+
+        <li>
+            <input type="radio" id="s-option" name="selector">
+            <label for="s-option">Baked Goods</label>
+            
+            <div class="check"><div class="inside"></div></div>
+          </li>
+      </li>
+    </ul>
+
+    <h2>Quantity: </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter preferred quantity"></input>
+        <span></span>
+    </div>
+
+    <button onclick="request()">Request</button>
+</div>
+</body>
+<script>
+  function request(){
+    alert("Request has been submitted");
+    window.location  = "createRequest.html"
+  }
+</script>
+</html>

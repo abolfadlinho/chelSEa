@@ -1,0 +1,153 @@
+<!-- TEMPLATE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR TITLE</title>
+</head>
+<body>
+    <a href="requestedDonations.html"><button>Back</button></a>
+<h2>Title</h2>
+<div class="filter-container">
+    <!-- change values to your values and columnNames to your column names -->
+    <select id="filter-select-specialty">
+        <option value="">All</option>
+        <option value="Pediatric">Pediatric</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Orthopedic">Orthopedic</option>
+        <option value="Cardiology">Cardiology</option>
+    </select>
+    <button onclick="filter('specialty')">Filter Specialty</button>
+
+    <!-- change values to your values and columnNames to your column names -->
+    <select id="filter-select-organizationName">
+        <option value="">All</option>
+        <option value="Grey Sloan Memorial Hospital">Grey Sloan Memorial Hospital</option>
+        <option value="Burke Hospital">Burke Hospital</option>
+        <option value="Shepard Hospital">Shepard Hospital</option>
+        <option value="Yang Hospital">Yang Hospital</option>
+    </select>
+    <button onclick="filter('organizationName')">Filter Organization</button>
+
+    <select id="filter-select-governorate">
+        <option value="">All</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Alexandria">Alexandria</option>
+        <option value="Giza">Giza</option>
+        <option value="Refugee">Aswan</option>
+    </select>
+    <button onclick="filter('governorate')">Filter Governorate</button>
+
+    <select id="filter-select-area">
+        <option value="">All</option>
+        <option value="New Cairo">New Cairo</option>
+        <option value="Haram">Haram</option>
+        <option value="Heliopolis">Heliopolis</option>
+        <option value="Sheikh Zayed">Sheikh Zayed</option>
+    </select>
+    <button onclick="filter('area')">Filter Area</button>
+
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Specialty</th>
+            <th>Organization Name</th>
+            <th>Area</th>
+            <th>Governorate</th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+</table>
+
+
+<script>
+    var filters = {}
+    var searches = {}
+    // Change column names and values
+    var originalRows  = {
+        row0:{
+                specialty:"Pediatric",
+                organizationName:"Grey Sloan Memorial Hospital",
+                governorate:"Cairo",
+                area:"Heliopolis",
+            },
+        row1:{
+                specialty:"Cardiology",
+                organizationName:"Burke Hospital",
+                governorate:"Giza",
+                area:"Haram",
+            },
+        row2:{
+                specialty:"Neurology",
+                organizationName:"Shepard Hospital",
+                governorate:"Giza",
+                area:"Sheikh Zayed",
+            }
+    }
+
+    function display(){
+        const tableBody = document.getElementById("table-body")
+        var text = ""
+        index=0;
+        for(rowName in originalRows){
+            const row = originalRows[rowName]
+            flag = true
+            for(filterCol in filters){
+                if(row[filterCol]!==filters[filterCol]){                
+                    flag = false
+                }
+            }
+            for(searchCol in searches){
+                if(!(row[searchCol].toLowerCase().includes(searches[searchCol]))){
+                   flag = false
+                }
+            }
+            if(!flag){
+                continue
+            }
+            console.log(rowName)
+            text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">` // Assuming single digits
+            
+            for(col in row){
+                text+=`<td name=${col}>${row[col]}</td>` 
+            }
+            text+="</tr>"
+        }
+        tableBody.innerHTML = text
+    }
+
+    display()
+
+    function filter(columnName) {
+        const filterSelect = document.getElementById('filter-select-'+columnName)
+        var temp = {}
+        const selectValue = filterSelect.value
+        if(selectValue==""){
+            delete filters[columnName]
+        }else{
+            filters = {...filters, [columnName]:selectValue};
+        }
+        display()
+    }
+
+function search(columnName){
+    const inputValue = document.getElementById('search-input').value.toLowerCase()
+    if(inputValue==""){
+        delete searches[columnName]
+    }else{
+        searches = {...searches, [columnName]:inputValue}
+    }
+    display()
+}
+
+function passToNextPage(rowName) {
+    obj = originalRows[rowName]
+    window.location = "medicalCase.html?" + encodeURIComponent(JSON.stringify(obj));
+}
+
+</script>
+</body>
+</html>

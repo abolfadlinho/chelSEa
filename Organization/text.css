@@ -1,0 +1,68 @@
+.form-container{
+    margin: 7%;
+}
+.text-field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+form{
+    padding: 1em;
+}
+
+.text-field input{
+    color: white;
+    width: 100%;
+    height: 30px;
+    padding: 0 1px;
+    font-size: 1.1rem;
+    border:none;
+    background:none;
+    outline: none;
+    margin: 0;
+}
+
+.text-field span::before{
+    content: " ";
+    position: absolute;
+    left:0;
+    top: 30px;
+    width:0%;
+    height: 2px;
+    background: white;
+}
+
+::placeholder{
+    font-size: 1.1rem;
+    font-family: "Roboto";
+    color: #adadad;
+}
+
+input:focus::placeholder {
+    color: transparent;
+  }
+
+.text-field input:focus ~ span::before,
+.text-field input:valid ~ span::before{
+    width: 100%;
+} 
+
+.text-field img{
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 18px;
+}
+
+.text-field img:hover{
+    cursor: pointer;
+}
+
+.name{
+    font-size: 18px;
+    margin-bottom: 5px;
+}

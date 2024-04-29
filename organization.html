@@ -3,60 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Organization Details</title>
-<style>
-    .stars {
-        display: inline-block;
-        unicode-bidi: bidi-override;
-        color: #ffd700;
-        font-size: 20px;
-        width: auto;
-    }
-    .stars::before {
-        content: "★★★★★";
-        letter-spacing: 1px;
-        background: linear-gradient(90deg, #ffd700 calc(var(--rating) * 20%), #d3d3d3 calc(var(--rating) * 20%));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-</style>
+<title>YOUR TITLE</title>
+<link rel="stylesheet" type="text/css" href="./map.css" />
+<script type="module" src="./map.js"></script>
 </head>
 <body>
-    <a href="adminDashboard.html"><button>Return to Dashboard</button></a>
+    <a href="teachingPosts.html"><button>Back</button></a>
 
-<h2>Organization Details</h2>
+<h2>Title</h2>
 
-<div id="organizationDetails">
-    <h3 id="orgName"></h3>
-    <p>Donations Received: <span id="donations"></span></p>
-    <p>Rating: <div class="stars" id="ratingStars"></div></p>
-    <p>Complaints: <span id="complaints"></span></p>
-    <p>Submissions: <span id="submissions"></span></p>
+<div>
+    <!-- Change column names -->
+    <p class="column-name">Name: <span id="name"></span></p>
+    <p class="column-name">Governorate: <span id="governorate"></span></p>
+    <p class="column-name">Area: <span id="area"></span></p>
+    <p class="column-name">Type: <span id="type"></span></p>
+    <p class="column-name">Phone Number: <span id="phone-number">+201000000000</span></p>
+    <p class="column-name">Email Address:  <span id="email">example@hotmail.com</span> </p>
+    <p class="column-name">Address:  <span id="address">120 Merghany</span> </p>
 </div>
 
+<div id="map"></div>
+
+
 <script>
-    // Function to get URL query parameters
-    function getQueryVariable(variable) {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (pair[0] === variable) {
-                return decodeURIComponent(pair[1]);
-            }
-        }
-        return null;
-    }
+    
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyBdbGjvhQoZP2i_7TsQSz7YaCc1BANSL2I", v: "weekly"});
 
-    // Extract the organization details from the URL
-    var organization = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
-    // Populate the organization details on the page
-    document.getElementById("orgName").innerText = organization.name;
-    document.getElementById("donations").innerText = organization.donationsReceived;
-    document.getElementById("ratingStars").style.setProperty("--rating", organization.rating);
-    document.getElementById("complaints").innerText = organization.complaints;
-    document.getElementById("submissions").innerText = organization.submissions;
-
+    var details = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
+    //  Change column names
+    document.getElementById("name").innerText = details.name;
+    document.getElementById("governorate").innerText = details.governorate;
+    document.getElementById("area").innerText = details.area;
+    document.getElementById("type").innerText = details.type;
 </script>
 
 </body>

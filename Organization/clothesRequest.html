@@ -1,0 +1,77 @@
+<!-- TEMPLATE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clothes Request</title>
+<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+</head>
+<body>
+    <a href="createRequest.html"><button>Dashboard</button></a>
+<h1>Title</h1>
+<div class="form-container">
+
+    <h2>Type of clothing: </h2>
+    <div class="text-field">
+        <input type="text" required placeholder="Enter preferred type"></input>
+        <span></span>
+    </div>
+
+    <h2>Material: </h2>
+    <div class="text-field">
+        <input type="text" required placeholder="Enter preferred material"></input>
+        <span></span>
+    </div>
+
+    <h2>Age: </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter preferred age"></input>
+        <span></span>
+    </div>
+    <div class="radio-container">
+
+    <h2>Gender:</h2>       
+      <ul>
+      <li>
+        <input type="radio" id="f-option" name="selector">
+        <label for="f-option">Male</label>
+        
+        <div class="check"></div>
+      </li>
+      
+      <li>
+        <input type="radio" id="s-option" name="selector">
+        <label for="s-option">Female</label>
+        
+        <div class="check"><div class="inside"></div></div>
+      </li>
+    </ul>
+
+    <h2>Season</h2> 
+    <input type="checkbox" id="check1" value="Winter">
+    <label for="check1">Winter</label>
+    <input type="checkbox" id="check2" value="Summer">
+    <label for="check2">Summer</label>
+    <input type="checkbox" id="check3" value="Autumn">
+    <label for="check3">Autumn</label>
+    <input type="checkbox" id="check4" value="Spring">
+    <label for="check4">Spring</label>
+
+    <h2>Quantity: </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter preferred quantity"></input>
+        <span></span>
+    </div>
+
+    <<button onclick="request()">Request</button>
+</div>
+</body>
+<script>
+  function request(){
+    alert("Request has been submitted");
+    window.location  = "createRequest.html"
+  }
+</script>
+</html>

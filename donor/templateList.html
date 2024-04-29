@@ -1,0 +1,138 @@
+<!-- TEMPLATE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR TITLE</title>
+</head>
+<body>
+    <a href="back.html"><button>Back</button></a>
+<h2>Title</h2>
+<div class="filter-container">
+    <!-- change columnNames to your column names -->
+    <input type="text" id="search-input" placeholder="Search ColumnName1...">
+    <button onclick="search('columnName1')">Search</button>
+
+    <!-- change values to your values and columnNames to your column names -->
+    <select id="filter-select-columnName1">
+        <option value="">All</option>
+        <option value="value1">value1</option>
+        <option value="value2">value2</option>
+        <option value="value3">value3</option>
+        <option value="value4">value4</option>
+    </select>
+    <button onclick="filter('columnName1')">Filter ColumName1</button>
+
+    <!-- change values to your values and columnNames to your column names -->
+    <select id="filter-select-columnName2">
+        <option value="">All</option>
+        <option value="value1">value1</option>
+        <option value="value2">value2</option>
+        <option value="value3">value3</option>
+        <option value="value4">value4</option>
+    </select>
+    <button onclick="filter('columnName2')">Filter ColumName2</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ColumName1</th>
+            <th>ColumName2</th>
+            <th>ColumName3</th>
+            <th>ColumName4</th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+</table>
+
+
+<script>
+    var filters = {}
+    var searches = {}
+    // Change column names and values
+    var originalRows  = {
+        row0:{
+                columnName1:"value1",
+                columnName2:"value2",
+                columnName3:"value3",
+                columnName4: "value2"
+            },
+        row1:{
+                columnName1:"value2",
+                columnName2:"value1",
+                columnName3:"value2",
+                columnName4: "value1"
+            },
+        row2:{
+                columnName1:"value3",
+                columnName2:"value4",
+                columnName3:"value2",
+                columnName4: "value1"
+            }
+    }
+
+    function display(){
+        const tableBody = document.getElementById("table-body")
+        var text = ""
+        index=0;
+        for(rowName in originalRows){
+            const row = originalRows[rowName]
+            flag = true
+            for(filterCol in filters){
+                if(row[filterCol]!==filters[filterCol]){                
+                    flag = false
+                }
+            }
+            for(searchCol in searches){
+                if(!(row[searchCol].toLowerCase().includes(searches[searchCol]))){
+                   flag = false
+                }
+            }
+            if(!flag){
+                continue
+            }
+            console.log(rowName)
+            text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">` // Assuming single digits
+            
+            for(col in row){
+                text+=`<td name=${col}>${row[col]}</td>` 
+            }
+            text+="</tr>"
+        }
+        tableBody.innerHTML = text
+    }
+
+    display()
+
+    function filter(columnName) {
+        const filterSelect = document.getElementById('filter-select-'+columnName)
+        var temp = {}
+        const selectValue = filterSelect.value
+        if(selectValue==""){
+            delete filters[columnName]
+        }else{
+            filters = {...filters, [columnName]:selectValue};
+        }
+        display()
+    }
+
+function search(columnName){
+    const inputValue = document.getElementById('search-input').value.toLowerCase()
+    if(inputValue==""){
+        delete searches[columnName]
+    }else{
+        searches = {...searches, [columnName]:inputValue}
+    }
+    display()
+}
+
+function passToNextPage(rowName) {
+    obj = originalRows[rowName]
+    window.location = "template.html?" + encodeURIComponent(JSON.stringify(obj));
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR TITLE</title>
+</head>
+<body>
+    <a href="teachingPosts.html"><button>Back</button></a>
+
+<h2>Title</h2>
+
+<div>
+    <!-- Change column names -->
+    <p class="column-name">Column Name1: <span id="columnName1"></span></p>
+    <p class="column-name">Column Name2: <span id="columnName2"></span></p>
+    <p class="column-name">Column Name3: <span id="columnName3"></span></p>
+    <p class="column-name">Column Name4: <span id="columnName4"></span></p>
+</div>
+
+
+<script>
+
+    var details = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
+    //  Change column names
+    document.getElementById("columnName1").innerText = details.columnName1;
+    document.getElementById("columnName2").innerText = details.columnName2;
+    document.getElementById("columnName3").innerText = details.columnName3;
+    document.getElementById("columnName4").innerText = details.columnName4;
+</script>
+
+</body>
+</html>

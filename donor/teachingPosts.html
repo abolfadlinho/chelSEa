@@ -1,0 +1,144 @@
+<!-- TEMPLATE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching Posts</title>
+</head>
+<body>
+    <a href="requestedDonations.html"><button>Return to Dashboard</button></a>
+<h2>Teaching Posts</h2>
+<div class="filter-container">
+    <input type="text" id="search-input" placeholder="Search Subject...">
+    <button onclick="search('subject')">Search</button>
+
+    <select id="filter-select-subject">
+        <option value="">All</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="History">History</option>
+    </select>
+    <button onclick="filter('subject')">Filter Subject</button>
+
+    <select id="filter-select-governorate">
+        <option value="">All</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Alexandria">Alexandria</option>
+        <option value="Giza">Giza</option>
+        <option value="Refugee">Aswan</option>
+    </select>
+    <button onclick="filter('governorate')">Filter Governorate</button>
+
+    <select id="filter-select-area">
+        <option value="">All</option>
+        <option value="New Cairo">New Cairo</option>
+        <option value="Haram">Haram</option>
+        <option value="Heliopolis">Heliopolis</option>
+        <option value="Sheikh Zayed">Sheikh Zayed</option>
+    </select>
+    <button onclick="filter('area')">Filter Area</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Governorate</th>
+            <th>Area</th>
+            <th>Organization</th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+</table>
+
+
+<script>
+    var filters = {}
+    var searches = {}
+    var originalRows  = {
+        row0:{
+                subject:"Mathematics",
+                governorate:"Cairo",
+                area:"New Cairo",
+                organization: "Mashroo3 Kheir"
+            },
+        row1:{
+                subject:"Chemistry",
+                governorate:"Giza",
+                area:"Haram",
+                organization: "Pyramid Scheme"
+            },
+        row2:{
+                subject:"Computer Science",
+                governorate:"Cairo",
+                area:"Heliopolis",
+                organization: "HSC"
+        }
+    }
+
+    function display(){
+        const tableBody = document.getElementById("table-body")
+        var text = ""
+        index=0;
+        for(rowName in originalRows){
+            const row = originalRows[rowName]
+            flag = true
+            for(filterCol in filters){
+                if(row[filterCol]!==filters[filterCol]){                
+                    flag = false
+                }
+            }
+            for(searchCol in searches){
+                if(!(row[searchCol].toLowerCase().includes(searches[searchCol]))){
+                   flag = false
+                }
+            }
+            if(!flag){
+                continue
+            }
+            text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">` // Assuming single digits
+            
+            for(col in row){
+                text+=`<td name=${col}>${row[col]}</td>` 
+            }
+            index++
+            text+="</tr>"
+        }
+        tableBody.innerHTML = text
+    }
+
+    display()
+
+    function filter(columnName) {
+        const filterSelect = document.getElementById('filter-select-'+columnName)
+        var temp = {}
+        const selectValue = filterSelect.value
+        if(selectValue==""){
+            delete filters[columnName]
+        }else{
+            filters = {...filters, [columnName]:selectValue};
+        }
+        display()
+    }
+
+function search(columnName){
+    const inputValue = document.getElementById('search-input').value.toLowerCase()
+    if(inputValue==""){
+        delete searches[columnName]
+    }else{
+        searches = {...searches, [columnName]:inputValue}
+    }
+    display()
+}
+
+function passToNextPage(rowName) {
+    obj = originalRows[rowName]
+    window.location = "teachingPost.html?" + encodeURIComponent(JSON.stringify(obj));
+}
+
+
+</script>
+</body>
+</html>
