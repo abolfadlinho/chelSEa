@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR TITLE</title>
+</head>
+<body>
+    <a href="organizationDashboard.html"><button>Back</button></a>
+<h2>Title</h2>
+<div class="filter-container">
+    <!-- change columnNames to your column names -->
+    <input type="text" id="search-input" placeholder="Search Category...">
+    <button onclick="search('Category')">Search</button>
+
+    <!-- change values to your values and columnNames to your column names -->
+    <select id="filter-select-Category">
+        <option value="">All</option>
+        <option value="Clothes">Clothes</option>
+        <option value="Toys">Toys</option>
+        <option value="Food">Food</option>
+        <option value="Medical Supplies">Medical Supplies</option>
+        <option value="School Supplies">School Supplies</option>
+        <option value="Blood Donations">Blood Donations</option>
+    </select>
+    <button onclick="filter('Category')">Filter Category</button>
+
+    <!-- change values to your values and columnNames to your column names -->
+    <select id="filter-select-Fulfilled">
+        <option value="">All</option>
+        <option value="Fulfilled">Fulfilled</option>
+        <option value="Not Fulfilled">Not Fulfilled</option>
+       
+    </select>
+    <button onclick="filter('Fulfilled')">Filter Fulfilled</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Details</th>
+            <th>Fulfilled</th>
+    
+        </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+</table>
+
+
+<script>
+    var filters = {}
+    var searches = {}
+    // Change column names and values
+    var originalRows  = {
+        row0:{
+                Category:"Clothes",
+                Details:"value2",
+                Fulfilled:"Fulfilled",
+                
+            },
+        row1:{
+                Category:"Toys",
+                Details:"value1",
+                Fulfilled:"Not Fulfilled",
+            
+            },
+        row2:{
+                Category:"value3",
+                Details:"value4",
+                Fulfilled:"Fulfilled",
+            
+            }
+    }
+
+    function display(){
+        const tableBody = document.getElementById("table-body")
+        var text = ""
+        index=0;
+        for(rowName in originalRows){
+            const row = originalRows[rowName]
+            flag = true
+            for(filterCol in filters){
+                if(row[filterCol]!==filters[filterCol]){                
+                    flag = false
+                }
+            }
+            for(searchCol in searches){
+                if(!(row[searchCol].toLowerCase().includes(searches[searchCol]))){
+                   flag = false
+                }
+            }
+            if(!flag){
+                continue
+            }
+            console.log(rowName)
+            text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">` // Assuming single digits
+            
+            for(col in row){
+                text+=`<td name=${col}>${row[col]}</td>` 
+            }
+            text+="</tr>"
+        }
+        tableBody.innerHTML = text
+    }
+
+    display()
+
+    function filter(columnName) {
+        const filterSelect = document.getElementById('filter-select-'+columnName)
+        var temp = {}
+        const selectValue = filterSelect.value
+        if(selectValue==""){
+            delete filters[columnName]
+        }else{
+            filters = {...filters, [columnName]:selectValue};
+        }
+        display()
+    }
+
+function search(columnName){
+    const inputValue = document.getElementById('search-input').value.toLowerCase()
+    if(inputValue==""){
+        delete searches[columnName]
+    }else{
+        searches = {...searches, [columnName]:inputValue}
+    }
+    display()
+}
+
+function passToNextPage(rowName) {
+    obj = originalRows[rowName]
+    window.location = "thedonationpost.html?" + encodeURIComponent(JSON.stringify(obj));
+}
+
+</script>
+</body>
+</html>

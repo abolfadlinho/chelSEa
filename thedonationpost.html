@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Donation Post</title>
+</head>
+<body>
+    <a href="donationposts.html"><button>Back</button></a>
+
+<h2>The Donation Post</h2>
+
+<div>
+    <!-- Change column names -->
+    <h3>Category: <span id="Category"></span></h3>
+    <p>Details: <span id="Details"></span></p>
+    <p>Fulfilled: <span id="Fulfilled"></span></p>
+
+</div>
+
+<form id="updatedeleteForm" onsubmit="return validateupdateordelete()">
+    <input type="submit" value="Update or Delete">
+</form>
+
+
+<script>
+
+    var details = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
+    //  Change column names
+    document.getElementById("Category").innerText = details.Category;
+    document.getElementById("Details").innerText = details.Details;
+    document.getElementById("Fulfilled").innerText = details.Fulfilled;
+
+    function validateLogin() {
+    return false;
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>
