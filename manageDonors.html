@@ -8,16 +8,10 @@
 <body>
     <a href="adminDashboard.html"><button>Return to Dashboard</button></a>
 <h2>Donors</h2>
-<div class="filter-container">
-    <input type="text" id="searchInput" placeholder="Search organization...">
-    <button onclick="filterOrganizations()">Search</button>
-    <button onclick="reset()">Reset</button>
-</div>
 <table id="donorsTable">
     <thead>
         <tr id="hardcodedRow2">
             <th>Donor Name</th>
-            <th>Donations Done</th>
             <th>Phone Number</th>
             <th>E-mail</th>
         </tr>
@@ -25,44 +19,20 @@
     <tbody>
         <tr>
             <td><a href="donor.html">Donor A</a></td>
-            <td>123</td>
             <td>+20 1000000000</td>
             <td>donor@example.com</td>
         </tr>
         <tr>
             <td><a href="donor.html">Donor B</a></td>
-            <td>456</td>
             <td>+20 1000000000</td>
             <td>donor@example.com</td>
         </tr>
         <tr id="hardcodedRow">
             <td><a href="donor.html">Donor C</a></td>
-            <td>789</td>
             <td>+20 1000000000</td>
             <td>donor@example.com</td>
         </tr>
     </tbody>
 </table>
-<script>
-    var pressed = false;
-    function filterOrganizations() {
-        var table = document.getElementById("donorsTable");
-        var rows = table.getElementsByTagName("tr");
-        for (var i = 0; i < rows.length; i++) {
-            rows[i].style.display = "none";
-        }
-        document.getElementById("hardcodedRow").style.display = "";
-        document.getElementById("hardcodedRow2").style.display = "";
-        pressed = true;
-    }
-function reset() {
-    var table = document.getElementById("donorsTable");
-    var rows = table.getElementsByTagName("tr");
-    for (var i = 0; i < rows.length; i++) {
-        rows[i].style.display = "";
-    }
-    pressed = false;
-}
-</script>
 </body>
 </html>

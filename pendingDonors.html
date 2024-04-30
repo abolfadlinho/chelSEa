@@ -8,61 +8,31 @@
 <body>
     <a href="adminDashboard.html"><button>Return to Dashboard</button></a>
 <h2>Pending Donors</h2>
-<div class="filter-container">
-    <input type="text" id="searchInput" placeholder="Search organization...">
-    <button onclick="filterOrganizations()">Search</button>
-</div>
 <table>
     <thead>
-        <tr id=""hardcodedRow2>
+        <tr>
             <th>Donor Name</th>
-            <th>Phone Number</th>
-            <th>E-mail</th>
-            <th>View Submissions</th>
+            <th>Request Type</th>
+            <th>Review Submissions</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Donor A</td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
-            <td><a href="donor2.html">View Submissions</a></td>
+            <td>Ahmed</td>
+            <td>Teacher</td>
+            <td><a href="donor2.html"><button>Review Submissions</button></a></td></button>
         </tr>
         <tr>
-            <td>Donor B</td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
-            <td><a href="donor2.html">View Submissions</a></td>
+            <td>Ali</td>
+            <td>Doctor</td>
+            <td><a href="donor2.html"><button>Review Submissions</button></a></td></button>
         </tr>
-        <tr id ="hardcodedRow">
-            <td>Donor B</td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
-            <td><a href="donor2.html">View Submissions</a></td>
+        <tr>
+            <td>Shiko</td>
+            <td>Doctor</td>
+            <td><a href="donor2.html"><button>Review Submissions</button></a></td></button>
         </tr>
     </tbody>
 </table>
-<script>
-    var pressed = false;
-    function filterOrganizations() {
-        var table = document.getElementById("organizationsTable");
-        var rows = table.getElementsByTagName("tr");
-        for (var i = 0; i < rows.length; i++) {
-            rows[i].style.display = "none";
-        }
-        document.getElementById("hardcodedRow").style.display = "";
-        document.getElementById("hardcodedRow2").style.display = "";
-        pressed = true;
-    }
-    
-    function reset() {
-        var table = document.getElementById("organizationsTable");
-        var rows = table.getElementsByTagName("tr");
-        for (var i = 0; i < rows.length; i++) {
-            rows[i].style.display = "";
-        }
-        pressed = false;
-    }
-</script>
 </body>
 </html>

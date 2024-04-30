@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Organizations</title>
+</head>
+<body>
+    <a href="adminDashboard.html"><button>Back to dashboard</button></a>
+<h2>Organizations</h2>
+<div class="filter-container">
+    <!-- change columnNames to your column names -->
+    <input type="text" id="search-input" placeholder="Search by Name...">
+    <button onclick="search('columnName1')">Search</button>
+
+    <!--Governorate-->
+    Governorate:
+    <select id="filter-select-columnName3">
+        <option value="">All</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Giza">Giza</option>
+        <option value="Alexandria">Alexandria</option>
+        <option value="Ismailia">Ismailia</option>
+    </select>
+
+    <!--Area-->
+    Area:
+    <select id="filter-select-columnName2">
+        <option value="">All</option>
+        <option value="Nasr City">Nasr City</option>
+        <option value="Heliopolis">Heliopolis</option>
+        <option value="Sidi Beshr">Sidi Beshr</option>
+        <option value="Mohandessin">Mohandessin</option>
+    </select>
+    
+    <!--Organization Type-->
+    Organization Type:
+    <select id="filter-select-columnName4">
+        <option value="">All</option>
+        <option value="Health">Health</option>
+        <option value="Orphanages">Orphanages</option>
+        <option value="Refugees">Refugees</option>
+        <option value="Education">Education</option>
+    </select>
+    <button onclick="filterAll()">Filter All</button>
+
+    <button onclick="reset()">Reset Filters</button>
+
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Organization Name</th>
+            <th>Area</th>
+            <th>Governorate</th>
+            <th>Organization Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+</table>
+
+
+<script>
+    var filters = {}
+    var searches = {}
+    // Change column names and values
+    var originalRows  = {
+        row0:{
+                columnName1:"Orman",
+                columnName2:"Nasr City",
+                columnName3:"Cairo",
+                columnName4: "Refugees"
+            },
+        row1:{
+                columnName1:"Resala",
+                columnName2:"Mohandessin",
+                columnName3:"Giza",
+                columnName4: "Orphanages"
+            },
+        row2:{
+                columnName1:"Food Bank",
+                columnName2:"Sidi Beshr",
+                columnName3:"Alexandria",
+                columnName4: "Health"
+            }
+    }
+
+    function display(){
+        const tableBody = document.getElementById("table-body")
+        var text = ""
+        index=0;
+        for(rowName in originalRows){
+            const row = originalRows[rowName]
+            flag = true
+            for(filterCol in filters){
+                if(row[filterCol]!==filters[filterCol]){                
+                    flag = false
+                }
+            }
+            for(searchCol in searches){
+                if(!(row[searchCol].toLowerCase().includes(searches[searchCol]))){
+                   flag = false
+                }
+            }
+            if(!flag){
+                continue
+            }
+            console.log(rowName)
+            text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">` // Assuming single digits
+            
+            for(col in row){
+                text+=`<td name=${col}>${row[col]}</td>` 
+            }
+            text+="<td><a href='organization.html'>More</a></td></tr>"
+        }
+        tableBody.innerHTML = text
+    }
+
+    display()
+
+    function filterAll() {
+        filter("columnName2");
+        filter("columnName3");
+        filter("columnName4");
+    }
+
+    function filter(columnName) {
+        const filterSelect = document.getElementById('filter-select-'+columnName)
+        var temp = {}
+        const selectValue = filterSelect.value
+        if(selectValue==""){
+            delete filters[columnName]
+        }else{
+            filters = {...filters, [columnName]:selectValue};
+        }
+        display()
+    }
+
+    function reset() {
+        delete filters["columnName1"];
+        delete filters["columnName2"];
+        delete filters["columnName3"];
+        delete filters["columnName4"];
+        display();
+
+    }
+
+function search(columnName){
+    const inputValue = document.getElementById('search-input').value.toLowerCase()
+    if(inputValue==""){
+        delete searches[columnName]
+    }else{
+        searches = {...searches, [columnName]:inputValue}
+    }
+    display()
+}
+
+function passToNextPage(rowName) {
+    obj = originalRows[rowName]
+    window.location = "template.html?" + encodeURIComponent(JSON.stringify(obj));
+}
+
+</script>
+</body>
+</html>
