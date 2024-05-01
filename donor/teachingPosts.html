@@ -4,54 +4,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./filter.css" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 <title>Teaching Posts</title>
 </head>
 <body>
     <a href="requestedDonations.html"><button>Return to Dashboard</button></a>
 <h2>Teaching Posts</h2>
-<div class="filter-container">
-    <input type="text" id="search-input" placeholder="Search Subject...">
-    <button onclick="search('subject')">Search</button>
+<div id="list-container">
+    <div class="filter-container">
+        <h3>Filters</h3>
+        <div class="filter-column-container">
+            <div class="filter-column">Subject</div>
+            <select id="filter-select-subject">
+                <option value="">All</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="History">History</option>
+            </select>
+        </div>
 
-    <select id="filter-select-subject">
-        <option value="">All</option>
-        <option value="Mathematics">Mathematics</option>
-        <option value="Chemistry">Chemistry</option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="History">History</option>
-    </select>
-    <button onclick="filter('subject')">Filter Subject</button>
+        <div class="filter-column-container">
+            <div class="filter-column">Governorate</div>
+            <select id="filter-select-governorate">
+                <option value="">All</option>
+                <option value="Cairo">Cairo</option>
+                <option value="Alexandria">Alexandria</option>
+                <option value="Giza">Giza</option>
+                <option value="Refugee">Aswan</option>
+            </select>
+        </div>
+    
+        <div class="filter-column-container">
+            <div class="filter-column">Area</div>
+            <select id="filter-select-area">
+                <option value="">All</option>
+                <option value="New Cairo">New Cairo</option>
+                <option value="Haram">Haram</option>
+                <option value="Heliopolis">Heliopolis</option>
+                <option value="Sheikh Zayed">Sheikh Zayed</option>
+            </select>
+        </div>
 
-    <select id="filter-select-governorate">
-        <option value="">All</option>
-        <option value="Cairo">Cairo</option>
-        <option value="Alexandria">Alexandria</option>
-        <option value="Giza">Giza</option>
-        <option value="Refugee">Aswan</option>
-    </select>
-    <button onclick="filter('governorate')">Filter Governorate</button>
+        <button onclick="filterSearchAll()">Filter Area</button>
+    </div>
 
-    <select id="filter-select-area">
-        <option value="">All</option>
-        <option value="New Cairo">New Cairo</option>
-        <option value="Haram">Haram</option>
-        <option value="Heliopolis">Heliopolis</option>
-        <option value="Sheikh Zayed">Sheikh Zayed</option>
-    </select>
-    <button onclick="filter('area')">Filter Area</button>
+    <div id="table-container">
+        
+        <div class="search-bar">
+            <input type="text" class="input" id="search-input" placeholder="Search Subject.." onkeyup="search('subject')"/>
+            <div class='search-icon'>
+              <img src="../images/search.png"></img>
+            </div>
+        </div>
+        <input type="text" id="search-input" placeholder="Search Subject..." onkeyup="search('subject')">
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Governorate</th>
+                    <th>Area</th>
+                    <th>Organization</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
 </div>
-<table>
-    <thead>
-        <tr>
-            <th>Subject</th>
-            <th>Governorate</th>
-            <th>Area</th>
-            <th>Organization</th>
-        </tr>
-    </thead>
-    <tbody id="table-body">
-    </tbody>
-</table>
 
 
 <script>
@@ -123,15 +144,25 @@
         display()
     }
 
-function search(columnName){
-    const inputValue = document.getElementById('search-input').value.toLowerCase()
-    if(inputValue==""){
-        delete searches[columnName]
-    }else{
-        searches = {...searches, [columnName]:inputValue}
+    function search(columnName){
+        // onkeypress introduces a delay that the value is behind by one key press
+        const inputValue = document.getElementById('search-input').value.toLowerCase()
+        if(inputValue==""){
+            delete searches[columnName]
+        }else{
+            searches = {...searches, [columnName]:inputValue}
+        }
+        display()
     }
-    display()
-}
+
+    function filterSearchAll(){
+        search("subject")
+        filter("area")
+        filter("governorate")
+        filter("subject")
+    }
+
+
 
 function passToNextPage(rowName) {
     obj = originalRows[rowName]
