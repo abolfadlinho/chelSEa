@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Clinic Location Specification Form</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./map.css" />
+    <script type="module" src="./map.js"></script>
+</head>
+<body>
+    <h2>Clinic Location Specification Form</h2>
+    <form id="clinicForm">
+        <label for="address">Clinic Address:</label><br>
+        <input type="text" id="address" name="address" required><br>
+
+        <label for="area">Area:</label><br>
+        <input type="text" id="area" name="area" required><br>
+
+        <label for="governorate">Governorate:</label><br>
+        <input type="text" id="governorate" name="governorate" required><br>
+
+        <label for="specialty">Specialty:</label><br>
+        <input type="text" id="specialty" name="specialty" required><br>
+
+        <label for="proBonoCases">Number of Pro-bono Cases:</label><br>
+        <input type="number" id="proBonoCases" name="proBonoCases" min="0" required><br><br>
+
+        <button type="button" onclick="submitClinicDetails()">Submit</button>
+    </form>
+    <div id="map"></div>
+    
+    <script>
+        function submitClinicDetails() {
+            var form = document.getElementById('clinicForm');
+            document.getElementById('clinic').innerText ='Details entered successfully!';
+            form.reset();
+        }
+    </script>
+</body>
+</html>

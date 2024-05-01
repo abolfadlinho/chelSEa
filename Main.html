@@ -1,0 +1,153 @@
+/////////////////////////////////////////(12)/////////////////////////////////////////
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*Registration for Donors</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="registrationForm" onsubmit="return validateRegistration()">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br><br>
+    
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br><br>
+    
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select><br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="contactNumber">Contact Number:</label>
+    <input type="text" id="contactNumber" name="contactNumber" required><br><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required></textarea><br><br>
+    
+    <label for="area">Area:</label>
+    <input type="text" id="area" name="area" required><br><br>
+    
+    <label for="governorate">Governorate:</label>
+    <input type="text" id="governorate" name="governorate" required><br><br>
+    
+    <input type="submit" value="Register">
+</form>
+
+<script>
+function validateRegistration() {
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var gender = document.getElementById("gender").value;
+    var email = document.getElementById("email").value;
+    var contactNumber = document.getElementById("contactNumber").value;
+    var password = document.getElementById("password").value;
+    var address = document.getElementById("address").value;
+    var area = document.getElementById("area").value;
+    var governorate = document.getElementById("governorate").value;
+
+    if (firstName == "" || lastName === "" || email === "" || contactNumber === "" || password === "" || address === "" || area === "" || governorate === "") {
+        alert("Fill in the missing infomation to complete the register");
+        return false; 
+    }
+    alert("Registration completed successfully!");
+    return true; 
+}
+</script>
+</body>
+
+
+////////////////////////////////////////(13)/////////////////////////////////////////////
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Role Selection</title>
+    <script>
+        function chooseRole() {
+            var chosenRole = document.querySelector('input[name="role"]:checked').value;
+            switch(chosenRole) {
+                case "regular donor":
+                    alert("You have selected the Regular Donor role.");break;
+                case "teacher":
+                    alert("You have selected the Teacher role.");
+                    window.location.href = "TeacherForm.html"; break;
+                case "doctor":
+                    alert("You have selected the Doctor role.");
+                    window.location.href = "ClinicForm.html";break;
+                default:
+                    alert("No role selected!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Choose Your Role</h2>
+    <form>
+        <input type="radio" id="regular" name="role" value="regular donor">
+        <label for="regular">Regular Donor</label><br>
+        <input type="radio" id="teacher" name="role" value="teacher">
+        <label for="teacher">Teacher</label><br>
+        <input type="radio" id="doctor" name="role" value="doctor">
+        <label for="doctor">Doctor</label><br><br>
+        <button type="button" onclick="chooseRole()">Submit</button>
+    </form>
+</body>
+
+///////////////////////////////////////(14)///////////////////////////////////////////
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*Document Upload for Donor Verification</title>
+</head>
+<body>
+    <h2>Upload Verification</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div>
+            <label for="document">Select Document:</label>
+            <input type="file" id="document" name="document">
+        </div>
+        <button type="button" onclick="uploadVerification()">Upload</button>
+    </form>
+
+    <div id="upload"></div>
+
+    <script>
+        function uploadVerification() {
+            var fileInput = document.getElementById('document');
+            document.getElementById('upload').innerText = 'Document uploaded successfully!';
+            
+        }
+    </script>
+</body>
+------------------------------(17)---------------------------------
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Donor Requests</title>
+</head>
+<body>
+    <h2>View Donor Requests</h2>
+    <button onclick="viewDonorRequests()">View</button>
+    <br></br>
+    <script>
+        function viewDonorRequests() {
+            window.location.href = "DonationsItems.html";
+        }
+    </script>
+</body>
+
+</html>

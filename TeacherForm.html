@@ -1,0 +1,31 @@
+-----------------15----------------
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Details Form</title>
+</head>
+<body>
+    <h2>Subject and Class Selection for Teaching Form</h2>
+    <form id="teachingForm">
+        <label for="subjects">Subjects I Can Teach:</label><br>
+        <input type="text" id="subjects" name="subjects" required><br>
+
+        <label for="proBonoClasses">Number of Pro-Bono Classes I can teach:</label><br>
+        <input type="number" id="proBonoClasses" name="proBonoClasses" min="0" required><br>
+
+        <label for="proBonoStudents">Number of Pro-Bono Students I can tutor:</label><br>
+        <input type="number" id="proBonoStudents" name="proBonoStudents" min="0" required><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+    <div id="Teach"></div>
+    <script>
+    function submitForm(){
+        var form = document.getElementById("teachingForm");
+        document.getElementById('Teach').innerText ='Details entered successfully!';
+        form.reset();
+    }
+</script>
+</body>
+</html>

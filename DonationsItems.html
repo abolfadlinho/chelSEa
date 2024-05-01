@@ -1,0 +1,178 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation Requests</title>
+</head>
+<body>
+    <a href="SE M2.html"><button>Back</button></a>
+
+    <h2>Donation Requests</h2>
+
+    <div class="filter-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button onclick="search()">Search</button>
+
+        <select id="filter-select" onchange="filter()">
+            <option value="">All</option>
+            <option value="Schools">Schools</option>
+            <option value="Refugees">Refugees</option>
+            <option value="Orphanage">Orphanage</option>
+            <option value="Hospitals">Hospitals</option>
+            <option value="Blood banks">Blood banks</option>
+        </select>
+    </div>
+
+    <table border="1" id="original-table">
+        <tr>
+            <th>RequestNo</th>
+            <th>Organisation</th>
+            <th>TypeofRequest</th>
+            <th>Item</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Schools</td>
+            <td>School supplies</td>
+            <td>English books</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Refugees</td>
+            <td>Clothes</td>
+            <td>Men's winter Jackets</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Orphanage</td>
+            <td>Toys</td>
+            <td>lego</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Refugees</td>
+            <td>Food</td>
+            <td>Canned products</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Hospitals</td>
+            <td>Medical supplies</td>
+            <td>Bandages</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Blood banks</td>
+            <td>blood donations</td>
+            <td>Blood type O+</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Orphanage</td>
+            <td>Clothes</td>
+            <td>Children Shorts</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Orphanage</td>
+            <td>Clothes</td>
+            <td>Teens socks</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Refugees</td>
+            <td>Clothes</td>
+            <td>Women's t-shirts</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Orphanage</td>
+            <td>Clothes</td>
+            <td>Children Socks</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Orphanage</td>
+            <td>Food</td>
+            <td>Warm meals</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Health sector</td>
+            <td>Pro-bono visit</td>
+            <td>Checkup</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Health sector</td>
+            <td>Medication</td>
+            <td>Panadol</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Schools</td>
+            <td>School supplies</td>
+            <td>Notebooks</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Schools</td>
+            <td>Pro-bono Teaching</td>
+            <td>Tutoring</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>Refugees</td>
+            <td>Electrical appliances</td>
+            <td>Microwave</td>
+        </tr>
+    </table>
+
+    <script>
+        let originalTableHtml = document.getElementById('original-table').innerHTML;
+
+        function filter() {
+            const filterSelect = document.getElementById('filter-select');
+            const selectedValue = filterSelect.value.toLowerCase();
+            const originalTable = document.getElementById('original-table');
+            const filteredTable = document.getElementById('original-table');
+
+            // Clear previous filtered results
+            filteredTable.innerHTML = originalTableHtml;
+
+            if (selectedValue !== '') {
+                for (let i = originalTable.rows.length - 1; i > 0; i--) {
+                    const row = originalTable.rows[i];
+                    const organisation = row.cells[1].innerText.toLowerCase();
+                    if (organisation !== selectedValue) {
+                        filteredTable.deleteRow(i);
+                    }
+                }
+            }
+        }
+
+        function search() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const originalTable = document.getElementById('original-table');
+
+            for (let i = 1; i < originalTable.rows.length; i++) {
+                const row = originalTable.rows[i];
+                let found = false;
+                for (let j = 0; j < row.cells.length; j++) {
+                    const cellText = row.cells[j].innerText.toLowerCase();
+                    if (cellText.includes(searchInput)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    row.style.display = 'none';
+                } else {
+                    row.style.display = '';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
