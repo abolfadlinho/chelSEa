@@ -215,7 +215,10 @@
 
 function passToNextPage(rowName) {
     obj = originalRows[rowName]
+    // CHANGE
+    // Replace with next page for details
     window.location = "teachingPost.html?" + encodeURIComponent(JSON.stringify(obj));
+    //ENDCHANGE
 }
 
 
