@@ -6,21 +6,36 @@
     <title>Date and Time Input</title>
 </head>
 <body>
+    <a href="timeslotforDonationdrop.html"><button>Back</button></a>
     <h2>Enter Date and Time</h2>
     <form id="dateForm">
         <label for="datetime">Date and Time:</label>
-        <input type="datetime-local" id="datetime" name="datetime">
+        <input type="datetime-local" id="datetime" name="datetime" >
         <button type="button" onclick="proceed()">Click to Schedule</button>
     </form>
 
     <script>
         function proceed() {
-            // Get the value of the date and time input
+            
             var dateTime = document.getElementById("datetime").value;
 
-            // Redirect to another HTML file with the date and time as query parameters
-            window.location.href = "timeslotforDonationdrop.html?datetime=" + dateTime;
+
+
+    
+
+            
+            if (!dateTime) {
+                alert("Please enter a date and time.");
+            
+            }
+            else{
+                window.location.href = "timeslotforDonationdrop.html?datetime=" + dateTime;
+            }
+
+            
+           
         }
     </script>
 </body>
 </html>
+
