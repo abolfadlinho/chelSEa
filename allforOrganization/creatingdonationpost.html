@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Donation Post Page</title>
+</head>
+<body>
+    <a href="organizationDashboard.html"><button>Back</button></a>
+<h2>Creating a Donation Post</h2>
+<form id="donationPostForm" onsubmit="return validatedonationpost()">
+    
+
+    <label for="itemcategory">Choose a Category for the Item:</label>
+    <select id="itemcategory" name="itemcategory">
+      <option value="clothes">Clothes</option>
+      <option value="toys">Toys</option>
+      <option value="food">Food</option>
+      <option value="medicalsupplies">Medical Supplies</option>
+      <option value="schoolsupplies">School Supplies</option>
+      <option value="blooddonations">Blood Donations</option>
+    </select>
+
+    
+    <input type="submit" value="Click to enter details of the item">
+</form>
+
+<script>
+
+
+function validatedonationpost() {
+    var selectedOption = document.getElementById("itemcategory").value;
+    switch(selectedOption) {
+        case "clothes":
+            window.location.href = "clothesRequest.html";
+            break;
+        case "toys":
+            window.location.href = "toysRequest.html";
+            break;
+        case "food":
+            window.location.href = "foodRequest.html";
+            break;
+        case "medicalsupplies":
+            window.location.href = "medicalsuppliesRequest.html";
+            break;
+        case "schoolsupplies":
+            window.location.href = "schoolsuppliesRequest.html";
+            break;
+        case "blooddonations":
+            window.location.href = "blooddonationsRequest.html";
+            break;
+        default:
+            window.location.href = "organizationDashboard.html"; // Default redirect
+    }
+    return false; // Prevent form submission
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>

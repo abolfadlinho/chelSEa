@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Organization Page</title>
+</head>
+<body>
+
+<h2>Update organization Information</h2>
+<form id="registerForm" onsubmit="return validateregister()">
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" name="firstname" value="Ahmed" required>
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" name="lastname" value="Mostafa" required>
+   
+
+    <label for="gender">Select Gender:</label>
+     <select id="gender" name="gender">
+       <option value="male" checked>Male</option>
+       <option value="female">Female</option>
+     </select>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" value="ahmed.mostafa@yahoo.com" required>
+    <br>
+    <br>
+    <label for="password">old Password: hi</label>
+    <br>
+    <br>
+    <label for="password">New Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <br>
+    <label for="contactnumber">Contact Number:</label>
+    <input type="text" id="contactnumber" name="contactnumber" value="01003456" pattern="[0-9]*" title="Please enter only digits" required>
+    <label for="organizationname">Organization Name:</label>
+    <input type="text" id="organizationname" name="organizationname" value="elnahda hospital" required>
+
+    <label for="organizationtype">Select Organization Type:</label>
+    <select id="organizationtype" name="organizationtype">
+      <option value="charity">Charity</option>
+      <option value="hospital" checked>Hospital</option>
+      <option value="orphanage">Orphanage</option>
+      <option value="publicschool">Public School</option>
+      <option value="church">Church</option>
+      <option value="mosque">Mosque</option>
+    </select>
+
+    <label for="organizationaddress">Organization Address:</label>
+    <input type="text" id="organizationaddress" name="organizationaddress" value="13,merghany" required>
+    <label for="area">Area:</label>
+    <input type="text" id="area" name="area" value="Heliopolis" required>
+    <br>
+    <br>
+    <label for="governorate">Governorate:</label>
+    <input type="text" id="governorate" name="governorate" value="Cairo" required>
+    <input type="submit" value="Request to Update Information">
+</form>
+
+<script>
+function validateregister() {
+    window.location.href = "documentOrganVerification.html";
+    return false;
+}
+</script>
+
+</body>
+</html>

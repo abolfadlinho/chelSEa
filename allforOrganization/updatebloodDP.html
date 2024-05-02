@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Donation Request</title>
+<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+</head>
+<body>
+    <a href="donationposts.html"><button>Back to donation Posts</button></a>
+<h1>Blood Donation Request</h1>
+<div class="form-container">
+    
+
+    <h2>Blood Type:</h2>    
+    <ul>
+        <li>
+            <input type="radio" id="f-option" name="food_type" required checked>
+            <label for="f-option">O negative</label>
+            <div class="check"></div>
+        </li>
+        
+        <li>
+            <input type="radio" id="s-option" name="food_type" required>
+            <label for="s-option">O positive</label>
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="a-option" name="food_type" required>
+            <label for="a-option">A negative</label>
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="b-option" name="food_type" required>
+            <label for="b-option">A positive</label>
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="c-option" name="food_type" required>
+            <label for="c-option">B negative</label>
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="d-option" name="food_type" required>
+            <label for="d-option">B positive</label>
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+
+        <li>
+            <input type="radio" id="e-option" name="food_type" required>
+            <label for="e-option">AB negative</label>
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="g-option" name="food_type" required>
+            <label for="g-option">AB positive</label>
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+       
+    </ul>
+
+    <h2>Quantity(in liters): </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter required quantity" value="4" name="quantity"></input>
+        <span></span>
+    </div>
+
+    <button onclick="request()">Update Donation Post</button>
+</div>
+</body>
+<script>
+function request(){
+
+    const foodType = document.querySelector('input[name="food_type"]:checked');
+    const quantity = document.querySelector('input[name="quantity"]').value;
+
+    if (!foodType || !quantity) {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    alert("Update has been submitted");
+    window.location.href = "donationposts.html";
+}
+</script>
+</html>

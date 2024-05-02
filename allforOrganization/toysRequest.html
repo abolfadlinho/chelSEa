@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toys Request</title>
+<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+</head>
+<body>
+    <a href="creatingdonationpost.html"><button>Back</button></a>
+<h1>Toys Request</h1>
+<div class="form-container">
+
+    <h2>Type:</h2>       
+      <ul>
+      <li>
+        <input type="radio" id="f-option" name="category" required>
+        <label for="f-option">Board Games</label>
+        <div class="check"></div>
+      </li>
+      
+      <li>
+        <input type="radio" id="s-option" name="category" required>
+        <label for="s-option">Stuffed Toys</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="d-option" name="category" required>
+        <label for="d-option">Dolls</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="sp-option" name="category" required>
+        <label for="sp-option">Sports</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="c-option" name="category" required>
+        <label for="c-option">Cars</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input type="radio" id="o-option" name="category" required>
+        <label for="o-option">Outdoors</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+    </ul>
+    
+
+    <h2>Age: </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter preferred age" name="age"></input>
+        <span></span>
+    </div>
+
+    <h2>Gender:</h2>       
+      <ul>
+      <li>
+        <input type="radio" id="male-option" name="gender" required>
+        <label for="male-option">Male</label>
+        <div class="check"></div>
+      </li>
+      
+      <li>
+        <input type="radio" id="female-option" name="gender" required>
+        <label for="female-option">Female</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+    </ul>
+
+    <h2>Quantity: </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter preferred quantity" name="quantity"></input>
+        <span></span>
+    </div>
+
+    <h2>Upload Photo of toy: </h2>
+    <input type="file" required name="toy_photo"></input>
+
+    <button onclick="validateForm()">Request</button>
+</div>
+</body>
+<script>
+function validateForm() {
+    const category = document.querySelector('input[name="category"]:checked');
+    
+    const age = document.querySelector('input[name="age"]').value;
+    const gender = document.querySelector('input[name="gender"]:checked');
+    const quantity = document.querySelector('input[name="quantity"]').value;
+    const photo = document.querySelector('input[name="toy_photo"]').value;
+
+    if (!category || !age || !gender || !quantity || !photo) {
+        alert("Please fill out all fields.");
+        return false;
+    }
+
+    alert("Request has been submitted");
+    window.location.href = "organizationDashboard.html";
+}
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Supply Request</title>
+<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+</head>
+<body>
+    <a href="creatingdonationpost.html"><button>Back</button></a>
+<h1>Medical Supply Request</h1>
+<div class="form-container">
+    <h2>Name: </h2>
+    <div class="text-field">
+        <input type="text" required placeholder="Enter medical supply name" name="food_name"></input>
+        <span></span>
+    </div>
+
+    <h2>Type:</h2>    
+    <ul>
+        <li>
+            <input type="radio" id="f-option" name="food_type" required>
+            <label for="f-option">Medicine</label>
+            <div class="check"></div>
+        </li>
+        
+        <li>
+            <input type="radio" id="s-option" name="food_type" required>
+            <label for="s-option">Medical equipment</label>
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+       
+    </ul>
+
+    <h2>Quantity: </h2>
+    <div class="text-field">
+        <input type="number" required placeholder="Enter required quantity" name="quantity"></input>
+        <span></span>
+    </div>
+
+    <button onclick="request()">Request</button>
+</div>
+</body>
+<script>
+function request(){
+    const foodName = document.querySelector('input[name="food_name"]').value;
+    const foodType = document.querySelector('input[name="food_type"]:checked');
+    const quantity = document.querySelector('input[name="quantity"]').value;
+
+    if (!foodName || !foodType || !quantity) {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    alert("Request has been submitted");
+    window.location.href = "organizationDashboard.html";
+}
+</script>
+</html>
