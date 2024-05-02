@@ -8,6 +8,8 @@
 </head>
 <body>
     <h2>Clinic Location Specification Form</h2>
+    <button type="button" onclick="Back()">Back</button>
+    <br></br>
     <form id="clinicForm">
         <label for="address">Clinic Address:</label><br>
         <input type="text" id="address" name="address" required><br>
@@ -29,11 +31,49 @@
     <div id="map"></div>
     
     <script>
+        function Back(){
+        window.location.href = "TypeofDonor.html";
+    }
         function submitClinicDetails() {
             var form = document.getElementById('clinicForm');
             document.getElementById('clinic').innerText ='Details entered successfully!';
             form.reset();
         }
+    </script>
+</body>
+</html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*Document Upload for Donor Verification</title>
+</head>
+<body>
+    <h2>Upload Verification</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div>
+            <label for="document">Select Document:</label>
+            <input type="file" id="document" name="document">
+        </div>
+        <button type="button" onclick="uploadVerification()">Upload</button>
+        <br></br>
+        <br></br>
+        <button type="button" onclick="Done()">Done</button>
+    </form>
+
+    <div id="upload"></div>
+    <script>
+     function uploadVerification() {
+        var fileInput = document.getElementById('document');
+        document.getElementById('upload').innerText = 'Document uploaded successfully!';
+            
+        }
+        function Done(){
+        window.location.href = "TheFrontPage.html";
+
+        }
+
     </script>
 </body>
 </html>
