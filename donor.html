@@ -4,18 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Donor Details</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
-    <a href="manageDonors.html"><button>Manage Donors</button></a>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="./images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <!-- CHANGE ORGS -->
+                    <!-- Change href to your orgs dashboard -->
+                    <li><a href="manageDonors.html">Return to Manage Donors</a></li>
+                    <!-- END CHANGE ORGS -->
+                    <li><a href="adminDashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<h2>Donor Details</h2>
+    <div id="container">
+        <div id="details-container">
+            <h2 class="line-below white">Donor Details</h2>
+            <div>
+                <!-- CHANGE -->
+                <!-- PUT here details -->
+                <!-- leave the class -->
+                <!-- change id and colName1 -->
+                <p class="column-name">Donor Name: <span id="columnName1">Donor A</span></p>
+                <p class="column-name">Email: <span id="columnName1">example@example.com</span></p>
+                <p class="column-name">Phone Number: <span id="columnName1">+201000000000</span></p>
+    
+                <!-- END CHANGE -->
+            </div>
+            <div class="button-container">
+                <button onclick="confirmDelete()">Delete Donor</button>
+            </div>
+        </div>
+    </div>
 
-<div>
-    <h3>Donor Name: Charity A</h3>
-    <p>Contact Information: +201000000000 | example@example.com</p>
-</div>
-
-<button onclick="confirmDelete()">Delete Donor</button>
 
 <script>
 

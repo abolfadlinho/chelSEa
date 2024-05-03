@@ -4,63 +4,105 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manage Organizations</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
-    <a href="adminDashboard.html"><button>Back to dashboard</button></a>
-<h2>Organizations</h2>
-<div class="filter-container">
-    <!-- change columnNames to your column names -->
-    <input type="text" id="search-input" placeholder="Search by Name...">
-    <button onclick="search('columnName1')">Search</button>
-
-    <!--Governorate-->
-    Governorate:
-    <select id="filter-select-columnName3">
-        <option value="">All</option>
-        <option value="Cairo">Cairo</option>
-        <option value="Giza">Giza</option>
-        <option value="Alexandria">Alexandria</option>
-        <option value="Ismailia">Ismailia</option>
-    </select>
-
-    <!--Area-->
-    Area:
-    <select id="filter-select-columnName2">
-        <option value="">All</option>
-        <option value="Nasr City">Nasr City</option>
-        <option value="Heliopolis">Heliopolis</option>
-        <option value="Sidi Beshr">Sidi Beshr</option>
-        <option value="Mohandessin">Mohandessin</option>
-    </select>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="./images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <!-- CHANGE ORGS -->
+                    <!-- Change href to your orgs dashboard -->
+                    <li><a href="adminDashboard.html">Dashboard</a></li>
+                    <!-- END CHANGE ORGS -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="container">
+        <h1>Organizations</h1>
+        <div id="list-container">
+            <div id="filter-container">
+                <h3 class="line-below">Filters</h3>
+                <div class="filter-column-container line-below">
+                    <!-- CHANGE -->
+                    <!-- change all colName1 to your column name -->
+                    <!-- change all value1/2/3 to your values -->
+                    <div class="filter-column">Governorate:</div>
+                    <select id="filter-select-columnName3" onchange="filter('columnName3')">
+                        <option value="">All</option>
+                        <option value="Cairo">Cairo</option>
+                        <option value="Giza">Giza</option>
+                        <option value="Alexandria">Alexandria</option>
+                        <option value="Ismailia">Ismailia</option>
+                    </select>
+                    <!-- END CHANGE -->
+                </div>
+                <div class="filter-column-container line-below">
+                    <!-- CHANGE -->
+                    <!-- change all colName1 to your column name -->
+                    <!-- change all value1/2/3 to your values -->
+                    <div class="filter-column">Area:</div>
+                    <select id="filter-select-columnName2" onchange="filter('columnName2')">
+                        <option value="">All</option>
+                        <option value="Nasr City">Nasr City</option>
+                        <option value="Heliopolis">Heliopolis</option>
+                        <option value="Sidi Beshr">Sidi Beshr</option>
+                        <option value="Mohandessin">Mohandessin</option>
+                    </select>
+                    <!-- END CHANGE -->
+                </div>
+                <div class="filter-column-container line-below">
+                    <!-- CHANGE -->
+                    <!-- change all colName1 to your column name -->
+                    <!-- change all value1/2/3 to your values -->
+                    <div class="filter-column">Organization Type:</div>
+                    <select id="filter-select-columnName4" onchange="filter('columnName4')">
+                        <option value="">All</option>
+                        <option value="Health">Health</option>
+                        <option value="Orphanages">Orphanages</option>
+                        <option value="Refugees">Refugees</option>
+                        <option value="Education">Education</option>
+                    </select>
+                    <!-- END CHANGE -->
+                </div>
+                <div class="button-container">
+                    <button class="neutral-button" onclick="reset()">Reset Filters</button>
+                </div>
+            </div>
     
-    <!--Organization Type-->
-    Organization Type:
-    <select id="filter-select-columnName4">
-        <option value="">All</option>
-        <option value="Health">Health</option>
-        <option value="Orphanages">Orphanages</option>
-        <option value="Refugees">Refugees</option>
-        <option value="Education">Education</option>
-    </select>
-    <button onclick="filterAll()">Filter All</button>
-
-    <button onclick="reset()">Reset Filters</button>
-
-</div>
-<table>
-    <thead>
-        <tr>
-            <th>Organization Name</th>
-            <th>Area</th>
-            <th>Governorate</th>
-            <th>Organization Type</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody id="table-body">
-    </tbody>
-</table>
-
+            <div id="table-search-container">
+                
+                <div class="search-bar">
+                    <input type="text" class="input" id="search-input" placeholder="Search by Name.." onkeyup="search('columnName1')"/>
+                    <div class='search-icon'>
+                    <img src="../images/search-icon.png"></img>
+                    </div>
+                </div>
+                <!-- <input type="text" id="search-input" placeholder="Search Subject..." onkeyup="search('subject')"> -->
+                <div id="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <!-- CHANGE -->
+                                <th>Organization Name</th>
+                                <th>Area</th>
+                                <th>Governorate</th>
+                                <th>Organization Type</th>
+                                <th>Link</th>
+                                <!-- END CHANGE -->
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script>
     var filters = {}
@@ -89,6 +131,8 @@
 
     function display(){
         const tableBody = document.getElementById("table-body")
+        columnNames = ["colName1","colName2", "colName3","colName4"];
+
         var text = ""
         index=0;
         for(rowName in originalRows){
@@ -143,6 +187,12 @@
         delete filters["columnName2"];
         delete filters["columnName3"];
         delete filters["columnName4"];
+        var dropdown = document.getElementById("filter-select-columnName4");
+        dropdown.value = "";
+        var dropdown2 = document.getElementById("filter-select-columnName3");
+        dropdown2.value = "";
+        var dropdown3 = document.getElementById("filter-select-columnName2");
+        dropdown3.value = "";
         display();
 
     }

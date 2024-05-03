@@ -4,35 +4,52 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manage Donors</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
-    <a href="adminDashboard.html"><button>Return to Dashboard</button></a>
-<h2>Donors</h2>
-<table id="donorsTable">
-    <thead>
-        <tr id="hardcodedRow2">
-            <th>Donor Name</th>
-            <th>Phone Number</th>
-            <th>E-mail</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a href="donor.html">Donor A</a></td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
-        </tr>
-        <tr>
-            <td><a href="donor.html">Donor B</a></td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
-        </tr>
-        <tr id="hardcodedRow">
-            <td><a href="donor.html">Donor C</a></td>
-            <td>+20 1000000000</td>
-            <td>donor@example.com</td>
-        </tr>
-    </tbody>
-</table>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="./images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <!-- CHANGE -->
+                    <li><a href="adminDashboard.html">Dashboard</a></li>
+                    <!-- END CHANGE -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="container">
+        <h1>Donors</h1>
+        <table id="donorsTable">
+            <thead>
+                <tr>
+                    <th>Donor Name</th>
+                    <th>Phone Number</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td><a href="donor.html">Donor A</a></td>
+                    <td>+20 1000000000</td>
+                    <td>donor@example.com</td>
+                </tr>
+                <tr>
+                    <td><a href="donor.html">Donor B</a></td>
+                    <td>+20 1000000000</td>
+                    <td>donor@example.com</td>
+                </tr>
+                <tr>
+                    <td><a href="donor.html">Donor C</a></td>
+                    <td>+20 1000000000</td>
+                    <td>donor@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

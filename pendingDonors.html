@@ -4,35 +4,52 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manage Pending Donors</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
-    <a href="adminDashboard.html"><button>Return to Dashboard</button></a>
-<h2>Pending Donors</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Donor Name</th>
-            <th>Request Type</th>
-            <th>Review Submissions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Ahmed</td>
-            <td>Teacher</td>
-            <td><a href="donor2.html"><button>Review Submissions</button></a></td></button>
-        </tr>
-        <tr>
-            <td>Ali</td>
-            <td>Doctor</td>
-            <td><a href="donor2.html"><button>Review Submissions</button></a></td></button>
-        </tr>
-        <tr>
-            <td>Shiko</td>
-            <td>Doctor</td>
-            <td><a href="donor2.html"><button>Review Submissions</button></a></td></button>
-        </tr>
-    </tbody>
-</table>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="./images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <!-- CHANGE -->
+                    <li><a href="adminDashboard.html">Dashboard</a></li>
+                    <!-- END CHANGE -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="container">
+        <h1>Pending Donors</h1>
+        <table id="donorsTable">
+            <thead>
+                <tr>
+                    <th>Donor Name</th>
+                    <th>Request Type</th>
+                    <th>Review Submissions</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td>Ahmed</td>
+                    <td>Teacher</td>
+                    <td><a href="donor2.html">Review Submissions</a></td></button>
+                </tr>
+                <tr>
+                    <td>Ali</td>
+                    <td>Doctor</td>
+                    <td><a href="donor2.html">Review Submissions</a></td></button>
+                </tr>
+                <tr>
+                    <td>Shiko</td>
+                    <td>Doctor</td>
+                    <td><a href="donor2.html">Review Submissions</a></td></button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
