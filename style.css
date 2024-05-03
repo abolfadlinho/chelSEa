@@ -1,20 +1,24 @@
 :root{
-    --light-grey:#f0f0f0;
-    --dark-grey:#e5e5e5;
-    --darker-grey:#cacaca;
-    --darkest-grey:#757575;
-    --black:#111111;
-    --nav-text-color:#323232;
-    --positive-color:#3bedb7;
+  --lighter-grey:#f8f8f8;
+  --light-grey:#f0f0f0;
+  --dark-grey:#e5e5e5;
+  --darker-grey:#cacaca;
+  --darkest-grey:#757575;
+  --light-black:#2a2f3b;
+  --black:#111111;
+  --nav-text-color:#323232;
+  --positive-color:#3bedb7;
+  --focus-color:#02ccda;
 }
 body{
-  background-color: var(--light-grey);
+  background-color: var(--lighter-grey);
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  padding-bottom: 40px;
 }
 
-select:hover, option:hover,button:hover,tbody tr:hover{
+select:hover, option:hover,button:hover,input[type="submit"]:hover,tbody tr:hover{
   cursor: pointer;
 }
 
@@ -57,7 +61,7 @@ select:hover, option:hover,button:hover,tbody tr:hover{
 }
 
 #container{
-  padding: 0 20px;
+  padding: 0;
 }
 
 h1{
@@ -91,7 +95,7 @@ h1{
 #filter-container select{
   font-size: 13px;
   width: 140px;
-  background-color: var(--light-grey);
+  background-color: var(--lighter-grey);
   border: none;
   text-overflow: ellipsis;
   margin: 0 10px 0 auto;
@@ -266,7 +270,7 @@ table tr:last-child td:last-child {
     justify-content: center;
   }
 
-  button{
+  button,input[type="submit"]{
     padding: 10px 30px;
     font-weight: bold;
     border-radius: 15px;
@@ -284,19 +288,26 @@ table tr:last-child td:last-child {
     border-radius: 40px;
   }
 
+  input[type="submit"],.submit{
+    font-size: 20px;
+    padding: 15px 40px;
+    border-radius: 40px;
+  }
+
 
   /* Single details page */
 
   #details-container{
     margin: 100px auto 0 auto;
     width: 800px;
-    background-color: var(--dark-grey);
+    background-color: var(--light-grey);
     padding: 10px 50px 30px 50px;
     border-radius: 30px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   }
 
   #details-container h2{
+    font-size: 30px;
     text-align: center;
     margin-bottom: 60px;
   }

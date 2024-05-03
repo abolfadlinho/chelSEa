@@ -1,15 +1,3 @@
-:root{
-    --lighter-grey:#f8f8f8;
-    --light-grey:#f0f0f0;
-    --dark-grey:#e5e5e5;
-    --darker-grey:#cacaca;
-    --darkest-grey:#757575;
-    --black:#111111;
-    --nav-text-color:#323232;
-    --positive-color:#3bedb7;
-    --focus-color:#00acb8;
-}
-
 /* General */
 
 form{
@@ -21,9 +9,10 @@ form{
 .input-field {
     position: relative;
     margin-bottom: 30px;
+    width: 100%;
   }
 .input-field input {
-    width: 450px;
+    width: 96%;
     height: 50px;
     border-radius: 6px;
     font-size: 17px;
@@ -61,9 +50,9 @@ form{
 
 /* RADIO */
 
-.container ul{
+.radio-container ul{
     list-style: none;
-    margin: 0;
+    margin-left: 25px;
     padding: 0;
     overflow: auto;
   }
@@ -140,7 +129,7 @@ form{
   
   .radio-container{
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   .radio-container ul, .radio-container li{
@@ -149,13 +138,109 @@ form{
     margin: 0;
   }
 
-  .radio-container h3{
+  #input-container h3{
+    font-weight: bold;
+    color: var(--light-black);
     font-size: 22px;
     display: flex;
     align-items: center;
     margin: 0;
   }
 
-  .positive-button{
-    margin-top: 25px;
+  #input-container .positive-button{
+    margin-top: 15px;
+    background-color: var(--focus-color);
+    color: var(--lighter-grey);
   }
+
+  #input-container #details-container{
+    margin-top: 60px;
+}
+
+
+/* DROP DOWN */
+
+
+.dropdown {
+    min-width: 15em;
+    position: relative;
+    top: 0;
+    margin-left: 40px;
+}
+.select {
+    background: var(--light-black);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px var(--light-black) solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/* .select-clicked {
+    border: 2px var(--focus-color) solid;
+    box-shadow: 0 0 0.5em var(--focus-color);
+} */
+.select:hover {
+    background: #323741;
+    border-color: #323741;
+}
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+.caret-rotate {
+    transform: rotate(180deg);
+}
+.menu {
+    list-style: none;
+    padding: 0.2em 0;
+    background: #323741;
+    border: 1px #323741 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #9fa5b5;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: auto;
+    min-width: 60%;
+    max-width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+    margin-top: 5px;
+}
+.menu li {
+    padding: 0.7em 0.9em;
+    margin: 0em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+.menu li:hover {
+    background: #2a2d35;
+}
+.active {
+    background: #23242a;
+}
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-container{
+    display: flex;
+    align-items: center;
+    height: auto;
+}
