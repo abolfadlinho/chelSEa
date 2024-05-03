@@ -4,67 +4,113 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clothes Request</title>
-<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
-<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+<link rel="stylesheet" type="text/css" href="./input.css" />
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<link rel="stylesheet" type="text/css" href="./radioButton.css" />
 </head>
 <body>
-    <a href="creatingdonationpost.html"><button>Back</button></a>
-<h1>Clothes Request</h1>
+
+
+
+  <nav>
+    <div id="nav-bar">
+        <div id="left">
+            <img class="logo" src="../images/logo.svg" alt="logo">
+        </div>
+        <div id="right">
+            <ul>
+                <li><a href="organizationDashboard.html">Dashboard</a></li>
+                <li><a href="creatingdonationpost.html">Create Post</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
 <div class="form-container">
+  <div id="container">
+    <div id="details-container">
+        <h2 class="line-below white">Clothes Request</h2>
+        <form action="request()">
+            <div>
+              <div class="input-field">
+                  <input type="text" required spellcheck="false">
+                  <label>Enter Type</label>
+              </div>
+    
+              <div class="input-field">
+                <input type="text" required spellcheck="false">
+                <label>Enter material</label>
+              </div>
+            
+    
+              <div class="input-field">
+                <input type="text" required spellcheck="false">
+                <label>Enter age</label>
+              </div>
+    
+              <div class="input-field">
+                <input type="text" required spellcheck="false">
+                <label>Enter Quantity</label>
+            </div>
+    
+              <div class="radio-container">
+                <h3>Gender:</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="male-option" name="Gender">
+                    <label for="male-option">Male</label>
+                    <div class="check"></div>
+                  </li>
+                  
+                  <li>
+                    <input type="radio" id="female-option" name="Gender">
+                    <label for="female-option">Female</label>
+                    
+                    <div class="check"></div>
+                  </li>
+                </ul>
+              </div>
+    
+          
+              <div class="radio-container">
+                <h3>Season:</h3>
+                <ul>
+                  <li>
+                    <input type="checkbox" id="Winter-option" name="Season">
+                    <label for="Winter-option">Winter</label>
+                    <div class="check"></div>
+                  </li>
+                  
+                  <li>
+                    <input type="checkbox" id="Summer-option" name="Season">
+                    <label for="Summer-option">Summer</label>
+                    
+                    <div class="check"></div>
+                  </li>
+    
+                  <li>
+                    <input type="checkbox" id="Autumn-option" name="Season">
+                    <label for="Autumn-option">Autumn</label>
+                    
+                    <div class="check"></div>
+                  </li>
+    
+                  <li>
+                    <input type="checkbox" id="Spring-option" name="Season">
+                    <label for="Spring-option">Spring</label>
+                    
+                    <div class="check"></div>
+                  </li>
+                </ul>
+              </div>
+            <div class="button-container">
 
-    <h2>Type of clothing: </h2>
-    <div class="text-field">
-        <input type="text" required placeholder="Enter preferred type" name="type"></input>
-        <span></span>
+              <input type="submit" class="positive-button" value="Request" onclick="request()">
+                <!-- <button class="positive-button" onclick="request()">Fulfill Request</button>    -->
+            </div>
+        </form>
     </div>
-
-    <h2>Material: </h2>
-    <div class="text-field">
-        <input type="text" required placeholder="Enter preferred material" name="material"></input>
-        <span></span>
-    </div>
-
-    <h2>Age: </h2>
-    <div class="text-field">
-        <input type="number" required placeholder="Enter preferred age" name="age"></input>
-        <span></span>
-    </div>
-    <div class="radio-container">
-
-    <h2>Gender:</h2>       
-      <ul>
-      <li>
-        <input type="radio" id="f-option" name="selector">
-        <label for="f-option">Male</label>
-        
-        <div class="check"></div>
-      </li>
-      
-      <li>
-        <input type="radio" id="s-option" name="selector">
-        <label for="s-option">Female</label>
-        
-        <div class="check"><div class="inside"></div></div>
-      </li>
-    </ul>
-
-    <h2>Season</h2> 
-    <input type="checkbox" id="check1" value="Winter">
-    <label for="check1">Winter</label>
-    <input type="checkbox" id="check2" value="Summer">
-    <label for="check2">Summer</label>
-    <input type="checkbox" id="check3" value="Autumn">
-    <label for="check3">Autumn</label>
-    <input type="checkbox" id="check4" value="Spring">
-    <label for="check4">Spring</label>
-
-    <h2>Quantity: </h2>
-    <div class="text-field">
-        <input type="number" required placeholder="Enter preferred quantity" name="quantity"></input>
-        <span></span>
-    </div>
-
-    <<button onclick="request()">Request</button>
+</div>
 </div>
 </body>
 <script>
@@ -73,16 +119,48 @@
 
 
   function request(){
-    const selector = document.querySelector('input[name="selector"]:checked');
-    const age = document.querySelector('input[name="age"]').value;
-    const quantity = document.querySelector('input[name="quantity"]').value;
-    const material = document.querySelector('input[name="material"]').value;
-    const type = document.querySelector('input[name="type"]').value;
+    // Check if all text field are entered
+    var inputs = document.querySelectorAll('input[type="text"]');
+    var allFilled = true;
 
-    if (!selector || !age || !quantity || !material || !type) {
-        alert("Please fill out all fields.");
-        return;
+    inputs.forEach(function(input) {
+        if (input.value === '') {
+            allFilled = false;
+        }
+    });
+
+    if(!allFilled){
+      // will use built in fill this field prompt
+      return
     }
+
+   
+    // Check if all radio buttons and checkboxes are selected
+    var checkboxes = []
+    checkboxes.push(document.querySelectorAll('input[name="Gender"]'))
+    checkboxes.push(document.querySelectorAll('input[name="Season"]'));
+    var atLeastOneChecked = false;
+    for(checkboxElement of checkboxes){
+      checkboxElement.forEach(function(checkbox) {
+          if (checkbox.checked) {
+              atLeastOneChecked = true;
+          }
+      });
+
+      if (!atLeastOneChecked) {
+          // At least one checkbox is checked
+          // Perform your action here
+          console.log(checkboxElement[0]);
+          alert(`Fill out ${checkboxElement[0].name} field`);
+          return;
+      }
+      atLeastOneChecked = false;
+    }
+
+    // if (!season.checked||!gender.checked) {
+    //     alert("Please fill out all fields.");
+    //     return;
+    // }
 
     alert("Request has been submitted");
     window.location.href = "organizationDashboard.html";
