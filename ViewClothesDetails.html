@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./input.css" />
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<script type="module" src="./dropDown.js"></script>
+<title>Donor Details</title>
+</head>
+<body>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="./images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <!-- CHANGE ORGS -->
+                    <!-- Change href to your orgs dashboard -->
+                    <li><a href="donorDashboard.html">Dashboard</a></li>
+                    <!-- END CHANGE ORGS -->
+                    <!-- CHANGE -->
+                    <li><a href="prevPage.html">Previous Page name</a></li>
+                    <!-- END CHANGE -->
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<div id="container">
+    <div id="details-container">
+        <h2 class="line-below white">Request Details</h2>
+        <div>
+            <!-- CHANGE -->
+            <!-- PUT here details -->
+            <!-- leave the class -->
+            <!-- change id and colName1 -->
+            <p class="column-name">Item: <span id="Item"></span></p>
+            <p class="column-name">Age: <span id="Age"></span></p>
+            <p class="column-name">Gender: <span id="Gender"></span></p>
+            <p class="column-name">Season: <span id="Season"></span></p>
+            <p class="column-name">Material: <span id="Material">Cotton</span></p>
+            <p class="column-name">Quantity: <span id="Quantity">5</span></p>
+            <!-- END CHANGE -->
+        </div>
+        <div class="dropdown-container">
+            <h3>Quantity of donation:</h3>
+            <div class="dropdown">
+              <div class="select">
+                <!-- Default value -->
+                  <span class="selected">0</span>
+                  <div class="caret"></div>
+              </div>
+              <ul class="menu">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                  <!-- MAKE Sure that this value is the same as the one above in span element with class="selected" -->
+                  <li class="active">0</li>
+              </ul>
+            </div>
+          </div>
+        <div class="button-container">
+            <button class="positive-button" onclick="fulfill()">Fulfill Request</button>   
+        </div>
+    </div>
+</div>
+
+<script>
+function fulfill() {
+    const selectedQuantity = document.querySelector('.dropdown .selected').innerText;
+    if (selectedQuantity === '0') {
+        alert('Please select a quantity before fulfilling the request.');
+    } else {
+        alert('Request Fulfilled');
+        window.location.href = 'ViewClothesRequests.html';
+    }
+}
+
+
+    // Extract the organization details from the URL
+    var details = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
+    // Populate the organization details on the page
+
+    // CHANGE
+    // Any details from previous pages are put here
+    // change each columnName with the actual column name
+    // can add more if needed
+    document.getElementById("Item").innerText = details.Item;
+    document.getElementById("Age").innerText = details.Age;
+    document.getElementById("Gender").innerText = details.Gender;
+    document.getElementById("Season").innerText = details.Season;
+</script>
+
+</body>
+</html>
