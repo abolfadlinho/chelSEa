@@ -43,7 +43,7 @@
                 <!-- PUT here details -->
                 <!-- leave the class -->
                 <!-- change id and colName1 -->
-                <p class="column-name">Organization Name: <span id="columnName1">Orman</span></p>
+                <p class="column-name">Organization Name: <span id="name">Orman</span></p>
                 <p class="column-name">Email: <span id="columnName1">example@example.com</span></p>
                 <p class="column-name">Phone Number: <span id="columnName1">+201000000000</span></p>
                 <p class="column-name">Address: <span id="columnName1">221B Baker Street</span></p>
@@ -66,13 +66,23 @@
 <script>
     function approveSubmission() {
         alert('Submission Approved');
-        window.location.href = 'pendingOrganizations.html';
+        window.location.href = 'pendingOrganizations.html?deleted=' + myName;
     }
 
     function rejectSubmission() {
         alert('Submission Rejected');
-        window.location.href = 'pendingOrganizations.html';
+        window.location.href = 'pendingOrganizations.html?deleted=' + myName;
     }
+
+    
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    const myName = getQueryParam('name');
+    const variableSpan = document.getElementById('name');
+    variableSpan.innerText = myName;
 </script>
 
 </body>

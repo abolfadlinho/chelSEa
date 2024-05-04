@@ -32,30 +32,40 @@
                 </tr>
             </thead>
             <tbody id="table-body">
-                <tr>
-                    <td>Charity A</td>
+                <tr id="Orman">
+                    <td>Orman</td>
                     <td>Health</td>
-                    <td><a href="organization2.html">Review Submission</a></td>
+                    <td><a href="organization2.html?name=Orman">Review Submission</a></td>
                 </tr>
-                <tr>
-                    <td>Charity B</td>
+                <tr id="Resala">
+                    <td>Resala</td>
                     <td>Orphanages</td>
-                    <td><a href="organization2.html">Review Submission</a></td>
+                    <td><a href="organization2.html?name=Resala">Review Submission</a></td>
                 </tr>
-                <tr>
-                    <td>Charity C</td>
+                <tr id="57357">
+                    <td>57357</td>
                     <td>Poverty</td>
-                    <td><a href="organization2.html">Review Submission</a></td>
+                    <td><a href="organization2.html?name=57357">Review Submission</a></td>
                 </tr>
-                <tr id="hardcodedRow">
-                    <td>Charity D</td>
+                <tr id="Food Bank">
+                    <td>Food Bank</td>
                     <td>Health</td>
-                    <td><a href="organization2.html">Review Submission</a></td>
+                    <td><a href="organization2.html?name=Food Bank">Review Submission</a></td>
                 </tr>
             </tbody>
         </table>
 </div>
+<script>
+    
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
 
+    const myName = getQueryParam('deleted');
+    const variableSpan = document.getElementById(myName);
+    variableSpan.style.display = 'none';
+</script>
 
 </body>
 </html>
