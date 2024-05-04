@@ -8,6 +8,10 @@
     margin: 100px auto;
     border-radius: 20px;
   }
+
+  #details-container #map{
+    margin: 30px auto;
+  }
   
   /* 
    * Optional: Makes the sample page fill the window. 

@@ -4,73 +4,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="./filter.css" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 <title>Teaching Posts</title>
 </head>
 <body>
-    <a href="requestedDonations.html"><button>Return to Dashboard</button></a>
-<h2>Teaching Posts</h2>
-<div id="list-container">
-    <div class="filter-container">
-        <h3>Filters</h3>
-        <div class="filter-column-container">
-            <div class="filter-column">Subject</div>
-            <select id="filter-select-subject">
-                <option value="">All</option>
-                <option value="Mathematics">Mathematics</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="History">History</option>
-            </select>
-        </div>
-
-        <div class="filter-column-container">
-            <div class="filter-column">Governorate</div>
-            <select id="filter-select-governorate">
-                <option value="">All</option>
-                <option value="Cairo">Cairo</option>
-                <option value="Alexandria">Alexandria</option>
-                <option value="Giza">Giza</option>
-                <option value="Refugee">Aswan</option>
-            </select>
-        </div>
-    
-        <div class="filter-column-container">
-            <div class="filter-column">Area</div>
-            <select id="filter-select-area">
-                <option value="">All</option>
-                <option value="New Cairo">New Cairo</option>
-                <option value="Haram">Haram</option>
-                <option value="Heliopolis">Heliopolis</option>
-                <option value="Sheikh Zayed">Sheikh Zayed</option>
-            </select>
-        </div>
-
-        <button onclick="filterSearchAll()">Filter Area</button>
-    </div>
-
-    <div id="table-container">
-        
-        <div class="search-bar">
-            <input type="text" class="input" id="search-input" placeholder="Search Subject.." onkeyup="search('subject')"/>
-            <div class='search-icon'>
-              <img src="../images/search.png"></img>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="../images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <li><a href="donorDashboard.html">Dashboard</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
             </div>
         </div>
-        <input type="text" id="search-input" placeholder="Search Subject..." onkeyup="search('subject')">
-        <table>
-            <thead>
-                <tr>
-                    <th>Subject</th>
-                    <th>Governorate</th>
-                    <th>Area</th>
-                    <th>Organization</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-            </tbody>
-        </table>
+    </nav>
+<div id="container">
+    <h1>Teaching Posts</h1>
+    <div id="list-container">
+        <div id="filter-container">
+            <h3 class="line-below">Filters</h3>
+            <div class="filter-column-container line-below">
+                <div class="filter-column">Subject:</div>
+                <select id="filter-select-subject" onchange="filter('subject')">
+                    <option value="">All</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="History">History</option>
+                </select>
+            </div>
+
+            <div class="filter-column-container line-below" onchange="filter('governorate')">
+                <div class="filter-column">Governorate:</div>
+                <select id="filter-select-governorate">
+                    <option value="">All</option>
+                    <option value="Cairo">Cairo</option>
+                    <option value="Alexandria">Alexandria</option>
+                    <option value="Giza">Giza</option>
+                    <option value="Refugee">Aswan</option>
+                </select>
+            </div>
+        
+            <div class="filter-column-container line-below" onchange="filter('area')">
+                <div class="filter-column">Area:</div>
+                <select id="filter-select-area">
+                    <option value="">All</option>
+                    <option value="New Cairo">New Cairo</option>
+                    <option value="Haram">Haram</option>
+                    <option value="Heliopolis">Heliopolis</option>
+                    <option value="Sheikh Zayed">Sheikh Zayed</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button class="neutral-button" onclick="resetFilters()">Reset Filters</button>
+            </div>
+        </div>
+
+        <div id="table-search-container">
+            
+            <div class="search-bar">
+                <input type="text" class="input" id="search-input" placeholder="Search Subject.." onkeyup="search('subject')"/>
+                <div class='search-icon'>
+                <img src="../images/search-icon.png"></img>
+                </div>
+            </div>
+            <!-- <input type="text" id="search-input" placeholder="Search Subject..." onkeyup="search('subject')"> -->
+            <div id="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Governorate</th>
+                            <th>Area</th>
+                            <th>Organization</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -98,6 +114,8 @@
                 organization: "HSC"
         }
     }
+
+    columnNames = ["subject","governorate", "area"]
 
     function display(){
         const tableBody = document.getElementById("table-body")
@@ -140,6 +158,15 @@
             delete filters[columnName]
         }else{
             filters = {...filters, [columnName]:selectValue};
+        }
+        display()
+    }
+
+    function resetFilters(){
+        filters = {}
+        for(columnName of columnNames){
+            const filterSelect = document.getElementById('filter-select-'+columnName)
+            filterSelect.value = ""
         }
         display()
     }

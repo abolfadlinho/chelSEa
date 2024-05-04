@@ -4,69 +4,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOUR TITLE</title>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<title>Teaching Posts</title>
 </head>
 <body>
-    <a href="requestedDonations.html"><button>Back</button></a>
-<h2>Title</h2>
-<div class="filter-container">
-    <!-- change values to your values and columnNames to your column names -->
-    <select id="filter-select-specialty">
-        <option value="">All</option>
-        <option value="Pediatric">Pediatric</option>
-        <option value="Neurology">Neurology</option>
-        <option value="Orthopedic">Orthopedic</option>
-        <option value="Cardiology">Cardiology</option>
-    </select>
-    <button onclick="filter('specialty')">Filter Specialty</button>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="../images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <!-- CHANGE ORGS -->
+                    <!-- Change href to your orgs dashboard -->
+                    <li><a href="donorDashboard.html">Dashboard</a></li>
+                    <!-- END CHANGE ORGS -->
+                    <!-- CHANGE -->
+                    <li><a href="requestedDonations.html">Donation Categories</a></li>
+                    <!-- END CHANGE -->
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div id="container">
+    <h1>Medical Cases</h1>
+    <div id="list-container">
+        <div id="filter-container">
+            <h3 class="line-below">Filters</h3>
+            <div class="filter-column-container line-below">
+                <!-- CHANGE -->
+                <!-- change all colName1 to your column name -->
+                <!-- change all value1/2/3 to your values -->
+                <div class="filter-column">Specialty:</div>
+                <select id="filter-select-specialty" onchange="filter('specialty')">
+                    <option value="">All</option>
+                    <option value="Pediatric">Pediatric</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Orthopedic">Orthopedic</option>
+                    <option value="Cardiology">Cardiology</option>
+                </select>
+                <!-- END CHANGE -->
+            </div>
 
-    <!-- change values to your values and columnNames to your column names -->
-    <select id="filter-select-organizationName">
-        <option value="">All</option>
-        <option value="Grey Sloan Memorial Hospital">Grey Sloan Memorial Hospital</option>
-        <option value="Burke Hospital">Burke Hospital</option>
-        <option value="Shepard Hospital">Shepard Hospital</option>
-        <option value="Yang Hospital">Yang Hospital</option>
-    </select>
-    <button onclick="filter('organizationName')">Filter Organization</button>
+            <div class="filter-column-container line-below">
+                <!-- CHANGE -->
+                <!-- change all colName1 to your column name -->
+                <!-- change all value1/2/3 to your values -->
+                <div class="filter-column">Organization:</div>
+                <select id="filter-select-organizationName" onchange="filter('organizationName')">
+                    <option value="">All</option>
+                    <option value="Grey Sloan Memorial Hospital">Grey Sloan Memorial Hospital</option>
+                    <option value="Burke Hospital">Burke Hospital</option>
+                    <option value="Shepard Hospital">Shepard Hospital</option>
+                    <option value="Yang Hospital">Yang Hospital</option>
+                </select>
+                <!-- END CHANGE -->
+            </div>
+        
+            <div class="filter-column-container line-below">
+                <!-- CHANGE -->
+                <!-- change all colName1 to your column name -->
+                <!-- change all value1/2/3 to your values -->
+                <div class="filter-column">Governorate:</div>
+                <select id="filter-select-governorate" onchange="filter('governorate')">
+                    <option value="">All</option>
+                    <option value="Cairo">Cairo</option>
+                    <option value="Alexandria">Alexandria</option>
+                    <option value="Giza">Giza</option>
+                    <option value="Refugee">Aswan</option>
+                </select>
+                <!-- END CHANGE -->
+            </div>
 
-    <select id="filter-select-governorate">
-        <option value="">All</option>
-        <option value="Cairo">Cairo</option>
-        <option value="Alexandria">Alexandria</option>
-        <option value="Giza">Giza</option>
-        <option value="Refugee">Aswan</option>
-    </select>
-    <button onclick="filter('governorate')">Filter Governorate</button>
+            <div class="filter-column-container line-below">
+                <!-- CHANGE -->
+                <!-- change all colName1 to your column name -->
+                <!-- change all value1/2/3 to your values -->
+                <div class="filter-column">Area:</div>
+                <select id="filter-select-area" onchange="filter('area')">
+                    <option value="">All</option>
+                    <option value="New Cairo">New Cairo</option>
+                    <option value="Haram">Haram</option>
+                    <option value="Heliopolis">Heliopolis</option>
+                    <option value="Sheikh Zayed">Sheikh Zayed</option>
+                </select>
+                <!-- END CHANGE -->
+            </div>
 
-    <select id="filter-select-area">
-        <option value="">All</option>
-        <option value="New Cairo">New Cairo</option>
-        <option value="Haram">Haram</option>
-        <option value="Heliopolis">Heliopolis</option>
-        <option value="Sheikh Zayed">Sheikh Zayed</option>
-    </select>
-    <button onclick="filter('area')">Filter Area</button>
+            <div class="button-container">
+                <button class="neutral-button" onclick="resetFilters()">Reset Filters</button>
+            </div>
+        </div>
 
+        <div id="table-search-container">
+            
+            <div class="search-bar">
+                <!-- CHANGE -->
+                <!-- Change colName to column name to search for -->
+                <input type="text" class="input" id="search-input" placeholder="Search Organization.." onkeyup="search('organizationName')"/>
+                <div class='search-icon'>
+                <img src="../images/search-icon.png"></img>
+                </div>
+            </div>
+            <!-- <input type="text" id="search-input" placeholder="Search Subject..." onkeyup="search('subject')"> -->
+            <div id="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <!-- CHANGE -->
+                            <th>Specialty</th>
+                            <th>Organization Name</th>
+                            <th>Area</th>
+                            <th>Governorate</th>
+                            <!-- END CHANGE -->
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-<table>
-    <thead>
-        <tr>
-            <th>Specialty</th>
-            <th>Organization Name</th>
-            <th>Area</th>
-            <th>Governorate</th>
-        </tr>
-    </thead>
-    <tbody id="table-body">
-    </tbody>
-</table>
 
 
 <script>
     var filters = {}
     var searches = {}
-    // Change column names and values
+    // CHANGE
+    // replace all colName1/2/3/4 with  your column names
+    // replace all value1/2/3/4 with your values
+    // add rows if needed (same incremental naming so if added a row name it 'row3')
     var originalRows  = {
         row0:{
                 specialty:"Pediatric",
@@ -88,6 +157,13 @@
             }
     }
 
+    // ENDCHANGE
+
+    //CHANGE
+    // make sure all column names are here
+    columnNames = ["speciality","organizationName", "governorate","area"]
+    // END CHANGE
+
     function display(){
         const tableBody = document.getElementById("table-body")
         var text = ""
@@ -108,12 +184,12 @@
             if(!flag){
                 continue
             }
-            console.log(rowName)
             text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">` // Assuming single digits
             
             for(col in row){
                 text+=`<td name=${col}>${row[col]}</td>` 
             }
+            index++
             text+="</tr>"
         }
         tableBody.innerHTML = text
@@ -133,20 +209,35 @@
         display()
     }
 
-function search(columnName){
-    const inputValue = document.getElementById('search-input').value.toLowerCase()
-    if(inputValue==""){
-        delete searches[columnName]
-    }else{
-        searches = {...searches, [columnName]:inputValue}
+    function resetFilters(){
+        filters = {}
+        for(columnName of columnNames){
+            const filterSelect = document.getElementById('filter-select-'+columnName)
+            filterSelect.value = ""
+        }
+        display()
     }
-    display()
-}
+
+    function search(columnName){
+        // onkeypress introduces a delay that the value is behind by one key press
+        const inputValue = document.getElementById('search-input').value.toLowerCase()
+        if(inputValue==""){
+            delete searches[columnName]
+        }else{
+            searches = {...searches, [columnName]:inputValue}
+        }
+        display()
+    }
+
 
 function passToNextPage(rowName) {
     obj = originalRows[rowName]
+    // CHANGE
+    // Replace with next page for details
     window.location = "medicalCase.html?" + encodeURIComponent(JSON.stringify(obj));
+    //ENDCHANGE
 }
+
 
 </script>
 </body>
