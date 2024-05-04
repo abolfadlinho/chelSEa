@@ -33,23 +33,34 @@
                 </tr>
             </thead>
             <tbody id="table-body">
-                <tr>
+                <tr id="Ahmed">
                     <td>Ahmed</td>
                     <td>Teacher</td>
-                    <td><a href="donor2.html">Review Submissions</a></td></button>
+                    <td><a href="donor2.html?name=Ahmed">Review Submissions</a></td></button>
                 </tr>
-                <tr>
+                <tr id="Ali">
                     <td>Ali</td>
                     <td>Doctor</td>
-                    <td><a href="donor2.html">Review Submissions</a></td></button>
+                    <td><a href="donor2.html?name=Ali">Review Submissions</a></td></button>
                 </tr>
-                <tr>
-                    <td>Shiko</td>
+                <tr id="Shaker">
+                    <td>Shaker</td>
                     <td>Doctor</td>
-                    <td><a href="donor2.html">Review Submissions</a></td></button>
+                    <td><a href="donor2.html?name=Shaker">Review Submissions</a></td></button>
                 </tr>
             </tbody>
         </table>
     </div>
+    
+    <script>
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const myName = getQueryParam('deleted');
+        const variableSpan = document.getElementById(myName);
+        variableSpan.style.display = 'none';
+    </script>
 </body>
 </html>
