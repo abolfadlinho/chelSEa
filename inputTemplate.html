@@ -145,6 +145,8 @@
                 </div>
               </div>
               <!-- End Drop Down -->
+              <div class="flex-container column-value"><h3>Choose Date:</h3><input type="date" id="date" name="date"></div>
+              <div class="flex-container column-value"><h3>Choose Time:</h3><input type="time" id="time" name="time"></div>
               
 
 
@@ -173,7 +175,15 @@
       return
     }
 
-   
+    if(date && date.value==""){
+      alert("Fill out date field")
+      return
+    }
+    if(time && time.value==""){
+      alert("Fill out time field")
+      return
+    }
+
     // Check if all radio buttons and checkboxes are selected
     var checkboxes = []
     // CHANGE

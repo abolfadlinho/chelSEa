@@ -61,7 +61,7 @@ select:hover, option:hover,button:hover,input[type="submit"]:hover,tbody tr:hove
 }
 
 #container{
-  padding: 0;
+  padding: 0 20px;
 }
 
 h1{
@@ -92,12 +92,20 @@ h1{
     margin-bottom: 40px;
   }
 
+  .filter-column{
+    display: flex;
+    align-items: center;
+  }
+
 #filter-container select{
   font-size: 13px;
   width: 140px;
-  background-color: var(--lighter-grey);
+  background-color: var(--dark-grey);
+  padding: 5px 5px;
   border: none;
+  border-radius: 10px;
   text-overflow: ellipsis;
+  overflow: hidden;
   margin: 0 10px 0 auto;
 }
 
@@ -320,4 +328,8 @@ table tr:last-child td:last-child {
   #details-container span{
     font-size: 18px;
     font-weight: normal;
+  }
+
+  #details-container .column-value{
+    margin-bottom: 20px;
   }
