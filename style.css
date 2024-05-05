@@ -8,6 +8,7 @@
   --black:#111111;
   --nav-text-color:#323232;
   --positive-color:#3bedb7;
+  --negative-color:#ce1717;
   --focus-color:#02ccda;
 }
 body{
@@ -276,6 +277,7 @@ table tr:last-child td:last-child {
   .button-container{
     display: flex;
     justify-content: center;
+    position: relative;
   }
 
   button,input[type="submit"]{
@@ -294,6 +296,15 @@ table tr:last-child td:last-child {
     background-color: var(--positive-color);
     padding: 15px 30px;
     border-radius: 40px;
+  }
+
+  .negative-button{
+    font-size: 16px;
+    color: white;
+    background-color: var(--negative-color);
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 
   input[type="submit"],.submit{
