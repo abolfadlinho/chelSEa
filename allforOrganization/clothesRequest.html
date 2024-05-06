@@ -6,7 +6,6 @@
 <title>Clothes Request</title>
 <link rel="stylesheet" type="text/css" href="./input.css" />
 <link rel="stylesheet" type="text/css" href="./style.css" />
-<<<<<<< HEAD
 <script type="module" src="D:\chelSEa\allforOrganization\dropDown.js"></script>
 
 </head>
@@ -76,77 +75,16 @@
                   <li>
                     <input type="radio" id="value1-option" name="ColName5">
                     <label for="value1-option">Male</label>
-=======
-<link rel="stylesheet" type="text/css" href="./radioButton.css" />
-</head>
-<body>
-
-
-
-  <nav>
-    <div id="nav-bar">
-        <div id="left">
-            <img class="logo" src="../images/logo.svg" alt="logo">
-        </div>
-        <div id="right">
-            <ul>
-                <li><a href="organizationDashboard.html">Dashboard</a></li>
-                <li><a href="creatingdonationpost.html">Create Post</a></li>
-                <li><a href="account.html">Account</a></li>
-            </ul>
-        </div>
-    </div>
-  </nav>
-<div class="form-container">
-  <div id="container">
-    <div id="details-container">
-        <h2 class="line-below white">Clothes Request</h2>
-        <form action="request()">
-            <div>
-              <div class="input-field">
-                  <input type="text" required spellcheck="false">
-                  <label>Enter Type</label>
-              </div>
-    
-              <div class="input-field">
-                <input type="text" required spellcheck="false">
-                <label>Enter material</label>
-              </div>
-            
-    
-              <div class="input-field">
-                <input type="text" required spellcheck="false">
-                <label>Enter age</label>
-              </div>
-    
-              <div class="input-field">
-                <input type="text" required spellcheck="false">
-                <label>Enter Quantity</label>
-            </div>
-    
-              <div class="radio-container">
-                <h3>Gender:</h3>
-                <ul>
-                  <li>
-                    <input type="radio" id="male-option" name="Gender">
-                    <label for="male-option">Male</label>
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
                     <div class="check"></div>
                   </li>
                   
                   <li>
-<<<<<<< HEAD
                     <input type="radio" id="value2-option" name="ColName5">
                     <label for="value2-option">Female</label>
-=======
-                    <input type="radio" id="female-option" name="Gender">
-                    <label for="female-option">Female</label>
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
                     
                     <div class="check"></div>
                   </li>
                 </ul>
-<<<<<<< HEAD
                 <!-- END CHANGE -->
               </div>
               <!-- End radio buttons -->
@@ -162,57 +100,30 @@
                   <li>
                     <input type="checkbox" id="value3-option" name="ColName6">
                     <label for="value3-option">Winter</label>
-=======
-              </div>
-    
-          
-              <div class="radio-container">
-                <h3>Season:</h3>
-                <ul>
-                  <li>
-                    <input type="checkbox" id="Winter-option" name="Season">
-                    <label for="Winter-option">Winter</label>
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
                     <div class="check"></div>
                   </li>
                   
                   <li>
-<<<<<<< HEAD
                     <input type="checkbox" id="value4-option" name="ColName6">
                     <label for="value4-option">Summer</label>
-=======
-                    <input type="checkbox" id="Summer-option" name="Season">
-                    <label for="Summer-option">Summer</label>
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
                     
                     <div class="check"></div>
                   </li>
     
                   <li>
-<<<<<<< HEAD
                     <input type="checkbox" id="value5-option" name="ColName6">
                     <label for="value5-option">Autumn</label>
-=======
-                    <input type="checkbox" id="Autumn-option" name="Season">
-                    <label for="Autumn-option">Autumn</label>
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
                     
                     <div class="check"></div>
                   </li>
     
                   <li>
-<<<<<<< HEAD
                     <input type="checkbox" id="value6-option" name="ColName6">
                     <label for="value6-option">Spring</label>
-=======
-                    <input type="checkbox" id="Spring-option" name="Season">
-                    <label for="Spring-option">Spring</label>
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
                     
                     <div class="check"></div>
                   </li>
                 </ul>
-<<<<<<< HEAD
                 
               </div>
              
@@ -222,13 +133,6 @@
 
             <div class="button-container">
                 <button class="positive-button submit" onclick="requestDonation(event)">Request</button>   
-=======
-              </div>
-            <div class="button-container">
-
-              <input type="submit" class="positive-button" value="Request" onclick="request()">
-                <!-- <button class="positive-button" onclick="request()">Fulfill Request</button>    -->
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
             </div>
         </form>
     </div>
@@ -268,7 +172,6 @@
 
    
 
-<<<<<<< HEAD
     // Check if all radio buttons and checkboxes are selected
     var checkboxes = []
     // CHANGE
@@ -278,30 +181,6 @@
     // END CHANGE
     var atLeastOneChecked = false;
     console.log(checkboxes);
-=======
-  function request(){
-    // Check if all text field are entered
-    var inputs = document.querySelectorAll('input[type="text"]');
-    var allFilled = true;
-
-    inputs.forEach(function(input) {
-        if (input.value === '') {
-            allFilled = false;
-        }
-    });
-
-    if(!allFilled){
-      // will use built in fill this field prompt
-      return
-    }
-
-   
-    // Check if all radio buttons and checkboxes are selected
-    var checkboxes = []
-    checkboxes.push(document.querySelectorAll('input[name="Gender"]'))
-    checkboxes.push(document.querySelectorAll('input[name="Season"]'));
-    var atLeastOneChecked = false;
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
     for(checkboxElement of checkboxes){
       checkboxElement.forEach(function(checkbox) {
           if (checkbox.checked) {
@@ -313,21 +192,12 @@
           // At least one checkbox is checked
           // Perform your action here
           console.log(checkboxElement[0]);
-<<<<<<< HEAD
           alert(`Fill out all fields`);
-=======
-          alert(`Fill out ${checkboxElement[0].name} field`);
->>>>>>> 2bd1d6b5f026c1730d2d87d82a417491a090cd83
           return;
       }
       atLeastOneChecked = false;
     }
     
-
-    // if (!season.checked||!gender.checked) {
-    //     alert("Please fill out all fields.");
-    //     return;
-    // }
 
     alert("Request has been submitted");
     // CHANGE
