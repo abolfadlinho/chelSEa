@@ -335,7 +335,13 @@ input[type=date]:focus,input[type=date]:active{
   color: var(--light-black);
   outline: none;
 }
-/* 
-input[type=date]::-webkit-datetime-edit-year-field, input[type=date]::-webkit-datetime-edit-month-field, input[type=date]::-webkit-datetime-edit-week-field, input[type=date]::-webkit-datetime-edit-day-field{
-  color: red;
-} */
+
+/* Sign In / Register */
+
+#switch-container{
+  text-align: center;
+}
+
+#switch-container a{
+  color: var(--focus-color);
+}

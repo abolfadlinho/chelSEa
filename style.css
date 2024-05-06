@@ -8,7 +8,8 @@
   --black:#111111;
   --nav-text-color:#323232;
   --positive-color:#3bedb7;
-  --focus-color:#02ccda;
+  --negative-color:#ce1717;
+  --focus-color:#7731d8;
 }
 body{
   background-color: var(--lighter-grey);
@@ -23,7 +24,7 @@ select:hover, option:hover,button:hover,input[type="submit"]:hover,tbody tr:hove
 }
 
 #nav-bar{
-  background-color: var(--dark-grey);
+  background-color: var(--lighter-grey);
   display: flex;
   padding: 0 30px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -45,15 +46,27 @@ select:hover, option:hover,button:hover,input[type="submit"]:hover,tbody tr:hove
 
 #nav-bar ul{
   display: flex;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
 }
 
 #nav-bar ul li{
+  display: flex;
+  align-items: center;
   list-style-type: none;
   margin-left: 50px;
 }
 
+#nav-bar ul .nav-button-container{
+  margin-left: 25px;
+}
+
+#nav-bar ul .nav-button-container button{
+    font-size: 15px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
 
 #nav-bar ul li a{
   color: var(--nav-text-color);
@@ -65,7 +78,7 @@ select:hover, option:hover,button:hover,input[type="submit"]:hover,tbody tr:hove
 }
 
 h1{
-  font-size: 50px;
+  font-size: 60px;
   text-align: center;
   margin: 60px 0 100px 0;
 }
@@ -276,6 +289,7 @@ table tr:last-child td:last-child {
   .button-container{
     display: flex;
     justify-content: center;
+    position: relative;
   }
 
   button,input[type="submit"]{
@@ -291,9 +305,24 @@ table tr:last-child td:last-child {
 
   .positive-button{
     font-size: 16px;
-    background-color: var(--positive-color);
+    background-color: var(--focus-color);
+    color: white;
     padding: 15px 30px;
     border-radius: 40px;
+  }
+
+  .negative-button{
+    font-size: 16px;
+    color: white;
+    background-color: var(--negative-color);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .focus-button{
+    background-color: var(--focus-color);
+    color: white;
   }
 
   input[type="submit"],.submit{
@@ -315,7 +344,7 @@ table tr:last-child td:last-child {
   }
 
   #details-container h2{
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
     margin-bottom: 60px;
   }
@@ -332,4 +361,28 @@ table tr:last-child td:last-child {
 
   #details-container .column-value{
     margin-bottom: 20px;
+  }
+
+  #dashboard-container h1{
+    margin-bottom: 70px;
+  }
+
+  .dashboard-inner-container{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 5%;
+    margin: 20px 30px 50px 30px;
+  }
+
+  .dashboard-button{
+    background-color: var(--focus-color);
+    color: white;
+    font-size: 20px;
+    padding: 30px 30px;
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  #dashboard-container{
+    margin-top: 150px;
   }
