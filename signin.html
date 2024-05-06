@@ -36,14 +36,14 @@
         <!-- <form action="" onsubmit="requestDonation()"> -->
             <div>
               <div class="input-field">
-                  <input type="text" required spellcheck="false">
+                  <input type="text" id="email" required spellcheck="false">
                   <!-- CHANGE -->
                   <label>Email</label>
                   <!-- END CHANGE -->
               </div>
     
               <div class="input-field">
-                <input type="text" required spellcheck="false">
+                <input type="text" id="password" required spellcheck="false">
                 <!-- CHANGE -->
                 <label>Password</label>
                 <!-- END CHANGE -->
@@ -51,7 +51,7 @@
 
             <div id="switch-container">Not a member? <a href="register.html">Register</a></div>
             <div class="button-container">
-                <button class="positive-button submit" onclick="requestDonation(event)">Sign In</button>   
+                <button class="positive-button submit" onclick="signIn(event)">Sign In</button>   
             </div>
         </form>
     </div>
@@ -59,13 +59,21 @@
 </div>
 </body>
 <script>
-  function requestDonation(){
-    
-
-    alert("Request has been submitted");
-    // CHANGE
-    // change to desired page
-    window.location.href = "organizationDashboard.html";
+  function signIn(){
+    var email = document.getElementById("email")
+    var password = document.getElementById("password")
+    if(password=="pass"){
+      if(email=="donor@example.com"){
+        window.location.href = "donor/donorDashboard.html"
+      }
+      else if(email=="organization@example.com"){
+        window.location.href = "organization/organizationDashboard.html"
+      }else if(email=="admin@example.com"){
+        window.location.href = "admin/adminDashboard.html"
+      }
+    }
+    alert("Email or Password are incorrect")
+    return
 }
 </script>
 </html>
