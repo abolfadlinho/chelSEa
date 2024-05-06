@@ -65,9 +65,8 @@
                     <thead>
                         <tr>
                             <!-- CHANGE -->
-                            <th>Food Category</th>
-                            <th>Food Item</th>
                             <th>Requester</th>
+                            <th>Food Category</th>
                             <th>View Details</th>
 
                         </tr>
@@ -90,30 +89,26 @@
     // add rows if needed (same incremental naming so if added a row name it 'row3')
     var originalRows  = {
         row0: {
-                colName1: "Fruits and Vegetables",
-                colName3: "Apple",
                 colName2: "Hope Charity",
+                colName1: "Fruits and Vegetables",  
                 button: "<button onclick=\"viewDetails('Apple', 'Fruits and Vegetables')\">View Details</button>"
             },
 
         row1:{
-                colName1:"Canned Foods" ,
-                colName3:"Beans",
                 colName2:"Children Orphanage",
+                colName1:"Canned Foods" ,
                 button: "<button onclick=\"viewDetails('Beans', 'Canned Foods')\">View Details</button>"
                    
             },
         row2:{
-                colName1:"Fresh Meals",
-                colName3:"Roasted Chicken",
                 colName2:"Care Foundation",
+                colName1:"Fresh Meals",
                 button: "<button onclick=\"viewDetails('Roasted Chicken', 'Fresh Meals')\">View Details</button>"
                     
             },
         row3:{
-                colName1:"Baked Goods",
-                colName3:"Cake",
                 colName2:"Mosque",
+                colName1:"Baked Goods",
                 button: "<button onclick=\"viewDetails('Cake', 'Baked Goods')\">View Details</button>"
                      
             }
