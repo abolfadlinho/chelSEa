@@ -6,8 +6,7 @@
 <title>Update Request</title>
 <link rel="stylesheet" type="text/css" href="./input.css" />
 <link rel="stylesheet" type="text/css" href="./style.css" />
-<script type="module" src="D:\chelSEa\allforOrganization\dropDown.js"></script>
-
+<script type="module" src="./dropDown.js"></script>
 </head>
 <body>
   <nav>
@@ -44,7 +43,28 @@
             </div>
 
             
-           
+            <div class="dropdown-container">
+              <h3>Choose Blood Type:</h3>
+              <div class="dropdown">
+                <div class="select">
+                  <!-- Default value -->
+                    <span class="selected">O negative</span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li>O positive</li>
+                    <li>A negative</li>
+                    <li>A positive</li>
+                    <li>B negative</li>
+                    <li>B positive</li>
+                    <li>AB negative</li>
+                    <li>AB positive</li>
+                    <!-- MAKE Sure that this value is the same as the one above in span element with class="selected" -->
+                    <li class="active">O negative</li>
+                </ul>
+              </div>
+            </div>
+
 
 
             <!-- Radio buttons (only 1 choice) -->
@@ -55,25 +75,6 @@
               <!-- CHANGE -->
              
               <!-- End Drop Down -->
-              
-              <label for="itemcategory">Choose Blood Type:</label>
-              <select id="itemcategory" name="itemcategory">
-                <option value="clothes">O negative</option>
-                <option value="toys">O positive</option>
-                <option value="food">A negative</option>
-                <option value="medicalsupplies">A positive</option>
-                <option value="schoolsupplies">B negative</option>
-                <option value="blooddonations">B poitive</option>
-                <option value="ABnegative">AB negative</option>
-                <option value="ABpositive">AB positive</option>
-              </select>
-
-
-
-
-              
-
-
             <div class="button-container">
                 <button class="positive-button submit" onclick="requestDonation(event)">Request</button>   
             </div>

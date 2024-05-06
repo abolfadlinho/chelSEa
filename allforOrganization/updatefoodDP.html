@@ -6,7 +6,8 @@
 <title>Update Request</title>
 <link rel="stylesheet" type="text/css" href="./input.css" />
 <link rel="stylesheet" type="text/css" href="./style.css" />
-<script type="module" src="D:\chelSEa\allforOrganization\dropDown.js"></script>
+<script type="module" src="./dropDown.js"></script>
+
 
 </head>
 <body>
@@ -48,14 +49,37 @@
                 <!-- END CHANGE -->
               </div>
             
-              <label for="itemcategory">Choose Food Type:</label>
-              <select id="itemcategory" name="itemcategory">
-                <option value="clothes">Fruits & Vegetables</option>
-                <option value="toys">Canned Foods</option>
-                <option value="food">Fresh Meals</option>
-                <option value="medicalsupplies">Baked Goods</option>
-                
-              </select>
+
+
+
+              <div class="dropdown-container">
+                <h3>Choose Food Type:</h3>
+                <div class="dropdown">
+                  <div class="select">
+                    <!-- Default value -->
+                      <span class="selected">Fruits & Vegetables</span>
+                      <div class="caret"></div>
+                  </div>
+                  <ul class="menu">
+                      <li>Baked Goods</li>
+                      <li>Fresh Meals</li>
+                      <li>Canned Foods</li>
+                      <!-- MAKE Sure that this value is the same as the one above in span element with class="selected" -->
+                      <li class="active">Fruits & Vegetables</li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+              
               
 
 

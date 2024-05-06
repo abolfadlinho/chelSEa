@@ -32,46 +32,31 @@
       <!-- CHANGE -->
         <h2 class="line-below white">Create a Donation Post </h2>
 
-        <label for="itemcategory">Choose a Category for the Item:</label>
-        <select id="itemcategory" name="itemcategory">
-          <option value="clothes">Clothes</option>
-          <option value="toys">Toys</option>
-          <option value="food">Food</option>
-          <option value="medicalsupplies">Medical Supplies</option>
-          <option value="schoolsupplies">School Supplies</option>
-          <option value="blooddonations">Blood Donations</option>
-        </select>
-      
-        <!-- <form action="" onsubmit="requestDonation()"> -->
-          <!----  <div>
-              
-              <div class="dropdown-container" >
-                <h3>Choose a Category for the Item:</h3>
-                <div class="dropdown" >
-                  <div class="select">
-                   
-                      <span class="selected">Blood Donations</span>
-                      <div class="caret"></div>
-                  </div>
-                  <ul class="menu">
-                      <li>Clothes</li>
-                      <li>Toys</li>
-                      <li>Food</li>
-                      <li>School Supplies</li>
-                      <li>Medical Supplies</li>
-                      
-                      
-                      <li class="active">Blood Donations</li>
-                  </ul>
-                </div>
-              </div>
-              
-            -->
-              
+     
 
+
+
+        <div class="dropdown-container">
+          <h3>Choose a Category for the Item:</h3>
+          <div class="dropdown">
+            <div class="select" id="categorySelect">
+              <span class="selected">Blood Donations</span>
+              <div class="caret"></div>
+            </div>
+            <ul class="menu">
+              <li id="clothes">Clothes</li>
+              <li id="toys">Toys</li>
+              <li id="food">Food</li>
+              <li id="schoolSupplies">School Supplies</li>
+              <li id="medicalSupplies">Medical Supplies</li>
+              <li id="bloodDonations" class="active">Blood Donations</li>
+            </ul>
+          </div>
+        </div>
+        
 
             <div class="button-container">
-                <button class="positive-button submit" onclick="requestDonation(event)">Click to enter details of the item</button>   
+                <button class="positive-button submit" onclick="handleCategorySelection(event)">Click to enter details of the item</button>   
             </div>
         </form>
     </div>
@@ -79,47 +64,36 @@
 </div>
 </body>
 <script>
-  function requestDonation(){
-
-  
-
-// Adding an event listener to detect changes in the dropdown
-
-    // Getting the selected option
-    var selectedOption = document.getElementById("itemcategory").value;
-    switch(selectedOption) {
-
-    // Performing actions based on the selected category
-        case 'clothes':
-            // Action for Clothes category
-            window.location.href = "clothesRequest.html";
-            break;
-        case 'toys':
-            // Action for Toys category
-            window.location.href = "toysRequest.html";
-            break;
-        case 'food':
-            // Action for Food category
-            window.location.href = "foodRequest.html";
-            break;
-        case 'schoolsupplies':
-            // Action for School Supplies category
-            window.location.href = "schoolsuppliesRequest.html";
-            break;
-        case 'medicalsupplies':
-            // Action for Medical Supplies category
-            window.location.href = "medicalsuppliesRequest.html";
-            break;
-        case 'blooddonations':
-            // Action for Blood Donations category
-            window.location.href = "blooddonationsRequest.html";
-            break;
-        default:
-            // Default action if category is not recognized
-            window.location.href = "organizationDashboard.html"; // Default redirect
-    }
 
 
+function handleCategorySelection() {
+  var selectedCategory = document.querySelector('.menu .active').id;
+
+  // Switch case based on the selected category
+  switch (selectedCategory) {
+    case "clothes":
+      window.location.href = "clothesRequest.html";
+      break;
+    case "toys":
+      window.location.href = "toysRequest.html";
+      break;
+    case "food":
+      window.location.href = "foodRequest.html";
+      break;
+    case "schoolSupplies":
+      window.location.href = "schoolsuppliesRequest.html";
+      break;
+    case "medicalSupplies":
+      window.location.href = "medicalsuppliesRequest.html";
+      break;
+    case "bloodDonations":
+      window.location.href = "blooddonationsRequest.html";
+      break;
+    default:
+      console.log("Unknown category selected");
+  }
 }
+
+
 </script>
 </html>

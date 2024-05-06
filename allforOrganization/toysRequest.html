@@ -6,7 +6,7 @@
 <title>Toys Request</title>
 <link rel="stylesheet" type="text/css" href="./input.css" />
 <link rel="stylesheet" type="text/css" href="./style.css" />
-<script type="module" src="D:\chelSEa\allforOrganization\dropDown.js"></script>
+<script type="module" src="./dropDown.js"></script>
 
 </head>
 <body>
@@ -52,9 +52,7 @@
             
             <!-- Radio buttons (only 1 choice) -->
               <div class="radio-container">
-                <!-- CHANGE -->
-                <!-- replace ColName5 to your column name -->
-                <!-- replace value1/2/3 to your values -->
+               
                 <h3>Gender:</h3>
                 <ul>
                   <li>
@@ -72,53 +70,37 @@
                 </ul>
                 <!-- END CHANGE -->
               </div>
-              <!-- End radio buttons -->
-    
-          
-              <!-- Check boxes (can be multiple values) -->
+              
              
      
 
-              <label for="itemcategory">Choose Type of Toy:</label>
-              <select id="itemcategory" name="itemcategory">
-                <option value="clothes">Board Games</option>
-                <option value="toys">Stuffed Toys</option>
-                <option value="food">Dolls</option>
-                <option value="medicalsupplies">Sports</option>
-                <option value="schoolsupplies">Cars</option>
-                <option value="blooddonations">Outdoors</option>
-              </select>
-
-
-
-
-
-
-
-              <!-- End Check box -->
-              
-              <!-- Drop Down -->
-              <!-- CHANGE -->
-              <!-- <div class="dropdown-container">
-                <h3>Organization Type:</h3>
+              <div class="dropdown-container">
+                <h3>Choose Type of Toy:</h3>
                 <div class="dropdown">
                   <div class="select">
-                  
-                      <span class="selected">Charity</span>
+                    <!-- Default value -->
+                      <span class="selected">Dolls</span>
                       <div class="caret"></div>
                   </div>
                   <ul class="menu">
-                      <li>Public School</li>
-                      <li>Orphanage</li>
-                      <li>Hospital</li>
-                      <li>Church</li>
-                      <li>Mosque</li>
-                      
-                      <li class="active">Charity</li>
+                      <li>Board Games</li>
+                      <li>Stuffed Toys</li>
+                      <li>Sports</li>
+                      <li>Cars</li>
+                      <li>Outdoors</li>
+                     
+                      <!-- MAKE Sure that this value is the same as the one above in span element with class="selected" -->
+                      <li class="active">Dolls</li>
                   </ul>
                 </div>
-              </div>-->
-              <!-- End Drop Down -->
+              </div>
+
+
+
+
+
+
+
               <h2>Upload Photo of toy: </h2>
                   <input type="file"  name="toy_photo"></input>
               
