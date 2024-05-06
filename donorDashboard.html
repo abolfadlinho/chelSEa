@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<title>Admin Dashboard</title>
+</head>
+<body>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="../images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <!-- CHANGE ORGS -->
+                    <!-- Change href to your orgs dashboard -->
+                    <li><a href="donorDashboard.html">Dashboard</a></li>
+                    <li><a href="mailto:chelSEa@example.com">Contact Us</a></li>
+                    <li><a href="account.html">Account</a></li>      
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="dashboard-container">
+        <h1>Donor Dashboard</h1>
+        <div class="dashboard-inner-container">
+            <button class="dashboard-button" onclick="window.location.href='ViewAllDonationRequests.html'">View All Requested Donations</button>
+            <button class="dashboard-button" onclick="window.location.href='ViewClothesRequests.html'">View Clothes Requests</button>
+            <button class="dashboard-button" onclick="window.location.href='newBloodList.html'">Blood Donations List</button>
+        </div>
+
+        <div class="dashboard-inner-container">
+            <button class="dashboard-button" onclick="window.location.href='newMedicalList.html'">Medical Supplies List</button>
+            <button class="dashboard-button"  onclick="window.location.href='newFoodList.html'">Food Items List</button>
+            <button class="dashboard-button"  onclick="window.location.href='teachingPosts.html'">Teaching List</button>
+        </div>
+
+        <div class="dashboard-inner-container">
+            <button class="dashboard-button" onclick="window.location.href='vlssdr.html'">View List of School Supplies Donation Requests</button>
+            <button class="dashboard-button" onclick="window.location.href='vlotdr.html'">View List of Toy Donation Requests</button>
+            <button class="dashboard-button" onclick="window.location.href='newMedicalList.html'">View List of Medical Donation Requests</button>
+        </div>
+
+    </div>
+</body>
+</html>
