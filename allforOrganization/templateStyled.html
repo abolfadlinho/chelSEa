@@ -5,7 +5,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./style.css" />
-<title>Donor Contact Details</title>
+<title>Donor Details</title>
 </head>
 <body>
     <nav>
@@ -17,10 +17,10 @@
                 <ul>
                     <!-- CHANGE ORGS -->
                     <!-- Change href to your orgs dashboard -->
-                    <li><a href="organizationDashboard.html">Dashboard</a></li>
+                    <li><a href="donorDashboard.html">Dashboard</a></li>
                     <!-- END CHANGE ORGS -->
                     <!-- CHANGE -->
-                    <li><a href="fulfilledDonationposts.html">Fulfilled Donation Posts</a></li>
+                    <li><a href="prevPage.html">Previous Page name</a></li>
                     <!-- END CHANGE -->
                     <li><a href="account.html">Account</a></li>
                 </ul>
@@ -30,20 +30,23 @@
     
 <div id="container">
     <div id="details-container">
-        <h2 class="line-below white">Donor Contact Details</h2>
+        <h2 class="line-below white">Donor Details</h2>
         <div>
             <!-- CHANGE -->
             <!-- PUT here details -->
             <!-- leave the class -->
             <!-- change id and colName1 -->
-            <p class="column-name">Email:  <span id="columnName1">ahmed.mohamed@yahoo.com</span></p>
-            <p class="column-name">Contact Number: <span id="columnName2">010002020205</span></p>
-        
-            
+            <p class="column-name">columnName1: <span id="columnName1"></span></p>
+            <p class="column-name">columnName2: <span id="columnName1"></span></p>
+            <p class="column-name">columnName3: <span id="columnName1"></span></p>
+            <p class="column-name">columnName4: <span id="columnName1"></span></p>
+            <p class="column-name">columnName5: <span id="columnName1">value1</span></p>
 
             <!-- END CHANGE -->
         </div>
-        
+        <div class="button-container">
+            <button class="positive-button" onclick="fulfill()">Fulfill Request</button>   
+        </div>
     </div>
 </div>
 
@@ -61,8 +64,10 @@
     // Any details from previous pages are put here
     // change each columnName with the actual column name
     // can add more if needed
-   
-   
+    document.getElementById("columnName1").innerText = details.columnName1;
+    document.getElementById("columnName2").innerText = details.columnName2;
+    document.getElementById("columnName3").innerText = details.columnName3;
+    document.getElementById("columnName4").innerText = details.columnName4;
 </script>
 
 </body>

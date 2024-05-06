@@ -5,7 +5,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./style.css" />
-<title>Donor Contact Details</title>
+<title>Donation Post</title>
 </head>
 <body>
     <nav>
@@ -20,7 +20,7 @@
                     <li><a href="organizationDashboard.html">Dashboard</a></li>
                     <!-- END CHANGE ORGS -->
                     <!-- CHANGE -->
-                    <li><a href="fulfilledDonationposts.html">Fulfilled Donation Posts</a></li>
+                    <li><a href="donationposts.html">Previous Page name</a></li>
                     <!-- END CHANGE -->
                     <li><a href="account.html">Account</a></li>
                 </ul>
@@ -30,27 +30,33 @@
     
 <div id="container">
     <div id="details-container">
-        <h2 class="line-below white">Donor Contact Details</h2>
+        <h2 class="line-below white">Donation Post</h2>
         <div>
             <!-- CHANGE -->
             <!-- PUT here details -->
             <!-- leave the class -->
             <!-- change id and colName1 -->
-            <p class="column-name">Email:  <span id="columnName1">ahmed.mohamed@yahoo.com</span></p>
-            <p class="column-name">Contact Number: <span id="columnName2">010002020205</span></p>
-        
-            
-
+            <p class="column-name">Category: <span id="columnName1">Medical Supplies</span></p>
+            <p class="column-name">Medical Supply Name: <span id="columnName1">Thermometer</span></p>
+            <p class="column-name">Type: <span id="columnName1">Medical Equipment</span></p>
+            <p class="column-name">Quantity: <span id="columnName1">5</span></p>
             <!-- END CHANGE -->
         </div>
-        
+        <div class="button-container">
+            <button class="positive-button" onclick="fulfill()">Update Donation Post </button> 
+            <button class="negative-button" onclick="deleteItem()">Delete Donation Post </button>  
+        </div>
     </div>
 </div>
 
 <script>
     function fulfill() {
-        alert('Request Fulfilled');
-        window.location.href = 'teachingPosts.html';
+        //alert('Request Fulfilled');
+        window.location.href = 'updatemedicalsuppliesDP.html';
+    }
+    function deleteItem(){
+        alert("Item Deleted");
+        window.location.href = 'donationposts.html';
     }
 
     // Extract the organization details from the URL
@@ -61,8 +67,7 @@
     // Any details from previous pages are put here
     // change each columnName with the actual column name
     // can add more if needed
-   
-   
+    
 </script>
 
 </body>

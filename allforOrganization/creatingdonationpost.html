@@ -3,63 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create Donation Post Page</title>
+<title>Creating a Donation Post</title>
+<link rel="stylesheet" type="text/css" href="./input.css" />
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<script type="module" src="./dropDown.js"></script>
+
 </head>
 <body>
-    <a href="organizationDashboard.html"><button>Back</button></a>
-<h2>Creating a Donation Post</h2>
-<form id="donationPostForm" onsubmit="return validatedonationpost()">
-    
+  <nav>
+    <div id="nav-bar">
+        <div id="left">
+            <img class="logo" src="D:\chelSEa\allforOrganization\images\logo.svg" alt="logo">
+        </div>
+        <div id="right">
+            <ul>
+              <!-- CHANGE -->
+                <li><a href="organizationDashboard.html">Dashboard</a></li>
+               
+                <li><a href="account.html">Account</a></li>
+                <!-- END CHANGE -->
+            </ul>
+        </div>
+    </div>
+  </nav>
+<div id="input-container">
+  <div id="container">
+    <div id="details-container">
+      <!-- CHANGE -->
+        <h2 class="line-below white">Create a Donation Post </h2>
 
-    <label for="itemcategory">Choose a Category for the Item:</label>
-    <select id="itemcategory" name="itemcategory">
-      <option value="clothes">Clothes</option>
-      <option value="toys">Toys</option>
-      <option value="food">Food</option>
-      <option value="medicalsupplies">Medical Supplies</option>
-      <option value="schoolsupplies">School Supplies</option>
-      <option value="blooddonations">Blood Donations</option>
-    </select>
+        <label for="itemcategory">Choose a Category for the Item:</label>
+        <select id="itemcategory" name="itemcategory">
+          <option value="clothes">Clothes</option>
+          <option value="toys">Toys</option>
+          <option value="food">Food</option>
+          <option value="medicalsupplies">Medical Supplies</option>
+          <option value="schoolsupplies">School Supplies</option>
+          <option value="blooddonations">Blood Donations</option>
+        </select>
+      
+        <!-- <form action="" onsubmit="requestDonation()"> -->
+          <!----  <div>
+              
+              <div class="dropdown-container" >
+                <h3>Choose a Category for the Item:</h3>
+                <div class="dropdown" >
+                  <div class="select">
+                   
+                      <span class="selected">Blood Donations</span>
+                      <div class="caret"></div>
+                  </div>
+                  <ul class="menu">
+                      <li>Clothes</li>
+                      <li>Toys</li>
+                      <li>Food</li>
+                      <li>School Supplies</li>
+                      <li>Medical Supplies</li>
+                      
+                      
+                      <li class="active">Blood Donations</li>
+                  </ul>
+                </div>
+              </div>
+              
+            -->
+              
 
-    
-    <input type="submit" value="Click to enter details of the item">
-</form>
 
+            <div class="button-container">
+                <button class="positive-button submit" onclick="requestDonation(event)">Click to enter details of the item</button>   
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</body>
 <script>
+  function requestDonation(){
 
+  
 
-function validatedonationpost() {
+// Adding an event listener to detect changes in the dropdown
+
+    // Getting the selected option
     var selectedOption = document.getElementById("itemcategory").value;
     switch(selectedOption) {
-        case "clothes":
+
+    // Performing actions based on the selected category
+        case 'clothes':
+            // Action for Clothes category
             window.location.href = "clothesRequest.html";
             break;
-        case "toys":
+        case 'toys':
+            // Action for Toys category
             window.location.href = "toysRequest.html";
             break;
-        case "food":
+        case 'food':
+            // Action for Food category
             window.location.href = "foodRequest.html";
             break;
-        case "medicalsupplies":
-            window.location.href = "medicalsuppliesRequest.html";
-            break;
-        case "schoolsupplies":
+        case 'schoolsupplies':
+            // Action for School Supplies category
             window.location.href = "schoolsuppliesRequest.html";
             break;
-        case "blooddonations":
+        case 'medicalsupplies':
+            // Action for Medical Supplies category
+            window.location.href = "medicalsuppliesRequest.html";
+            break;
+        case 'blooddonations':
+            // Action for Blood Donations category
             window.location.href = "blooddonationsRequest.html";
             break;
         default:
+            // Default action if category is not recognized
             window.location.href = "organizationDashboard.html"; // Default redirect
     }
-    return false; // Prevent form submission
+
+
 }
-
-
-
-
-
 </script>
-
-</body>
 </html>

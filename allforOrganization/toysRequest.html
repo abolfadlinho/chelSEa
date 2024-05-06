@@ -4,102 +4,198 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Toys Request</title>
-<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
-<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+<link rel="stylesheet" type="text/css" href="./input.css" />
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<script type="module" src="D:\chelSEa\allforOrganization\dropDown.js"></script>
+
 </head>
 <body>
-    <a href="creatingdonationpost.html"><button>Back</button></a>
-<h1>Toys Request</h1>
-<div class="form-container">
-
-    <h2>Type:</h2>       
-      <ul>
-      <li>
-        <input type="radio" id="f-option" name="category" required>
-        <label for="f-option">Board Games</label>
-        <div class="check"></div>
-      </li>
-      
-      <li>
-        <input type="radio" id="s-option" name="category" required>
-        <label for="s-option">Stuffed Toys</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-
-      <li>
-        <input type="radio" id="d-option" name="category" required>
-        <label for="d-option">Dolls</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-
-      <li>
-        <input type="radio" id="sp-option" name="category" required>
-        <label for="sp-option">Sports</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-
-      <li>
-        <input type="radio" id="c-option" name="category" required>
-        <label for="c-option">Cars</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-
-      <li>
-        <input type="radio" id="o-option" name="category" required>
-        <label for="o-option">Outdoors</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-    </ul>
+  <nav>
+    <div id="nav-bar">
+        <div id="left">
+            <img class="logo" src="D:\chelSEa\allforOrganization\images\logo.svg" alt="logo">
+        </div>
+        <div id="right">
+            <ul>
+              <!-- CHANGE -->
+                <li><a href="organizationDashboard.html">Dashboard</a></li>
+                <li><a href="creatingdonationpost.html">Create Post</a></li>
+                <li><a href="account.html">Account</a></li>
+                <!-- END CHANGE -->
+            </ul>
+        </div>
+    </div>
+  </nav>
+<div id="input-container">
+  <div id="container">
+    <div id="details-container">
+      <!-- CHANGE -->
+        <h2 class="line-below white">Toys Request </h2>
+        <!-- END CHANGE -->
+        <!-- <form action="" onsubmit="requestDonation()"> -->
+            <div>
+              <div class="input-field">
+                  <input type="number" required spellcheck="false">
+                  <!-- CHANGE -->
+                  <label>Enter Age</label>
+                  <!-- END CHANGE -->
+              </div>
     
+              <div class="input-field">
+                <input type="number" required spellcheck="false">
+                <!-- CHANGE -->
+                <label>Enter Quantity</label>
+                <!-- END CHANGE -->
+              </div>
+            
+    
+            
+            <!-- Radio buttons (only 1 choice) -->
+              <div class="radio-container">
+                <!-- CHANGE -->
+                <!-- replace ColName5 to your column name -->
+                <!-- replace value1/2/3 to your values -->
+                <h3>Gender:</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="value1-option" name="ColName5">
+                    <label for="value1-option">Male</label>
+                    <div class="check"></div>
+                  </li>
+                  
+                  <li>
+                    <input type="radio" id="value2-option" name="ColName5">
+                    <label for="value2-option">Female</label>
+                    
+                    <div class="check"></div>
+                  </li>
+                </ul>
+                <!-- END CHANGE -->
+              </div>
+              <!-- End radio buttons -->
+    
+          
+              <!-- Check boxes (can be multiple values) -->
+             
+     
 
-    <h2>Age: </h2>
-    <div class="text-field">
-        <input type="number" required placeholder="Enter preferred age" name="age"></input>
-        <span></span>
+              <label for="itemcategory">Choose Type of Toy:</label>
+              <select id="itemcategory" name="itemcategory">
+                <option value="clothes">Board Games</option>
+                <option value="toys">Stuffed Toys</option>
+                <option value="food">Dolls</option>
+                <option value="medicalsupplies">Sports</option>
+                <option value="schoolsupplies">Cars</option>
+                <option value="blooddonations">Outdoors</option>
+              </select>
+
+
+
+
+
+
+
+              <!-- End Check box -->
+              
+              <!-- Drop Down -->
+              <!-- CHANGE -->
+              <!-- <div class="dropdown-container">
+                <h3>Organization Type:</h3>
+                <div class="dropdown">
+                  <div class="select">
+                  
+                      <span class="selected">Charity</span>
+                      <div class="caret"></div>
+                  </div>
+                  <ul class="menu">
+                      <li>Public School</li>
+                      <li>Orphanage</li>
+                      <li>Hospital</li>
+                      <li>Church</li>
+                      <li>Mosque</li>
+                      
+                      <li class="active">Charity</li>
+                  </ul>
+                </div>
+              </div>-->
+              <!-- End Drop Down -->
+              <h2>Upload Photo of toy: </h2>
+                  <input type="file"  name="toy_photo"></input>
+              
+
+
+            <div class="button-container">
+                <button class="positive-button submit" onclick="requestDonation(event)">Request</button>   
+            </div>
+        </form>
     </div>
-
-    <h2>Gender:</h2>       
-      <ul>
-      <li>
-        <input type="radio" id="male-option" name="gender" required>
-        <label for="male-option">Male</label>
-        <div class="check"></div>
-      </li>
-      
-      <li>
-        <input type="radio" id="female-option" name="gender" required>
-        <label for="female-option">Female</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-    </ul>
-
-    <h2>Quantity: </h2>
-    <div class="text-field">
-        <input type="number" required placeholder="Enter preferred quantity" name="quantity"></input>
-        <span></span>
-    </div>
-
-    <h2>Upload Photo of toy: </h2>
-    <input type="file" required name="toy_photo"></input>
-
-    <button onclick="validateForm()">Request</button>
+</div>
 </div>
 </body>
 <script>
-function validateForm() {
-    const category = document.querySelector('input[name="category"]:checked');
-    
-    const age = document.querySelector('input[name="age"]').value;
-    const gender = document.querySelector('input[name="gender"]:checked');
-    const quantity = document.querySelector('input[name="quantity"]').value;
-    const photo = document.querySelector('input[name="toy_photo"]').value;
+  function requestDonation(){
+    // Check if all text field are entered
+    var inputs = document.querySelectorAll('input[type="text"]');
+    var allFilled = true;
 
-    if (!category || !age || !gender || !quantity || !photo) {
-        alert("Please fill out all fields.");
-        return false;
+    inputs.forEach(function(input) {
+        if (input.value === '') {
+            allFilled = false;
+        }
+    });
+
+    if(!allFilled){
+      alert("Please enter all required fields")
+      return
     }
 
+    
+     inputs = document.querySelectorAll('input[type="number"]');
+     allFilled = true;
+
+    inputs.forEach(function(input) {
+        if (input.value === '') {
+            allFilled = false;
+        }
+    });
+
+    if(!allFilled){
+      alert("Please enter all required fields")
+      return
+    }
+
+
+
+    // Check if all radio buttons and checkboxes are selected
+    var checkboxes = []
+    // CHANGE
+    // Change ColName5/6 to column names of the ones you a checkbox or radio button for
+    checkboxes.push(document.querySelectorAll('input[name="ColName5"]'))
+    
+    // END CHANGE
+    var atLeastOneChecked = false;
+    console.log(checkboxes);
+    for(checkboxElement of checkboxes){
+      checkboxElement.forEach(function(checkbox) {
+          if (checkbox.checked) {
+              atLeastOneChecked = true;
+          }
+      });
+
+      if (!atLeastOneChecked) {
+          // At least one checkbox is checked
+          // Perform your action here
+          console.log(checkboxElement[0]);
+          alert(`Fill out ${checkboxElement[0].name} field`);
+          return;
+      }
+      atLeastOneChecked = false;
+    }
+    
+
     alert("Request has been submitted");
+    // CHANGE
+    // change to desired page
     window.location.href = "organizationDashboard.html";
 }
 </script>

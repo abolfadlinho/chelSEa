@@ -1,68 +1,254 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Update Organization Page</title>
+<title>Update Organization Information</title>
+<link rel="stylesheet" type="text/css" href="./input.css" />
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<script type="module" src="./dropDown.js"></script>
+
 </head>
 <body>
+  <nav>
+    <div id="nav-bar">
+        <div id="left">
+            <img class="logo" src="D:\chelSEa\allforOrganization\images\logo.svg" alt="logo">
+        </div>
+        <div id="right">
+          <ul>
+            <!-- CHANGE -->
+              <li><a href="organizationDashboard.html">Dashboard</a></li>
+              <li><a href="creatingdonationpost.html">Create Post</a></li>
+              <li><a href="account.html">Account</a></li>
+              <!-- END CHANGE -->
+          </ul>
+      </div>
+       
+    </div>
+  </nav>
+<div id="input-container">
+  <div id="container">
+    <div id="details-container">
+      <!-- CHANGE -->
+        <h2 class="line-below white">Update Organization Information</h2>
+        <!-- END CHANGE -->
+        <!-- <form action="" onsubmit="requestDonation()"> -->
+            <div>
+              <div class="input-field">
+                  <input type="text" required spellcheck="false" value="Ahmed">
+                  <!-- CHANGE -->
+                  <label>Enter First Name</label>
+                  <!-- END CHANGE -->
+              </div>
+    
+              <div class="input-field">
+                <input type="text" required spellcheck="false" value="Mostafa">
+                <!-- CHANGE -->
+                <label>Enter Last Name</label>
+                <!-- END CHANGE -->
+              </div>
+            
+    
+              <div class="input-field">
+                <input type="text" required spellcheck="false" value="ahmed.mostafa@yahoo.com">
+                <!-- CHANGE -->
+                <label>Enter Email</label>
+                <!-- END CHANGE -->
+              </div>
+    
+              <div class="input-field">
+                <input type="password" required spellcheck="false">
+                <!-- CHANGE -->
+                <label>Enter Old Password</label>
+                <!-- END CHANGE -->
+            </div>
 
-<h2>Update organization Information</h2>
-<form id="registerForm" onsubmit="return validateregister()">
-    <label for="firstname">First Name:</label>
-    <input type="text" id="firstname" name="firstname" value="Ahmed" required>
-    <label for="lastname">Last Name:</label>
-    <input type="text" id="lastname" name="lastname" value="Mostafa" required>
+            <div class="input-field">
+              <input type="password" required spellcheck="false">
+              <!-- CHANGE -->
+              <label>Enter New Password</label>
+              <!-- END CHANGE -->
+          </div>
+
+
+            <div class="input-field">
+                <input type="text"   required spellcheck="false" value="01003456">
+                <!-- CHANGE -->
+                <label>Enter Contact Number</label>
+                <!-- END CHANGE -->
+            </div>
+
+            <div class="input-field">
+                <input type="text"   required spellcheck="false" value="elnahda hospital">
+                <!-- CHANGE -->
+                <label>Enter Organization Name</label>
+                <!-- END CHANGE -->
+            </div>
+
+            <div class="input-field">
+                <input type="text"   required spellcheck="false" value="Heliopolis">
+                <!-- CHANGE -->
+                <label>Enter Area</label>
+                <!-- END CHANGE -->
+            </div>
+
+            <div class="input-field">
+                <input type="text"   required spellcheck="false" value="13,merghany">
+                <!-- CHANGE -->
+                <label>Enter Organization Address</label>
+                <!-- END CHANGE -->
+            </div>
+
+        
+            <div class="input-field">
+                <input type="text"   required spellcheck="false" value="Cairo">
+                <!-- CHANGE -->
+                <label>Enter Governorate</label>
+                <!-- END CHANGE -->
+            </div>
+
+            
+           
+
+
+            <!-- Radio buttons (only 1 choice) -->
+              <div class="radio-container">
+                <!-- CHANGE -->
+                <!-- replace ColName5 to your column name -->
+                <!-- replace value1/2/3 to your values -->
+                <h3>Gender:</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="value1-option" name="ColName5" checked>
+                    <label for="value1-option">Male</label>
+                    <div class="check"></div>
+                  </li>
+                  
+                  <li>
+                    <input type="radio" id="value2-option" name="ColName5">
+                    <label for="value2-option">Female</label>
+                    
+                    <div class="check"></div>
+                  </li>
+                </ul>
+                <!-- END CHANGE -->
+              </div>
+              <!-- End radio buttons -->
+    
+          
+              <!-- Check boxes (can be multiple values) -->
+              
+              <!-- End Check box -->
+              
+              <!-- Drop Down -->
+              <!-- CHANGE -->
+              <div class="dropdown-container">
+                <h3>Organization Type:</h3>
+                <div class="dropdown">
+                  <div class="select">
+                    <!-- Default value -->
+                      <span class="selected">Hospital</span>
+                      <div class="caret"></div>
+                  </div>
+                  <ul class="menu">
+                      <li>Public School</li>
+                      <li>Orphanage</li>
+                      <li>Charity</li>
+                      <li>Church</li>
+                      <li>Mosque</li>
+                      <!-- MAKE Sure that this value is the same as the one above in span element with class="selected" -->
+                      <li class="active">Hospital</li>
+                  </ul>
+                </div>
+              </div>
+
+              <label for="document-upload">Upload Document:</label>
+              <input type="file" id="document-upload" name="document-upload" multiple required>
+
+
+
+
+             
+              <!-- End Drop Down -->
+             
+              
+
+
+            <div class="button-container">
+                <button class="positive-button submit" onclick="requestDonation(event)">Request to Update</button>   
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+<script>
+  function requestDonation(){
+    // Check if all text field are entered
+    var inputs = document.querySelectorAll('input[type="text"]');
+    var allFilled = true;
+
+    inputs.forEach(function(input) {
+        if (input.value === '') {
+            allFilled = false;
+        }
+    });
+
+    if(!allFilled){
+      alert("Please enter all required fields")
+      return
+    }
+
+
+     inputs = document.querySelectorAll('input[type="password"]');
+     allFilled = true;
+
+    inputs.forEach(function(input) {
+        if (input.value === '') {
+            allFilled = false;
+        }
+    });
+
+    if(!allFilled){
+      alert("Please enter all required fields")
+      return
+    }
+
    
 
-    <label for="gender">Select Gender:</label>
-     <select id="gender" name="gender">
-       <option value="male" checked>Male</option>
-       <option value="female">Female</option>
-     </select>
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" value="ahmed.mostafa@yahoo.com" required>
-    <br>
-    <br>
-    <label for="password">old Password: hi</label>
-    <br>
-    <br>
-    <label for="password">New Password:</label>
-    <input type="password" id="password" name="password" required>
-    <br>
-    <br>
-    <label for="contactnumber">Contact Number:</label>
-    <input type="text" id="contactnumber" name="contactnumber" value="01003456" pattern="[0-9]*" title="Please enter only digits" required>
-    <label for="organizationname">Organization Name:</label>
-    <input type="text" id="organizationname" name="organizationname" value="elnahda hospital" required>
+    // Check if all radio buttons and checkboxes are selected
+    var checkboxes = []
+    // CHANGE
+    // Change ColName5/6 to column names of the ones you a checkbox or radio button for
+    checkboxes.push(document.querySelectorAll('input[name="ColName5"]'))
+   // checkboxes.push(document.querySelectorAll('input[name="ColName6"]'));
+    // END CHANGE
+    var atLeastOneChecked = false;
+    console.log(checkboxes);
+    for(checkboxElement of checkboxes){
+      checkboxElement.forEach(function(checkbox) {
+          if (checkbox.checked) {
+              atLeastOneChecked = true;
+          }
+      });
 
-    <label for="organizationtype">Select Organization Type:</label>
-    <select id="organizationtype" name="organizationtype">
-      <option value="charity">Charity</option>
-      <option value="hospital" checked>Hospital</option>
-      <option value="orphanage">Orphanage</option>
-      <option value="publicschool">Public School</option>
-      <option value="church">Church</option>
-      <option value="mosque">Mosque</option>
-    </select>
+      if (!atLeastOneChecked) {
+          // At least one checkbox is checked
+          // Perform your action here
+          console.log(checkboxElement[0]);
+          alert(`Fill out ${checkboxElement[0].name} field`);
+          return;
+      }
+      atLeastOneChecked = false;
+    }
+    
 
-    <label for="organizationaddress">Organization Address:</label>
-    <input type="text" id="organizationaddress" name="organizationaddress" value="13,merghany" required>
-    <label for="area">Area:</label>
-    <input type="text" id="area" name="area" value="Heliopolis" required>
-    <br>
-    <br>
-    <label for="governorate">Governorate:</label>
-    <input type="text" id="governorate" name="governorate" value="Cairo" required>
-    <input type="submit" value="Request to Update Information">
-</form>
-
-<script>
-function validateregister() {
-    window.location.href = "documentOrganVerification.html";
-    return false;
+    alert("Request has been submitted");
+    // CHANGE
+    // change to desired page
+    window.location.href = "organizationDashboard.html";
 }
 </script>
-
-</body>
 </html>

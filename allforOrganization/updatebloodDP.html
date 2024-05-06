@@ -3,92 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blood Donation Request</title>
-<!-- <link rel="stylesheet" type="text/css" href="./text.css" /> -->
-<!-- <link rel="stylesheet" type="text/css" href="./radioButton.css" /> -->
+<title>Update Request</title>
+<link rel="stylesheet" type="text/css" href="./input.css" />
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<script type="module" src="D:\chelSEa\allforOrganization\dropDown.js"></script>
+
 </head>
 <body>
-    <a href="donationposts.html"><button>Back to donation Posts</button></a>
-<h1>Blood Donation Request</h1>
-<div class="form-container">
-    
-
-    <h2>Blood Type:</h2>    
-    <ul>
-        <li>
-            <input type="radio" id="f-option" name="food_type" required checked>
-            <label for="f-option">O negative</label>
-            <div class="check"></div>
-        </li>
-        
-        <li>
-            <input type="radio" id="s-option" name="food_type" required>
-            <label for="s-option">O positive</label>
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-        <li>
-            <input type="radio" id="a-option" name="food_type" required>
-            <label for="a-option">A negative</label>
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-        <li>
-            <input type="radio" id="b-option" name="food_type" required>
-            <label for="b-option">A positive</label>
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-        <li>
-            <input type="radio" id="c-option" name="food_type" required>
-            <label for="c-option">B negative</label>
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-        <li>
-            <input type="radio" id="d-option" name="food_type" required>
-            <label for="d-option">B positive</label>
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-
-        <li>
-            <input type="radio" id="e-option" name="food_type" required>
-            <label for="e-option">AB negative</label>
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-        <li>
-            <input type="radio" id="g-option" name="food_type" required>
-            <label for="g-option">AB positive</label>
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-       
-    </ul>
-
-    <h2>Quantity(in liters): </h2>
-    <div class="text-field">
-        <input type="number" required placeholder="Enter required quantity" value="4" name="quantity"></input>
-        <span></span>
+  <nav>
+    <div id="nav-bar">
+        <div id="left">
+            <img class="logo" src="D:\chelSEa\allforOrganization\images\logo.svg" alt="logo">
+        </div>
+        <div id="right">
+            <ul>
+              <!-- CHANGE -->
+                <li><a href="organizationDashboard.html">Dashboard</a></li>
+                <li><a href="creatingdonationpost.html">Create Post</a></li>
+                <li><a href="account.html">Account</a></li>
+                <!-- END CHANGE -->
+            </ul>
+        </div>
     </div>
+  </nav>
+<div id="input-container">
+  <div id="container">
+    <div id="details-container">
+      <!-- CHANGE -->
+        <h2 class="line-below white">Update Request </h2>
+        <!-- END CHANGE -->
+        <!-- <form action="" onsubmit="requestDonation()"> -->
+            <div>
+              
+    
+            <div class="input-field">
+                <input type="number"  required spellcheck="false" value="4">
+                <!-- CHANGE -->
+                <label>Enter Quantity (in Liters)</label>
+                <!-- END CHANGE -->
+            </div>
 
-    <button onclick="request()">Update Donation Post</button>
+            
+           
+
+
+            <!-- Radio buttons (only 1 choice) -->
+            
+              <!-- End Check box -->
+              
+              <!-- Drop Down -->
+              <!-- CHANGE -->
+             
+              <!-- End Drop Down -->
+              
+              <label for="itemcategory">Choose Blood Type:</label>
+              <select id="itemcategory" name="itemcategory">
+                <option value="clothes">O negative</option>
+                <option value="toys">O positive</option>
+                <option value="food">A negative</option>
+                <option value="medicalsupplies">A positive</option>
+                <option value="schoolsupplies">B negative</option>
+                <option value="blooddonations">B poitive</option>
+                <option value="ABnegative">AB negative</option>
+                <option value="ABpositive">AB positive</option>
+              </select>
+
+
+
+
+              
+
+
+            <div class="button-container">
+                <button class="positive-button submit" onclick="requestDonation(event)">Request</button>   
+            </div>
+        </form>
+    </div>
+</div>
 </div>
 </body>
 <script>
-function request(){
+  function requestDonation(){
+    // Check if all text field are entered
+    var inputs = document.querySelectorAll('input[type="number"]');
+    var allFilled = true;
 
-    const foodType = document.querySelector('input[name="food_type"]:checked');
-    const quantity = document.querySelector('input[name="quantity"]').value;
+    inputs.forEach(function(input) {
+        if (input.value === '') {
+            allFilled = false;
+        }
+    });
 
-    if (!foodType || !quantity) {
-        alert("Please fill out all fields.");
-        return;
+    if(!allFilled){
+      alert("Please enter all required fields")
+      return
     }
 
-    alert("Update has been submitted");
-    window.location.href = "donationposts.html";
+   
+
+    // Check if all radio buttons and checkboxes are selected
+    var checkboxes = []
+    // CHANGE
+    // Change ColName5/6 to column names of the ones you a checkbox or radio button for
+   
+    // END CHANGE
+    var atLeastOneChecked = false;
+    console.log(checkboxes);
+    for(checkboxElement of checkboxes){
+      checkboxElement.forEach(function(checkbox) {
+          if (checkbox.checked) {
+              atLeastOneChecked = true;
+          }
+      });
+
+      if (!atLeastOneChecked) {
+          // At least one checkbox is checked
+          // Perform your action here
+          console.log(checkboxElement[0]);
+          alert(`Fill out ${checkboxElement[0].name} field`);
+          return;
+      }
+      atLeastOneChecked = false;
+    }
+    
+
+    alert("Request has been submitted");
+    // CHANGE
+    // change to desired page
+    window.location.href = "organizationDashboard.html";
 }
 </script>
 </html>

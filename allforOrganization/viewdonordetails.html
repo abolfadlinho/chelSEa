@@ -2,33 +2,76 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>donor details</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<title>Donor Details</title>
 </head>
 <body>
-    <a href="fulfilledDonationposts.html"><button>Back</button></a>
-
-<h2>Donor Details</h2>
-
-<div>
-    <!-- Change column names -->
-    <label for="name">First Name: Ahmed</label><br>
-    <label for="name2">Last Name: Mohamed</label><br>
-    <label for="message">Donor Type: Teacher</label><br>
+    <nav>
+        <div id="nav-bar">
+            <div id="left">
+                <img class="logo" src="./images/logo.svg" alt="logo">
+            </div>
+            <div id="right">
+                <ul>
+                    <!-- CHANGE ORGS -->
+                    <!-- Change href to your orgs dashboard -->
+                    <li><a href="organizationDashboard.html">Dashboard</a></li>
+                    <!-- END CHANGE ORGS -->
+                    <!-- CHANGE -->
+                    <li><a href="fulfilledDonationposts.html">Fulfilled Donation Posts</a></li>
+                    <!-- END CHANGE -->
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
+<div id="container">
+    <div id="details-container">
+        <h2 class="line-below white">Donor Details</h2>
+        <div>
+            <!-- CHANGE -->
+            <!-- PUT here details -->
+            <!-- leave the class -->
+            <!-- change id and colName1 -->
+            <p class="column-name">First Name: <span id="columnName1">Ahmed</span></p>
+            <p class="column-name">Last Name: <span id="columnName2">Mohamed</span></p>
+            <p class="column-name">Donor Type: <span id="columnName3">Teacher</span></p>
+            
 
+            <!-- END CHANGE -->
+        </div>
+        
+    </div>
 </div>
 
-
-
-
 <script>
+    function fulfill() {
+        alert('Request Fulfilled');
+        window.location.href = 'teachingPosts.html';
+    }
 
+    // Extract the organization details from the URL
+    var details = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
+    // Populate the organization details on the page
+
+    // CHANGE
+    // Any details from previous pages are put here
+    // change each columnName with the actual column name
+    // can add more if needed
    
-    
-
     
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+

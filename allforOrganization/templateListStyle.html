@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./style.css" />
-<title>Notifications</title>
+<title>Teaching Posts</title>
 </head>
 <body>
     <nav>
@@ -17,10 +17,10 @@
                 <ul>
                     <!-- CHANGE ORGS -->
                     <!-- Change href to your orgs dashboard -->
-                    <li><a href="organizationDashboard.html">Dashboard</a></li>
+                    <li><a href="donorDashboard.html">Dashboard</a></li>
                     <!-- END CHANGE ORGS -->
                     <!-- CHANGE -->
-                
+                    <li><a href="prevPage.html">Previous Page name</a></li>
                     <!-- END CHANGE -->
                     <li><a href="account.html">Account</a></li>
                 </ul>
@@ -28,7 +28,7 @@
         </div>
     </nav>
 <div id="container">
-    <h1>Notifications</h1>
+    <h1>Teaching Posts</h1>
     <div id="list-container">
         <div id="filter-container">
             <h3 class="line-below">Filters</h3>
@@ -36,22 +36,46 @@
                 <!-- CHANGE -->
                 <!-- change all colName1 to your column name -->
                 <!-- change all value1/2/3 to your values -->
-                <div class="filter-column">Category:</div>
-                <select id="filter-select-Category" onchange="filter('Category')">
+                <div class="filter-column">colName1:</div>
+                <select id="filter-select-colName1" onchange="filter('colName1')">
                     <option value="">All</option>
-                    <option value="Clothes">Clothes</option>
-                    <option value="Toys">Toys</option>
-                    <option value="Food">Food</option>
-                    <option value="Medical Supplies">Medical Supplies</option>
-                    <option value="School supplies">School Supplies</option>
-                    <option value="Blood Donations">Blood Donations</option>
+                    <option value="value1">value1</option>
+                    <option value="value2">value2</option>
+                    <option value="value3">value3</option>
+                    <option value="value4">value4</option>
                 </select>
                 <!-- END CHANGE -->
             </div>
 
-            
+            <div class="filter-column-container line-below">
+                <!-- CHANGE -->
+                <!-- change all colName1 to your column name -->
+                <!-- change all value1/2/3 to your values -->
+                <div class="filter-column">colName2:</div>
+                <select id="filter-select-colName2" onchange="filter('colName2')">
+                    <option value="">All</option>
+                    <option value="value1">value1</option>
+                    <option value="value2">value2</option>
+                    <option value="value3">value3</option>
+                    <option value="value4">value4</option>
+                </select>
+                <!-- END CHANGE -->
+            </div>
         
-           
+            <div class="filter-column-container line-below">
+                <!-- CHANGE -->
+                <!-- change all colName1 to your column name -->
+                <!-- change all value1/2/3 to your values -->
+                <div class="filter-column">colName3:</div>
+                <select id="filter-select-colName3" onchange="filter('colName3')">
+                    <option value="">All</option>
+                    <option value="value1">value1</option>
+                    <option value="value2">value2</option>
+                    <option value="value3">value3</option>
+                    <option value="value4">value4</option>
+                </select>
+                <!-- END CHANGE -->
+            </div>
 
             <div class="button-container">
                 <button class="neutral-button" onclick="resetFilters()">Reset Filters</button>
@@ -74,10 +98,10 @@
                     <thead>
                         <tr>
                             <!-- CHANGE -->
-                            <th>Category</th>
-                            <th>NotificationID</th>
-                            <th>Clear Notification</th>
-                            
+                            <th>ColumName1</th>
+                            <th>ColumName2</th>
+                            <th>ColumName3</th>
+                            <th>ColumName4</th>
                             <!-- END CHANGE -->
                         </tr>
                     </thead>
@@ -99,28 +123,30 @@
     // add rows if needed (same incremental naming so if added a row name it 'row3')
     var originalRows  = {
         row0:{
-                Category:"Clothes",
-                NotificationID:"1",
-                
+                colName1:"value1",
+                colName2:"value2",
+                colName3:"value3",
+                colName4: "value2"
             },
         row1:{
-                Category:"Toys",
-                NotificationID:"2",
-                
+                colName1:"value2",
+                colName2:"value1",
+                colName3:"value2",
+                colName4: "value1"
             },
         row2:{
-                Category:"Blood Donations",
-                NotificationID:"3",
-            
-            },
-        
+                colName1:"value3",
+                colName2:"value4",
+                colName3:"value2",
+                colName4: "value1"
+            }
     }
 
     // ENDCHANGE
 
     //CHANGE
     // make sure all column names are here
-    columnNames = ["Category"]
+    columnNames = ["colName1","colName2", "colName3"]
     // END CHANGE
 
     function display(){
@@ -149,14 +175,7 @@
                 text+=`<td name=${col}>${row[col]}</td>` 
             }
             index++
-           // text+="</tr>"
-
-            text += `<td>
-                
-                <button onclick="deleteRow('${rowName}')">Clear</button>
-            </td>`
-
-    text+="</tr>"
+            text+="</tr>"
         }
         tableBody.innerHTML = text
     }
@@ -194,58 +213,27 @@
         }
         display()
     }
-    
-function viewDetails(rowName) {
-    obj = originalRows[rowName]
-   
-   // window.location = "thedonationpost.html?" + encodeURIComponent(JSON.stringify(obj));
-  
-   
-   if (rowName == "row0") {
-    window.location = "clothesDetailsFul.html?";
-   }
-   else if(rowName == "row1"){
-    window.location = "toysDetailsFul.html?" + encodeURIComponent(JSON.stringify(obj));
-   }
-   else if(rowName == "row2"){
-    window.location = "blooddonationsDetailsFul.html?" + encodeURIComponent(JSON.stringify(obj));
-   }
-   else if(rowName == "row3"){
-    window.location = "schoolsuppliesDetailsFul.html?" + encodeURIComponent(JSON.stringify(obj));
-   }
-   else if(rowName == "row4"){
-    window.location = "medicalsuppliesDetailsFul.html?" + encodeURIComponent(JSON.stringify(obj));
-   }
-   else if(rowName == "row5"){
-    window.location = "foodDetailsFul.html?" + encodeURIComponent(JSON.stringify(obj));
-   }
-   else{
-    window.location = "organizationDashboard.html?" + encodeURIComponent(JSON.stringify(obj));
-   }
-   
-}
-
-function deleteRow(rowName) {
-   
-   if(confirm("are you sure you want to clear notification")){
-       delete originalRows[rowName];
-      display(); 
-
-   }
-
-   
-}
 
 
-/*function passToNextPage(rowName) {
+function passToNextPage(rowName) {
     obj = originalRows[rowName]
     // CHANGE
     // Replace with next page for details
-    window.location = "thedonationpost.html?" + encodeURIComponent(JSON.stringify(obj));
+    window.location = "teachingPost.html?" + encodeURIComponent(JSON.stringify(obj));
     //ENDCHANGE
 }
-*/
+
 
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

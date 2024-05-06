@@ -5,7 +5,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./style.css" />
-<title>Donor Contact Details</title>
+<title>Fulfilled Donation Post</title>
 </head>
 <body>
     <nav>
@@ -30,27 +30,37 @@
     
 <div id="container">
     <div id="details-container">
-        <h2 class="line-below white">Donor Contact Details</h2>
+        <h2 class="line-below white">Fulfilled Donation Post</h2>
         <div>
             <!-- CHANGE -->
             <!-- PUT here details -->
             <!-- leave the class -->
             <!-- change id and colName1 -->
-            <p class="column-name">Email:  <span id="columnName1">ahmed.mohamed@yahoo.com</span></p>
-            <p class="column-name">Contact Number: <span id="columnName2">010002020205</span></p>
-        
-            
-
+            <p class="column-name">Category: <span id="columnName1">Blood Donations</span></p>
+            <p class="column-name">Blood Type: <span id="columnName1">O negative</span></p>
+            <p class="column-name">Quantity: <span id="columnName1">4 Liters</span></p>
             <!-- END CHANGE -->
         </div>
-        
+        <div class="button-container">
+            <button class="positive-button" onclick="donordetails()">View Donor Details </button>
+            <button class="positive-button" onclick="donorCdetails()">View Donor Contact Details </button>
+            <button class="negative-button" onclick="deleteItem()">Delete</button>    
+        </div>
     </div>
 </div>
 
 <script>
-    function fulfill() {
-        alert('Request Fulfilled');
-        window.location.href = 'teachingPosts.html';
+    function donorCdetails() {
+        //alert('Request Fulfilled');
+        window.location.href = 'donorcontactdetails.html';
+    }
+    function donordetails() {
+        //alert('Request Fulfilled');
+        window.location.href = 'viewdonordetails.html';
+    }
+    function deleteItem(){
+        alert("Item Deleted");
+        window.location.href = 'fulfilledDonationposts.html';
     }
 
     // Extract the organization details from the URL
@@ -61,7 +71,6 @@
     // Any details from previous pages are put here
     // change each columnName with the actual column name
     // can add more if needed
-   
    
 </script>
 
