@@ -43,7 +43,7 @@
               </div>
     
               <div class="input-field">
-                <input type="text" id="password" required spellcheck="false">
+                <input type="password" id="password" required spellcheck="false">
                 <!-- CHANGE -->
                 <label>Password</label>
                 <!-- END CHANGE -->
@@ -62,14 +62,17 @@
   function signIn(){
     var email = document.getElementById("email")
     var password = document.getElementById("password")
-    if(password=="pass"){
-      if(email=="donor@example.com"){
+    if(password.value=="pass"){
+      if(email.value=="donor@example.com"){
         window.location.href = "donor/donorDashboard.html"
+        return
       }
-      else if(email=="organization@example.com"){
+      else if(email.value=="organization@example.com"){
         window.location.href = "organization/organizationDashboard.html"
-      }else if(email=="admin@example.com"){
+        return
+      }else if(email.value=="admin@example.com"){
         window.location.href = "admin/adminDashboard.html"
+        return
       }
     }
     alert("Email or Password are incorrect")
