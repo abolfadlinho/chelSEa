@@ -22,7 +22,7 @@
                     <!-- CHANGE -->
                     <li><a href="donationposts.html">Donation Posts</a></li>
                     <!-- END CHANGE -->
-                    <li><a href="account.html">Account</a></li>
+                    <li><a href="updateorganizationprofile.html">Account</a></li>
                 </ul>
             </div>
         </div>
@@ -56,8 +56,9 @@
         window.location.href = 'updatetoysDP.html';
     }
     function deleteItem(){
-        alert("Item Deleted");
-        window.location.href = 'donationposts.html';
+        localStorage.setItem("deleteRowRequest", "row1");
+            // Redirect back to the original HTML file
+            window.location.href = "donationposts.html";
     }
 
     // Extract the organization details from the URL

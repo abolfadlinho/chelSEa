@@ -20,8 +20,8 @@
             <ul>
               <!-- CHANGE -->
                 <li><a href="organizationDashboard.html">Dashboard</a></li>
-                <li><a href="creatingdonationpost.html">Create Post</a></li>
-                <li><a href="account.html">Account</a></li>
+                <li><a href="donationposts.html">Donation Posts</a></li>
+                <li><a href="updateorganizationprofile.html">Account</a></li>
                 <!-- END CHANGE -->
             </ul>
         </div>
@@ -36,14 +36,14 @@
         <!-- <form action="" onsubmit="requestDonation()"> -->
             <div>
               <div class="input-field">
-                  <input type="text" required spellcheck="false" value="Pineapple">
+                  <input type="text" class="foodname" required spellcheck="false" value="Pineapple">
                   <!-- CHANGE -->
                   <label>Enter Food Name</label>
                   <!-- END CHANGE -->
               </div>
     
               <div class="input-field">
-                <input type="number" required spellcheck="false" value="5">
+                <input type="number" class="quantity" required spellcheck="false" value="5">
                 <!-- CHANGE -->
                 <label>Enter Quantity</label>
                 <!-- END CHANGE -->
@@ -70,17 +70,6 @@
                 </div>
               </div>
 
-
-
-
-
-
-
-
-
-
-              
-              
 
 
             <div class="button-container">
@@ -146,12 +135,45 @@
       }
       atLeastOneChecked = false;
     }
+
+
+
+
+
+ var inputElement = document.querySelector('.foodname');
+
+// Get the value of the input field
+  var food = inputElement.value.toString();
+localStorage.setItem("foodname", food);
+localStorage.setItem("category", "Food");
+
+inputElement = document.querySelector('.quantity');
+quantityValue = inputElement.value.toString();
+localStorage.setItem("quantity", quantityValue);
+
+
+var selectedItem = document.querySelector('.dropdown-container .selected').textContent;
+localStorage.setItem("foodtype",selectedItem);
+
+
+
+
+
+
+window.location.href = "foodUPdetails.html";
+
+
+
+
+
+
+
     
 
     alert("Request has been submitted");
     // CHANGE
     // change to desired page
-    window.location.href = "organizationDashboard.html";
+  
 }
 </script>
 </html>

@@ -10,8 +10,9 @@
 <link rel="stylesheet" type="text/css" href="./input.css" />
 <link rel="stylesheet" type="text/css" href="./style.css" />
 <link rel="stylesheet" type="text/css" href="./map.css" />
+<link rel="stylesheet" type="text/css" href="./uploaddocument.css" />
 <script type="module" src="./dropDown.js"></script>
-
+<script type="module" src="./map.js"></script>
 </head>
 <body>
   <nav>
@@ -151,11 +152,26 @@
                 </div>
               </div>
 
-              <label for="document-upload">Upload Document:</label>
-              <input type="file" id="document-upload" name="document-upload" multiple required>
+             
 
+              <br>
+              <br>
+              
 
-
+              <h3>Upload Document for Organization Verification:</h3>
+              
+            
+               
+              
+              <div class="input-field">
+            
+                <input type="file" id="document-upload" name="document-upload" multiple required>
+            </div>
+            
+            <h3>Pin location of Oragnization:</h3>
+            <div id="map"></div>
+            <br>
+            
 
              
               <!-- End Drop Down -->
@@ -230,6 +246,14 @@
       }
       atLeastOneChecked = false;
     }
+
+
+
+    var fileInput = document.getElementById('document-upload');
+    if (!fileInput.files || fileInput.files.length === 0) {
+        alert("Please select a document to upload");
+        return;
+    }
     
 
     alert("Request has been submitted");
@@ -237,5 +261,15 @@
     // change to desired page
     window.location.href = "organizationDashboard.html";
 }
+
+
+
+
+
+
+
+
+
+
 </script>
 </html>

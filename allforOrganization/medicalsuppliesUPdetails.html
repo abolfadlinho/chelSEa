@@ -36,15 +36,15 @@
             <!-- PUT here details -->
             <!-- leave the class -->
             <!-- change id and colName1 -->
-            <p class="column-name">Category: <span id="columnName1">School Supplies</span></p>
-            <p class="column-name">School Supply Name: <span id="columnName1">English Books</span></p>
-            <p class="column-name">Type: <span id="columnName1">School Books</span></p>
-            <p class="column-name">Quantity: <span id="columnName1">5</span></p>
+            <p class="column-name">Category: <span id="columnName1">ss</span></p>
+            <p class="column-name">Medical Supply Name: <span id="columnName2">ss</span></p>
+            <p class="column-name">Type: <span id="columnName3">ss</span></p>
+            <p class="column-name">Quantity: <span id="columnName5">ss</span></p>
             <!-- END CHANGE -->
         </div>
         <div class="button-container">
-            <button class="positive-button" onclick="fulfill()">Update Donation Post </button>   
-            <button class="negative-button" onclick="deleteItem()">Delete Donation Post </button> 
+            <button class="positive-button" onclick="fulfill()">Update Donation Post </button>
+            <button class="negative-button" onclick="deleteItem()">Delete Donation Post</button>   
         </div>
     </div>
 </div>
@@ -52,24 +52,42 @@
 <script>
     function fulfill() {
         //alert('Request Fulfilled');
-        window.location.href = 'updateschoolsuppliesDP.html';
+        window.location.href = 'updatemedicalsuppliesDP.html';
     }
     function deleteItem(){
-        localStorage.setItem("deleteRowRequest", "row3");
+        localStorage.setItem("deleteRowRequest", "row4");
             // Redirect back to the original HTML file
             window.location.href = "donationposts.html";
+    }
+
+
+
+    var category = localStorage.getItem("category");
+   var type = localStorage.getItem("type");
+    var name = localStorage.getItem("name");
+    var quantity = localStorage.getItem("quantity");
+
+    // Function to populate fields with retrieved values
+    function populateFields() {
+        document.getElementById("columnName1").innerText = category;
+        document.getElementById("columnName2").innerText = name;
+        document.getElementById("columnName3").innerText = type;
+        document.getElementById("columnName5").innerText = quantity;
         
     }
 
-    // Extract the organization details from the URL
-    var details = JSON.parse(decodeURIComponent(window.location.search.substr(1)));
+    // Call the populateFields function when the page loads
+    window.onload = populateFields;
+
+
+    // Extract the organization details from the UR
     // Populate the organization details on the page
 
     // CHANGE
     // Any details from previous pages are put here
     // change each columnName with the actual column name
     // can add more if needed
-  
+   
 </script>
 
 </body>

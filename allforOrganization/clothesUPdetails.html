@@ -53,7 +53,10 @@
 </div>
 
 <script>
-   
+    function fulfill() {
+        //alert('Request Fulfilled');
+        window.location.href = 'updateClothesDP.html';
+    }
 
     function deleteItem(){
          // Set the row name or identifier in localStorage
@@ -66,13 +69,30 @@
 
 
 
-   
+    var category = localStorage.getItem("category");
+    var typeOfClothing = localStorage.getItem("typeOfClothing");
+    var material = localStorage.getItem("material");
+    var age = localStorage.getItem("age");
+    var gender = localStorage.getItem("gender");
+    var season = localStorage.getItem("season");
+    var quantity = localStorage.getItem("quantity");
+
+    // Function to populate fields with retrieved values
+    function populateFields() {
+        document.getElementById("columnName1").innerText = category;
+        document.getElementById("columnName2").innerText = typeOfClothing;
+        document.getElementById("columnName3").innerText = material;
+        document.getElementById("columnName4").innerText = age;
+        document.getElementById("columnName5").innerText = gender;
+        document.getElementById("columnName6").innerText = season;
+        document.getElementById("columnName7").innerText = quantity;
+    }
+
+    // Call the populateFields function when the page loads
+    window.onload = populateFields;
 
     // Rest of your existing code
-    function fulfill() {
-        //alert('Request Fulfilled');
-        window.location.href = 'updateClothesDP.html';
-    }
+   
 
     function deleteItem() {
         // Set the row name or identifier in localStorage

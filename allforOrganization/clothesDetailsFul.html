@@ -22,7 +22,7 @@
                     <!-- CHANGE -->
                     <li><a href="fulfilledDonationposts.html">Fulfilled Donation Posts</a></li>
                     <!-- END CHANGE -->
-                    <li><a href="account.html">Account</a></li>
+                    <li><a href="updateorganizationprofile.html">Account</a></li>
                 </ul>
             </div>
         </div>
@@ -63,8 +63,10 @@
     }
 
     function deleteItem(){
-        alert("Item Deleted");
-        window.location.href = 'fulfilledDonationposts.html';
+        localStorage.setItem("deleteRowRequest", "row0");
+            // Redirect back to the original HTML file
+            window.location.href = "fulfilledDonationposts.html";
+
     }
 
     // Extract the organization details from the URL

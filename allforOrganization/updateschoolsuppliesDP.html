@@ -19,8 +19,8 @@
             <ul>
               <!-- CHANGE -->
                 <li><a href="organizationDashboard.html">Dashboard</a></li>
-                <li><a href="creatingdonationpost.html">Create Post</a></li>
-                <li><a href="account.html">Account</a></li>
+                <li><a href="donationposts.html">Donation Posts</a></li>
+                <li><a href="updateorganizationprofile.html">Account</a></li>
                 <!-- END CHANGE -->
             </ul>
         </div>
@@ -35,14 +35,14 @@
         <!-- <form action="" onsubmit="requestDonation()"> -->
             <div>
               <div class="input-field">
-                  <input type="text" required spellcheck="false" value="English Books">
+                  <input class="name" type="text" required spellcheck="false" value="English Books">
                   <!-- CHANGE -->
                   <label>Enter School Supply Name</label>
                   <!-- END CHANGE -->
               </div>
     
               <div class="input-field">
-                <input type="number" required spellcheck="false" value="5">
+                <input class="quantity" type="number" required spellcheck="false" value="5">
                 <!-- CHANGE -->
                 <label>Enter Quantity</label>
                 <!-- END CHANGE -->
@@ -155,12 +155,55 @@
       }
       atLeastOneChecked = false;
     }
+
+
+
+    var schoolstationery = document.getElementById('value1-option');
+var schoolbooks = document.getElementById('value2-option');
+
+// Check if the male radio button is checked
+if (schoolstationery.checked) {
+    // Male was chosen
+    var ss = "School Stationery";
+    localStorage.setItem("type", ss);
+    // Now you can create strings or perform actions based on the choice
+    
+} 
+// Check if the female radio button is checked
+else if (schoolbooks.checked) {
+    // Female was chosen
+    var me = "School Books";
+    // Now you can create strings or perform actions based on the choice
+    localStorage.setItem("type", me);
+} else {
+    // Neither male nor female was chosen
+    console.log("No gender chosen.");
+    localStorage.setItem("type", "School Stationery");
+}
+
+
+var inputElement = document.querySelector('.name');
+
+// Get the value of the input field
+var volo = inputElement.value;
+localStorage.setItem("name", volo);
+
+localStorage.setItem("category", "School Supplies");
+
+inputElement = document.querySelector('.quantity');
+quantityValue = inputElement.value.toString();
+localStorage.setItem("quantity", quantityValue);
+window.location.href = "schoolsuppliesUPdetails.html";
+
+
+
+
     
 
     alert("Request has been submitted");
     // CHANGE
     // change to desired page
-    window.location.href = "organizationDashboard.html";
+
 }
 </script>
 </html>

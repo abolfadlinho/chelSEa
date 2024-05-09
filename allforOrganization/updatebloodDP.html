@@ -18,8 +18,8 @@
             <ul>
               <!-- CHANGE -->
                 <li><a href="organizationDashboard.html">Dashboard</a></li>
-                <li><a href="creatingdonationpost.html">Create Post</a></li>
-                <li><a href="account.html">Account</a></li>
+                <li><a href="donationposts.html">Donation Posts</a></li>
+                <li><a href="updateorganizationprofile.html">Account</a></li>
                 <!-- END CHANGE -->
             </ul>
         </div>
@@ -36,7 +36,7 @@
               
     
             <div class="input-field">
-                <input type="number"  required spellcheck="false" value="4">
+                <input class="quantity" type="number"  required spellcheck="false" value="4">
                 <!-- CHANGE -->
                 <label>Enter Quantity (in Liters)</label>
                 <!-- END CHANGE -->
@@ -126,12 +126,38 @@
       }
       atLeastOneChecked = false;
     }
+
+
+
+
+
+    
+localStorage.setItem("category", "Blood Donation");
+
+var inputElement = document.querySelector('.quantity');
+quantityValue = inputElement.value.toString();
+localStorage.setItem("quantity", quantityValue);
+
+
+var selectedItem = document.querySelector('.dropdown-container .selected').textContent;
+localStorage.setItem("typeofblood",selectedItem);
+
+
+
+
+
+
+window.location.href = "bloodUPdetails.html";
+
+
+
+
     
 
     alert("Request has been submitted");
     // CHANGE
     // change to desired page
-    window.location.href = "organizationDashboard.html";
+    
 }
 </script>
 </html>

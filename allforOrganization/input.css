@@ -243,6 +243,10 @@ form{
 }
 
 .dropdown-container{
+  position: relative; /* Change position to relative */
+  z-index: 999;
+
+
     display: flex;
     align-items: center;
     height: auto;
@@ -328,6 +332,8 @@ input[type=date] {
   width: auto;
   margin-left: 10px;
 }
+
+
 
 input[type=date]:focus,input[type=date]:active{
   color: var(--light-black);

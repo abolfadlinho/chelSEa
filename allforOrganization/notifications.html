@@ -22,7 +22,7 @@
                     <!-- CHANGE -->
                 
                     <!-- END CHANGE -->
-                    <li><a href="account.html">Account</a></li>
+                    <li><a href="updateorganizationprofile.html">Account</a></li>
                 </ul>
             </div>
         </div>
@@ -58,16 +58,7 @@
             </div>
         </div>
 
-        <div id="table-search-container">
-            
-            <div class="search-bar">
-                <!-- CHANGE -->
-                <!-- Change colName to column name to search for -->
-                <input type="text" class="input" id="search-input" placeholder="Search colName.." onkeyup="search('colName')"/>
-                <div class='search-icon'>
-                <img src="./images/search-icon.png"></img>
-                </div>
-            </div>
+       
             <!-- <input type="text" id="search-input" placeholder="Search Subject..." onkeyup="search('subject')"> -->
             <div id="table-container">
                 <table>
@@ -88,6 +79,9 @@
         </div>
     </div>
 </div>
+<br>
+
+
 
 
 <script>
@@ -237,6 +231,14 @@ function deleteRow(rowName) {
 }
 
 
+function clearAllNotifications() {
+    if (confirm("Are you sure you want to clear all notifications?")) {
+        originalRows = {}; // Empty the originalRows object
+        display(); // Redraw the table to reflect the changes
+    }
+}
+
+
 /*function passToNextPage(rowName) {
     obj = originalRows[rowName]
     // CHANGE
@@ -247,5 +249,8 @@ function deleteRow(rowName) {
 */
 
 </script>
+<div id="clear-all-button-container">
+    <button onclick="clearAllNotifications()">Clear All Notifications</button>
+</div>
 </body>
 </html>

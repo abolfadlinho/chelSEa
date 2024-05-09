@@ -22,7 +22,7 @@
                     <!-- CHANGE -->
                 
                     <!-- END CHANGE -->
-                    <li><a href="account.html">Account</a></li>
+                    <li><a href="updateorganizationprofile.html">Account</a></li>
                 </ul>
             </div>
         </div>
@@ -58,16 +58,7 @@
             </div>
         </div>
 
-        <div id="table-search-container">
-            
-            <div class="search-bar">
-                <!-- CHANGE -->
-                <!-- Change colName to column name to search for -->
-                <input type="text" class="input" id="search-input" placeholder="Search colName.." onkeyup="search('colName')"/>
-                <div class='search-icon'>
-                <img src="../images/search-icon.png"></img>
-                </div>
-            </div>
+        
             <!-- <input type="text" id="search-input" placeholder="Search Subject..." onkeyup="search('subject')"> -->
             <div id="table-container">
                 <table>
@@ -123,42 +114,20 @@
     columnNames = ["Category"]
     // END CHANGE
 
-    function display(){
-        const tableBody = document.getElementById("table-body")
-        var text = ""
-        index=0;
-        for(rowName in originalRows){
-            const row = originalRows[rowName]
-            flag = true
-            for(filterCol in filters){
-                if(row[filterCol]!==filters[filterCol]){                
-                    flag = false
+    function display() {
+        const tableBody = document.getElementById("table-body");
+        var text = "";
+        for (rowName in originalRows) {
+            const row = originalRows[rowName];
+            if (!row.markedForDeletion) {
+                text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">`;
+                for (col in row) {
+                    text += `<td name=${col}>${row[col]}</td>`;
                 }
+                text += `<td><button onclick="viewDetails('${rowName}')">View Details</button></td></tr>`;
             }
-            for(searchCol in searches){
-                if(!(row[searchCol].toLowerCase().includes(searches[searchCol]))){
-                   flag = false
-                }
-            }
-            if(!flag){
-                continue
-            }
-            text += `<tr id="${rowName}" class="row" onclick="passToNextPage('${rowName}')">` // Assuming single digits
-            
-            for(col in row){
-                text+=`<td name=${col}>${row[col]}</td>` 
-            }
-            index++
-           // text+="</tr>"
-
-            text += `<td>
-                
-                <button onclick="viewDetails('${rowName}')">View Details</button>
-            </td>`
-
-    text+="</tr>"
         }
-        tableBody.innerHTML = text
+        tableBody.innerHTML = text;
     }
 
     display()
@@ -235,6 +204,32 @@ function deleteRow(rowName) {
 
    
 }
+
+
+
+
+
+
+function deleteRowFromAnotherFile() {
+        // Check if there's a row deletion request in localStorage
+        const deleteRowRequest = localStorage.getItem("deleteRowRequest");
+        if (deleteRowRequest && originalRows.hasOwnProperty(deleteRowRequest)) {
+            // Confirm deletion
+            if (confirm("Are you sure you want to delete the fulfilled donation post?")) {
+                // Delete the row
+                originalRows[deleteRowRequest].markedForDeletion = true;
+                // Remove the delete request from localStorage
+                localStorage.removeItem("deleteRowRequest");
+                // Update the display
+                display();
+            }
+        }
+    }
+
+    window.onload = function() {
+        deleteRowFromAnotherFile();
+        display();
+    };
 
 
 /*function passToNextPage(rowName) {

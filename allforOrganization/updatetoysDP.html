@@ -6,6 +6,7 @@
 <title>Update Request</title>
 <link rel="stylesheet" type="text/css" href="./input.css" />
 <link rel="stylesheet" type="text/css" href="./style.css" />
+<link rel="stylesheet" type="text/css" href="./uploaddocument.css" />
 <script type="module" src="./dropDown.js"></script>
 
 
@@ -20,8 +21,8 @@
             <ul>
               <!-- CHANGE -->
                 <li><a href="organizationDashboard.html">Dashboard</a></li>
-                <li><a href="creatingdonationpost.html">Create Post</a></li>
-                <li><a href="account.html">Account</a></li>
+                <li><a href="donationposts.html">Donation Posts</a></li>
+                <li><a href="updateorganizationprofile.html">Account</a></li>
                 <!-- END CHANGE -->
             </ul>
         </div>
@@ -36,14 +37,14 @@
         <!-- <form action="" onsubmit="requestDonation()"> -->
             <div>
               <div class="input-field">
-                  <input type="number" required spellcheck="false" value="12">
+                  <input class="age" type="number" required spellcheck="false" value="12">
                   <!-- CHANGE -->
                   <label>Enter Age</label>
                   <!-- END CHANGE -->
               </div>
     
               <div class="input-field">
-                <input type="number" required spellcheck="false" value="5">
+                <input class="quantity" type="number" required spellcheck="false" value="5">
                 <!-- CHANGE -->
                 <label>Enter Quantity</label>
                 <!-- END CHANGE -->
@@ -102,10 +103,16 @@
               </div>
 
 
-              
+              <br>
+              <br>
 
-              <h2>Upload Photo of toy: </h2>
-                  <input type="file"  name="toy_photo"></input>
+              <h3>Upload Photo of toy: </h3>
+                
+
+                  <div class="input-field">
+            
+                    <input type="file" id="document-upload" name="document-upload" multiple required>
+                </div>
               
 
 
@@ -178,10 +185,67 @@
     }
     
 
-    alert("Request has been submitted");
+    
+
+
+
+var maleRadioButton = document.getElementById('value1-option');
+var femaleRadioButton = document.getElementById('value2-option');
+
+// Check if the male radio button is checked
+if (maleRadioButton.checked) {
+    // Male was chosen
+    var gender = "Male";
+    localStorage.setItem("gender", gender);
+    // Now you can create strings or perform actions based on the choice
+    
+} 
+// Check if the female radio button is checked
+else if (femaleRadioButton.checked) {
+    // Female was chosen
+    var gender = "Female";
+    // Now you can create strings or perform actions based on the choice
+    localStorage.setItem("gender", gender);
+} else {
+    // Neither male nor female was chosen
+    console.log("No gender chosen.");
+    localStorage.setItem("gender", "Male");
+}
+
+
+
+
+// Get the value of the input field
+  var inputElement = document.querySelector('.age');
+
+// Get the value of the input field
+  var ageValue = inputElement.value.toString();
+localStorage.setItem("age", ageValue);
+localStorage.setItem("category", "Toys");
+
+inputElement = document.querySelector('.quantity');
+quantityValue = inputElement.value.toString();
+localStorage.setItem("quantity", quantityValue);
+
+
+var selectedItem = document.querySelector('.dropdown-container .selected').textContent;
+localStorage.setItem("typeoftoy",selectedItem);
+
+
+
+
+
+
+window.location.href = "toysUPdetails.html";
+
+
+alert("Request has been submitted");
+
+
+
     // CHANGE
     // change to desired page
-    window.location.href = "organizationDashboard.html";
+    
 }
 </script>
 </html>
